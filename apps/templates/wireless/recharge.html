@@ -1,0 +1,266 @@
+{% extends "layout.html" %}
+{% block extrascripts %}
+    {{ super() }}
+    <script type="text/javascript" src="{{ url_for('static', filename='bower_components/accounting/accounting.js') }}"></script>
+    <script type="text/javascript">
+        var price_unit = {{ my_activate_list.get_price_unit }};
+        var currency = 'KRW';
+
+        $(document).ready(function(){
+            var quantity_input =$('#recharge_quantity');
+            var quantity_value = quantity_input.value = 1;
+
+            var total_price_html = $('span#total_price_span');
+            var _total_price = get_total_price(price_unit, quantity_value);
+
+            var total_price= accounting.formatNumber(_total_price);
+
+
+
+            total_price_html.html(total_price);
+
+            quantity_input.bind('input', function(){
+
+                quantity_value = this.value;
+
+                _total_price = get_total_price(price_unit, quantity_value);
+
+                total_price= accounting.formatNumber(_total_price);
+
+                total_price_html.html(total_price);
+
+            });
+        });
+
+        function get_total_price(price_unit, quantity_value){
+            {#            console.log(price_unit);#}
+            {#            console.log(quantity_value);#}
+            return price_unit * quantity_value;
+        }
+
+    </script>
+{% endblock %}
+{% block contents_wrap %}
+    {#radio ajax#}
+    {#    <script type="text/javascript">#}
+    {#        $(document).ready(function() {#}
+    {#            $('input[type=radio][name=recharge_item]').change(function () {#}
+    {#                var value = this.value;#}
+    {#                console.log(value);#}
+    {##}
+    {#                $.ajax({#}
+    {#                    url: "{{ url_for('wireless.get_recharge_info') }}",#}
+    {#                    type: "GET",#}
+    {#                    data: {'id': value},#}
+    {#                    dataType: 'json',#}
+    {#                    contentType: 'application/json;charset=UTF-8',#}
+    {#                    success: function (result) {#}
+    {#                        console.log(result);#}
+    {#                    },#}
+    {#                    error: function(error){#}
+    {##}
+    {#                        alert('error:' + error);#}
+    {#                    }#}
+    {#                });#}
+    {#            });#}
+    {#        });#}
+    {#    </script>#}
+
+
+
+    <div class="content-layout-1">
+        <div class="grey-page-2">
+            <div class="content-header">
+                <h3 class="same-font primary-color">{{ _('Recharge') }}</h3>
+            </div>
+
+            <form method="post">
+                <div class="section" id="feather1">
+                    <div class="container">
+                        {% with messages = get_flashed_messages() %}
+                            {% if messages %}
+                                <ul class=flashes>
+                                    {% for message in messages %}
+                                        <li>{{ message }}</li>
+                                    {% endfor %}
+                                </ul>
+                            {% endif %}
+                        {% endwith %}
+                        <div class="row">
+                            <h3 class="section-header">{{ _('Activated Phone') }}</h3>
+
+                            {% if my_activate_list  %}
+                                {% set my_activate = my_activate_list.get_basic_info %}
+
+                                <table class="table table-bordered">
+                                    <tr>
+                                        <th scope="row">{{ _('Phone Number') }}</th>
+                                        <td>{{ my_activate.active_number }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">{{ _('Call Plan') }}</th>
+                                        <td>{{ my_activate.call_plan }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">{{ _('Status') }}</th>
+                                        <td>
+                                            {% if  my_activate.status == 'Available'%}
+                                                <span style="color: #00aa00; font-size: 16pt">{{ my_activate.status }}</span>
+                                            {% else %}
+                                                <span style="color: red; font-size: 16pt">{{ my_activate.status }}</span>
+                                            {% endif %}
+
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">{{ _('Remark') }}</th>
+                                        <td>{{ my_activate.status_description }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">{{ _('Price Unit') }}</th>
+                                        <td>{{ my_activate.price_unit }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">{{ _('Recharge Quantity') }}</th>
+                                        <td>
+                                            <input type="hidden" id="activate_id" name="activate_id" value="{{ my_activate_list.id }}">
+                                            <input min="1" id="recharge_quantity" name="recharge_quantity" type="number" value="1" class="input-group">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">{{ _('Payment Method') }}</th>
+                                        <td>
+                                            <label class="radio-inline">
+                                                <input id="paypal" name="payment_method" type="radio" value="paypal"> <label for="paypal">Paypal</label>
+                                            </label>
+                                            <label class="radio-inline">
+                                                <input id="transfer" name="payment_method" type="radio" value="transfer"> <label for="transfer">{{ _('Transfer Money') }}</label>
+                                            </label>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td colspan="2">
+                                            <p style="float:right; margin-bottom:0; font-weight:bold; font-size: 1.3em;">
+                                                {{ _('Total Price:') }}
+                                                <span id="total_price_span" class="price-color" ></span>  KRW
+                                            </p>
+                                        </td>
+                                    </tr>
+                                </table>
+
+                                <div style="float:right;">
+                                    <button class="btn btn-primary">{{ _('Submit') }}</button>
+                                </div>
+
+                            {% else %}
+                                <div class="order-none">
+                                    <p>
+                                        {{ _('No activated SIM.') }}
+                                    </p>
+                                    <a class="btn btn-grey" href="{{ url_for('wireless.activation') }}">{{ _('Activate Now') }}</a>
+                                </div>
+                            {% endif %}
+
+                            {# 새로 만들어 -> 이건 여러개 있을 때. #}
+                            {# <div class="order-list-box">
+                                    <ul class="order-list">
+                                        <li class="order-list-header">
+                                            <ul class="order-list-item">
+                                                <li class="col-xs-1">#</li>
+                                                <li class="col-xs-3">{{ _('Phone Number') }}</li>
+                                                <li class="col-xs-2">{{ _('Call Plan') }}</li>
+                                                <li class="col-xs-3">{{ _('Status') }}</li>
+                                                <li class="col-xs-3">{{ _('Remark') }}</li>
+                                            </ul>
+                                        </li>
+                                        #}{# {% if products|length > 1 %}#}{#
+
+                                        {% if sim_activate_list %}
+                                            {% if sim_activate_list|length >1 %}
+                                                {% for sim_activate in sim_activate_list %}
+                                                    <li class="order-list-content">
+                                                        <ul class="order-list-item">
+
+                                                            <li class="col-xs-1">
+                                                                <input type="radio" name="recharge_item" value="{{ sim_activate.id }}">
+                                                            </li>
+                                                            <li class="col-xs-3">{{ sim_activate.get_active_number }}</li>
+                                                            <li class="col-xs-2">{{ sim_activate.call_plan }}</li>
+                                                            <li class="col-xs-3">{{ sim_activate.get_status }}</li>
+                                                            <li class="col-xs-3">{{ sim_activate.get_status_description }}</li>
+                                                        </ul>
+                                                    </li>
+                                                {% endfor %}
+                                                {% elif sim_activate_list|length == 1 %}
+
+                                            {% endif %}
+                                        {% else %}
+                                            <li class="order-list-content">
+                                                <div class="order-none">
+                                                    <p>
+                                                        {{ _('No Available SIM.') }}
+                                                    </p>
+                                                </div>
+                                            </li>
+                                        {% endif %}
+
+
+                                    </ul>
+
+                            </div>
+#}
+                        </div>
+
+
+                    </div>
+
+                </div>
+
+
+            </form>
+            <!-- Form 시작 -->
+
+            {#            <form method="post" class="form-horizontal" enctype="multipart/form-data">#}
+            {#                {{ form.hidden_tag() }}#}
+            {##}
+            {#                <div class="section" id="feather1">#}
+            {#                    <div class="container">#}
+            {#                        <div class="row">#}
+            {#                            <h3 class="section-header">{{ _('Personal Details') }}</h3>#}
+            {##}
+            {#                            {% from 'macro/form_macro.html' import render_field %}#}
+            {#                            {% for info in form.subscriber_info %}#}
+            {#                                {{ render_field(form[info], class='form-control') }}#}
+            {#                            {% endfor %}#}
+            {#                        </div>#}
+            {#                    </div>#}
+            {#                </div>#}
+            {##}
+            {#                <div class="section" id="feather2">#}
+            {#                    <div class="container">#}
+            {#                        <div class="row">#}
+            {#                            <h3 class="section-header">{{ _('Mobile Information') }}</h3>#}
+            {##}
+            {#                            {% for info in form.service_info %}#}
+            {#                                {{ render_field(form[info], class='form-control') }}#}
+            {#                            {% endfor %}#}
+            {#                        </div>#}
+            {#                    </div>#}
+            {#                </div>#}
+            {#                <div class="container">#}
+            {#                    <div class="col-sm-10">#}
+            {#                        <button class="btn btn-primary pull-right" type="submit">{{ _('Submit') }}</button>#}
+            {#                    </div>#}
+            {#                </div>#}
+            {##}
+            {#            </form>#}
+            <!--Form 마지막-->
+
+
+        </div>
+
+    </div>
+
+{% endblock %}
+

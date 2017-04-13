@@ -1,0 +1,251 @@
+{% extends "layout.html" %}
+{% block contents_wrap %}
+
+    <div class="boxed">
+        <div class="box_title">Shipping & Payment
+
+            <div class="box_method">
+                <span class="glyphicon glyphicon-shopping-cart"></span>
+                <a class= "writing">Shopping Cart</a>
+                <a class="cart_hidden">Cart</a>
+
+                <span class="glyphicon glyphicon-chevron-right"></span>
+
+
+                <span class="glyphicon glyphicon-usd" style="color: #ff8860"></span>
+                <span style="color:#ff8860" class= "writing">Shipping & Payment</span>
+                <span class="checkout_detail" style="color: #ff8860">Details</span>
+
+                <span class="glyphicon glyphicon-chevron-right" style="color: #ff8860"></span>
+
+                <span class="glyphicon glyphicon-ok"></span><span class= "writing"> Order Completed</span>
+                <span class="cart_order">Order</span>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="container">
+
+        {% block messages %}
+
+            {% for message in get_flashed_messages() %}
+                <div class="well">
+                    <div class=flash>{{ message }}</div>
+                </div>
+            {% endfor %}
+
+        {% endblock %}
+        {% from "common/_formhelpers.html" import render_field, form %}
+        <form id="payment_form" method="POST">
+{#            <div class="some_space_at_the_top"></div>#}
+{#            <h3 style="display: inline">Billing Information</h3>#}
+{##}
+            {# 여기 billing information 바꾸려면.. 여기 페이지 띄워서 바꾸게 한다 #}
+{#            &nbsp;<a></ap><span class="glyphicon glyphicon-home"></span></a>#}
+{##}
+{##}
+{#            <table class="space table table-bordered">#}
+{#                <tr>#}
+{#                    <td class="left_table">Last Name</td>#}
+                    {#                    <td> {{ render_field(chkform.fullname, class='form-control form-name') }}</td>#}
+{#                    <td> {{ address.user.last_name  }}</td>#}
+{#                </tr>#}
+{#                 <tr>#}
+{#                    <td class="left_table">First name</td>#}
+                    {#                    <td> {{ render_field(chkform.fullname, class='form-control form-name') }}</td>#}
+{#                    <td>{{ address.user.first_name }}</td>#}
+{#                </tr>#}
+{##}
+{#                <tr>#}
+{#                    <td class="left_table">Province</td>#}
+                    {#                    <td>{{ render_field(chkform.address1, class='form-control form-addr', placeholder='eg. Seoul or Jeollabuk-do') }}</td>#}
+{#                    <td>{{ address.state }}</td>#}
+{#                </tr>#}
+{#                <tr>#}
+{#                    <td class="left_table">Address 1</td>#}
+                    {#                    <td>{{ render_field(chkform.address1, class='form-control form-addr', placeholder='eg. Seoul or Jeonjusi') }}</td>#}
+{#                    <td>{{ address.city }}</td>#}
+{#                </tr>#}
+{##}
+{#                <tr>#}
+{#                    <td class="left_table"> Address 2</td>#}
+                    {#                    <td>{{ render_field(chkform.address1, class='form-control form-addr' , placeholder='eg. Gangnam-gu ') }}</td>#}
+{#                    <td>{{ address.line1 }}</td>#}
+{#                </tr>#}
+{#                <tr>#}
+{#                    <td class="left_table">Address 3</td>#}
+                    {#                    <td>{{ render_field(chkform.address1, class='form-control form-addr' , placeholder='eg. 27, Chorongmaeul-ro 24-gil') }}</td>#}
+{#                    <td>{{ address.line2 }}</td>#}
+{#                </tr>#}
+{#                <tr>#}
+{#                    <td class="left_table">Country</td>#}
+                    {#                    <td>{{ render_field(chkform.address1, class='form-control form-addr' , placeholder='eg. 27, Chorongmaeul-ro 24-gil') }}</td>#}
+{#                    <td>{{ address.country.printable_name }}</td>#}
+{#                </tr>#}
+{#                <tr>#}
+{#                    <td class="left_table">Contact No.</td>#}
+                    {#                    <td>{{ render_field(chkform.contact_number, class='form-control form-name', placeholder='eg. 01022222222') }}</td>#}
+{#                    <td>{{ address.phone }}</td>#}
+{#                </tr>#}
+{##}
+{#            </table>#}
+
+
+            <div class="some_space_at_the_top"></div>
+            <h3 style="display: inline; font-family:'Slabo 27px', serif;">Shipping Information</h3> &nbsp;
+
+            {# 여기 shipping informtation 저장 된 것이 있으먄 기지고 온다  #}
+{#            <a></ap><span class="glyphicon glyphicon-home"></span></a>#}
+
+
+            <table class="space table table-bordered">
+                <tr>
+                    <td class="left_table">Last name</td>
+                    <td> {{ render_field(chkform.lastname, class='form-control form-name') }}</td>
+                </tr>
+                 <tr>
+                    <td class="left_table">First name</td>
+                    <td> {{ render_field(chkform.firstname, class='form-control form-name') }}</td>
+                </tr>
+                <tr>
+                    <td class="left_table">Country</td>
+                    <td>{{ render_field(chkform.country_code, class='form-control form-addr') }}</td>
+                </tr>
+                <tr>
+                    <td class="left_table">Province</td>
+                    <td>{{ render_field(chkform.state, class='form-control form-addr', placeholder='eg. Seoul or Jeollabuk-do') }}</td>
+                </tr>
+                <tr>
+                    <td class="left_table">City</td>
+                    <td>{{ render_field(chkform.city, class='form-control form-addr', placeholder='eg. Seoul or Jeonjusi') }}</td>
+                </tr>
+
+                <tr>
+                    <td class="left_table">Line1</td>
+                    <td>{{ render_field(chkform.line1, class='form-control form-addr' , placeholder='eg. Gangnam-gu ') }}</td>
+                </tr>
+                <tr>
+                    <td class="left_table">Line2</td>
+                    <td>{{ render_field(chkform.line2, class='form-control form-addr' , placeholder='eg. 27, Chorongmaeul-ro 24-gil') }}</td>
+                </tr>
+                <tr>
+                    <td class="left_table">Contact No.</td>
+                    <td>{{ render_field(chkform.phone, class='form-control form-name', placeholder='eg. 01012345678') }}</td>
+                </tr>
+                <tr>
+                    <td class="left_table">E-mail</td>
+                    <td>{{ render_field(chkform.email, class='form-control form-addr', placeholder='eg. abcd@gmail.com') }}</td>
+                </tr>
+{#                <tr>#}
+{#                    <td class="left_table">Message to us</td>#}
+{#                    <td>{{ render_field(chkform.comments, class='form-control form-addr', placeholder='Leave any message to us :)') }}</td>#}
+{#                </tr>#}
+
+            </table>
+            <div class="some_space_at_the_top"></div>
+            <hr>
+
+            <h3 style="font-family:'Slabo 27px', serif;">Product Confirmation</h3>
+
+            {% if cart %}
+                <table class="space table table-bordered">
+
+
+                    {% for x in cart.line_item %}
+                        <tr>
+                            <td><h4 style="display: inline">{{ x.product.get_title }}</h4> x {{ x.quantity }}</td>
+                        </tr>
+                    {% endfor %}
+                </table>
+
+                <div class="some_space_at_the_top"></div>
+                <hr>
+
+                <h3 style="font-family:'Slabo 27px', serif;">Payment Information</h3>
+
+                <table class="space table table-bordered">
+                    <tr>
+                        <td class="left_table">Price</td>
+                        <td>{{ cart.get_total_amount_separated }}</td>
+                    </tr>
+
+                    <tr>
+                        <td class="left_table">Shipping</td>
+                        <td> {{ cart.shipping_fee_separated }}</td>
+                    </tr>
+                    <tr>
+                        <td class="left_table">Total Amount (Include Shipping)</td>
+                        <td>{{ cart.total_amount_with_shipping_separated }}</td>
+                    </tr>
+{#                    <tr>#}
+{#                        <td class="left_table">Payment Method</td>#}
+{#                        <td>{{ render_field(chkform.payment_method) }}</td>#}
+{#                    </tr>#}
+
+                </table>
+            {% else %}
+                <table class="space table table-bordered">
+                    <tr>
+                        <td><h4 style="display: inline">{{ product.get_title }}</h4> x {{ quantity }}</td>
+                    </tr>
+                </table>
+                <div class="some_space_at_the_top"></div>
+                <hr>
+                <h3 style="font-family:'Slabo 27px', serif;">Payment Information</h3>
+                <table class="space table table-bordered">
+                    <tr>
+                        <td class="left_table">Price</td>
+                        <td>{{ total }}</td>
+                    </tr>
+                    <tr>
+                        <td class="left_table">Shipping</td>
+                        <td> {{ shipping }}</td>
+                    </tr>
+                    <tr>
+                        <td class="left_table">Total Amount (Include Shipping)</td>
+                        <td>{{ total_amount }}</td>
+                    </tr>
+{#                    <tr>#}
+{#                        <td class="left_table">Payment Method</td>#}
+{#                        <td>{{ render_field(chkform.payment_method) }}</td>#}
+{#                    </tr>#}
+
+                </table>
+
+            {% endif %}
+
+            {#            <div class="panel-group" id="accordion">#}
+            {#                <div class="panel panel-default">#}
+            {#                    <div class="panel-heading">#}
+            {#                        <h4 class="panel-title">#}
+            {#                            <a data-toggle="collapse" data-parent="#accordion" href="#collapse1">Condition of Use</a>#}
+            {#                        </h4>#}
+            {#                    </div>#}
+            {#                    <div id="collapse1" class="panel-collapse collapse in">#}
+            {#                        <div class="panel-body">Lorem ipsum dolor sit amet, consectetur adipisicing elit,#}
+            {#                            sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,#}
+            {#                            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.<br/>#}
+            {##}
+            {#                            {{ render_field(chkform.condition_agree) }}#}
+            {#                        </div>#}
+            {##}
+            {#                    </div>#}
+            {#                </div>#}
+            {#            </div>#}
+
+            <div class="next_to_paypalbutton">
+                <button class="btn btn-lg btn-grey" type="button">Shopping Cart</button>
+                <button class="btn btn-lg btn-primary" type="submit">Check Out</button>
+            </div>
+        </form>
+        {#        <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">#}
+        {#            <input type="hidden" name="cmd" value="_s-xclick">#}
+        {#            <input type="hidden" name="hosted_button_id" value="6USSMVMXWYLSG">#}
+        {#            <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_buynowCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">#}
+        {#            <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">#}
+        {#        </form>#}
+
+
+    </div>
+{% endblock %}

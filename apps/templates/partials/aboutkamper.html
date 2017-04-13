@@ -1,0 +1,161 @@
+{% extends "layout.html" %}
+{% block extrascripts %}
+
+    <script type="text/javascript">
+        function googleInit() {
+
+            /***
+             * google Map 최초 실행되는 함수.
+             *
+             ***/
+                    {#            $("#one").addClass("active");#}
+
+                    // 좌표에 센터에 맞춤.
+            var myLatlng = new google.maps.LatLng(37.522949,126.904606);
+
+            var mapOptions = {
+                zoom: 15,
+                center: myLatlng,
+                draggable: false,
+                scrollwheel: false,
+                disableDoubleClickZoom: true,
+                zoomControl: false
+            };
+
+            //map 초기화
+            var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+            {#            info_windows = [];#}
+
+            new google.maps.Marker({
+                position: myLatlng,
+                map: map,
+
+            });
+
+
+            {#            zoom_listener =google.maps.event.addListener(map, 'zoom_changed', function(){#}
+            {##}
+            {#                map_bounds = map.getBounds();#}
+            {#                map_sw = map_bounds.getSouthWest();#}
+            {#                map_ne = map_bounds.getNorthEast();#}
+            {##}
+            {#                housesInMap(map_sw, map_ne, map, list_wrap, markers);#}
+            {##}
+            {#            });#}
+
+        }
+
+
+        function open_modal(num){
+            var dd = $('.myModal');
+            for (var i=0; i<dd.length; i++){
+                if (num == Number(dd[i].getAttribute('data-target'))){
+                    dd.eq(i).modal('show');
+                }
+            }
+
+        }
+
+        function goReserve() {
+
+            var radio_input,r, form;
+            radio_input = document.getElementsByName('room_check');
+            var checked_flag =0;
+            for(var i = 0 ; i < radio_input.length ; i++){
+                console.log(radio_input[i].checked);
+                if(radio_input[i].checked){
+                    r = radio_input[i].value;
+                    checked_flag =1;
+                    form = document.getElementById('housing_reserve_form');
+                    form.action = "{{ url_for('housing.housing_reserve') }}";
+                    form.submit();
+                    break;
+                }
+            }
+            if (checked_flag ==0){
+                alert("Please choose the room ! ");
+            }
+        }
+
+
+        function goEnquire() {
+            var radio_input, r, form;
+            radio_input = document.getElementsByName('room_check');
+            var checked_flag = 0;
+            for (var i = 0; i < radio_input.length; i++) {
+                console.log(radio_input[i].checked);
+                if (radio_input[i].checked) {
+                    r = radio_input[i].value;
+                    checked_flag = 1;
+                    form = document.getElementById('housing_reserve_form');
+                    form.action = "{{ url_for('housing.housing_enquire') }}";
+                    form.submit()
+                    break;
+                }
+            }
+            if (checked_flag == 0) {
+                alert("Please choose the room ! ");
+            }
+        }
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyBlNNG8h9MCG8iXBZ18_diSxAIr4SjypeU&callback=googleInit&libraries=geometry" async defer></script>
+{% endblock %}
+{% block contents_wrap %}
+    <div class="container">
+
+        {#        <div class="footer_privacypolicy" style="padding-top:100px; padding-left: 50px; padding-right: 50px; text-align: center; margin: auto">#}
+        <div class="content" style="text-align: center";>
+            <div class="space"></div>
+            <div class="us_description">
+
+                <h3 style="color:#f26522; margin-top: 15%">Hello from KAMPERKOREA</h3>
+                <div class="space"></div>
+
+                <img class="hidden_ourphoto" src="{{ url_for('static', filename='kamper/images/footer/new_together2.jpeg')}}" />
+                <div class="space"></div>
+                {##}
+                {#                <p id="ourdescription" style="font-size: 12pt; margin-top: 40px;">#}
+                {##}
+                {#                    “Looking for a place to stay?”<br/>#}
+                {#                    “You have no clue where to buy things?"<br/>#}
+                {#                    “Curious where the locals hang out?”<Br/>#}
+                {#                    “No idea how to buy a sim card?”<Br/>#}
+                {##}
+                {#                    <br>#}
+                KAMPER KOREA was founded in 2016 with a single mission in mind:<br/>
+                <div class="space"></div>
+                <span style="font-size:16pt; font-family:'noto-bold'; color: #f26522;; ">TO HELP INTERNATIONAL STUDENTS and EXPATS IN KOREA</span><Br/>
+                <Br/>
+                {##}
+                {#                    We are here to help you with almost everything you need to settle in Korea.<Br/>#}
+                {#                    Living abroad is difficult. We know the difficulties as most of our team<br/>#}
+                {#                    members have lived abroad in countries like<Br/>#}
+                {#                    America, China, Australia, Indonesia, Philippines, Canada and Guam<Br/>#}
+                {#                                    With experiences living abroad, KAMPER is here to help international students and expats..<Br/>#}
+                We provide the essentials to settle in Korea, as well as other necessities like sim-cards and housing<Br/>
+                We are also working on travelling and meet ups so you can enjoy Korea just like the locals.<Br/>
+                {#                    <br/><br/>#}
+                {#                    Our final goal is to be<br/>#}
+                {#                    <span style="font-size:16pt; font-family:'noto-bold';"> "The ultimate solution for your stays in Korea"</span>#}
+                {##}
+                {##}
+                {#                </p>#}
+                <br/><Br/>
+            </div>
+            <img class="aboutus_photo" src="{{ url_for('static', filename='kamper/images/footer/intro.jpg')}}" />
+            <div class="space"></div>
+            <div id="mapnlocation">
+                <h1 style="color:#f26522; text-align: center" class="same-font">{{ _('Contact Us') }}</h1>
+                <div class="space"></div>
+                <div class='map' id="map-canvas" style="width:90%; height: 400px; text-align: center; margin:auto; border:1px solid #ccd0d2 "></div>
+                <br/>
+                서울특별시 영등포구 양산로 193 205호<br/>
+                193, Yangsan-ro, #205, Yeongdeungpo-gu, Seoul, Korea<br/>
+                Seoul, Republic of Korea<br/>
+                +82 02 2068 0177<br/>
+                paige@kamper.co.kr
+            </div>
+
+        </div>
+    </div>
+{% endblock %}

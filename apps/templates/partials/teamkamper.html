@@ -1,0 +1,20 @@
+{% extends "layout.html" %}
+{% block contents_wrap %}
+
+        <div class="space"></div>
+        <div class="footer_team">
+            <section id="main-member-box">
+                <h1 style="text-align: center; margin:auto" class="same-font">The Team</h1>
+                <div class="space"></div>
+                <ul class="member-list">
+                    <li class="us"><img src="{{url_for('static', filename='kamper/images/footer/3.jpg')}}"></li>
+                    <li class="us"><img src="{{url_for('static', filename='kamper/images/footer/2.jpg')}}"></li>
+                    <li class="us"><img src="{{url_for('static', filename='kamper/images/footer/1.jpg')}}"></li>
+                    <li class="us"><img src="{{url_for('static', filename='kamper/images/footer/4.jpg')}}"></li>
+                    <li class="us"><img src="{{url_for('static', filename='kamper/images/footer/6.jpg')}}"></li>
+                    <li class="us"><img src="{{url_for('static', filename='kamper/images/footer/5.jpg')}}"></li>
+                </ul>
+            </section>
+
+        </div>
+{% endblock %}

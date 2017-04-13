@@ -1,0 +1,239 @@
+{% extends "layout.html" %}
+{% block extrascripts %}
+    <script>
+
+        $('#usr').change(function(){
+            {#            alert($('#usr').val())#}
+            {#            var date = $('#usr').val()#}
+            {#            alert(date[0])#}
+            {#            alert(date[1])#}
+            {#            alert(date[2])#}
+            {#            alert(date[3])#}
+            {#            alert(date[4])#}
+            {#            alert(date[5])#}
+            {#            alert(date[6])#}
+            document.getElementById("date_form").action =  "{{ url_for('web_common.date_changed') }}";
+            document.getElementById("date_form").submit();
+        })
+
+
+    </script>
+{% endblock %}
+{% block contents_wrap %}
+    <div class="boxed">
+        <div class="box_title">{{ _('Wireless Orders') }}
+        </div>
+    </div>
+    <!-- Order History Section Start-->
+    <div class="section" id="feather1">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <h3 class="section-header primary-color">
+                        {{ _('SIM Order History') }}
+                    </h3>
+
+
+
+
+                    <div class="order-list-box">
+                        <ul class="order-list">
+                            <li class="order-list-header">
+                                <ul class="order-list-item">
+                                    <li class="col-xs-2">{{ _('Order Number') }}</li>
+                                    <li class="col-xs-2">{{ _('Phone Type') }}</li>
+                                    <li class="col-xs-2">{{ _('Sim Number') }}</li>
+                                    <li class="col-xs-1">{{ _('Price') }}</li>
+                                    <li class="col-xs-1">{{ _('State') }}</li>
+                                    <li class="col-xs-2">{{ _('Order Date') }}</li>
+                                    <li class="col-xs-2">{{ _('Option') }}</li>
+                                </ul>
+                            </li>
+
+                            {% if sim_order_list %}
+                                {% for sim_order in sim_order_list %}
+                                    <li class="order-list-content">
+                                        <ul class="order-list-item">
+                                            <li class="col-xs-2 normal-list">{{ sim_order.order_number }}</li>
+                                            <li class="col-xs-2 normal-list">{{ sim_order.phone_type }}</li>
+                                            <li class="col-xs-2 normal-list">{{ sim_order.sim_number }}</li>
+                                            <li class="col-xs-1 normal-list">{{ sim_order.price }}</li>
+                                            <li class="col-xs-1 normal-list">{{ sim_order.order_status }}</li>
+                                            <li class="col-xs-2 normal-list">{{ sim_order.created_at }}</li>
+                                            <li class="col-xs-2 full-list"><a class="btn btn-default" href="{{ url_for('wireless.activation') }}">{{ _('Activate') }}</a></li>
+
+                                        </ul>
+                                    </li>
+                                {% endfor %}
+                            {% else %}
+                                <li class="order-list-content">
+                                    <div class="order-none">
+                                        <p>
+                                            {{ _('No order history') }}
+                                        </p>
+                                        <a class="btn btn-default" href="{{ url_for('wireless.order') }}">{{ _('Order a SIM') }}</a>
+                                    </div>
+                                </li>
+
+                            {% endif %}
+                        </ul>
+
+
+
+                        {#                    <div class="order-list-box">#}
+                        {##}
+                        {##}
+                        {##}
+                        {#                        <table class="table table-bordered">#}
+                        {#                            <tr class="table-header">#}
+                        {#                                <th scope="row">{{ _('Order Number') }}</th>#}
+                        {#                                <th scope="row">{{ _('Phone Type') }}</th>#}
+                        {#                                <th scope="row">{{ _('Sim Number') }}</th>#}
+                        {#                                <th scope="row">{{ _('Price') }}</th>#}
+                        {#                                <th scope="row">{{ _('Order State') }}</th>#}
+                        {#                                <th scope="row">{{ _('Order Date') }}</th>#}
+                        {#                            </tr>#}
+                        {##}
+                        {#                            {% if sim_order_list %}#}
+                        {#                                <tr>#}
+                        {#                #}
+                        {#                                </tr>#}
+                        {#                            {% else %}#}
+                        {#                                <tr>#}
+                        {#                                    <td colspan="6">{{ _('No order history.') }}</td>#}
+                        {#                                </tr>#}
+                        {#                                <tr>#}
+                        {#                                    <td><button class="btn btn-default">{{ _('Go to Order') }}</button></td>#}
+                        {#                                </tr>#}
+                        {##}
+                        {#                            {% endif %}#}
+                        {##}
+                        {#                        </table>#}
+                        {##}
+                        {#                    </div>#}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Order History Section End-->
+
+
+
+    <!-- Order Activation Section Start-->
+    <div class="section" id="feather2">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <h3 class="section-header primary-color">
+                        {{ _('SIM Activation History') }}
+                    </h3>
+
+                    <div class="order-list-box">
+                        <ul class="order-list">
+                            <li class="order-list-header">
+                                <ul class="order-list-item">
+                                    <li class="col-xs-1">#</li>
+                                    <li class="col-xs-3">{{ _('Phone Number') }}</li>
+                                    <li class="col-xs-2">{{ _('Call Plan') }}</li>
+                                    <li class="col-xs-2">{{ _('Status') }}</li>
+                                    <li class="col-xs-2">{{ _('Deactivate Date') }}</li>
+                                    <li class="col-xs-2">{{ _('Go to Recharge') }}</li>
+                                </ul>
+                            </li>
+
+                            {% if sim_activate_list %}
+
+                                {% for sim_activate in sim_activate_list %}
+                                    <li class="order-list-content">
+                                        <ul class="order-list-item">
+                                            <li class="col-xs-1 normal-list">{{ sim_activate.order_number }}</li>
+                                            <li class="col-xs-3 normal-list">{{ sim_activate.get_active_number }}</li>
+                                            <li class="col-xs-2 normal-list">{{ sim_activate.call_plan }}</li>
+                                            <li class="col-xs-2 normal-list">{{ sim_activate.get_status }}</li>
+                                            <li class="col-xs-2 normal-list">{{ sim_activate.get_status_description }}</li>
+                                            <li class="col-xs-2 full-list">
+                                                {% if sim_activate.get_status == 'Available' %}
+                                                    <a class="btn btn-default" href="{{ url_for('wireless.recharge') }}">{{ _('Recharge') }}</a>
+                                                {% else %}
+                                                    -
+                                                {% endif %}
+                                            </li>
+                                        </ul>
+                                    </li>
+                                {% endfor %}
+
+                            {% else %}
+                                <li class="order-list-content">
+                                    <div class="order-none">
+                                        <p>
+                                            {{ _('No Activation history.') }}
+                                        </p>
+                                    </div>
+                                </li>
+                            {% endif %}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Order Activation Section End -->
+
+    <!-- Order Recharge Section Start-->
+    <div class="section" id="feather3">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <h3 class="section-header primary-color">
+                        {{ _('SIM Recharge History') }}
+                    </h3>
+
+                    <div class="order-list-box">
+                        <ul class="order-list">
+                            <li class="order-list-header">
+                                <ul class="order-list-item">
+                                    <li class="col-xs-2">{{ _('call Number') }}</li>
+                                    <li class="col-xs-2">{{ _('Call Plan') }}</li>
+                                    <li class="col-xs-2">{{ _('Price') }}</li>
+                                    <li class="col-xs-2">{{ _('Quantity') }}</li>
+                                    <li class="col-xs-2">{{ _('Status') }}</li>
+                                    <li class="col-xs-2">{{ _('Remark') }}</li>
+                                </ul>
+                            </li>
+
+                            {% if sim_recharge_list %}
+                                {% for sim_recharge in sim_recharge_list %}
+                                    {% set info = sim_recharge.get_brief_info %}
+                                    <li class="order-list-content">
+                                        <ul class="order-list-item">
+                                            <li class="col-xs-2 normal-list">{{ info.active_number }}</li>
+                                            <li class="col-xs-2 normal-list">{{ info.call_plan }}</li>
+
+                                            <li class="col-xs-2 normal-list">{{ info.price }}</li>
+
+                                            <li class="col-xs-2 normal-list">{{ info.quantity }}</li>
+                                            <li class="col-xs-2 normal-list">{{ info.state }}</li>
+                                            <li class="col-xs-2 normal-list">{{ info.remark }}</li>
+
+                                            {#                                            <li class="col-xs-2 normal-list">{{ sim_order.request_date }}</li>#}
+                                        </ul>
+                                    </li>
+                                {% endfor %}
+                            {% else %}
+                                <li class="order-list-content">
+                                    <div class="order-none">
+                                        <p>
+                                            {{ _('No Activation history.') }}
+                                        </p>
+                                    </div>
+                                </li>
+                            {% endif %}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Order Recharge Section End -->
+{% endblock %}

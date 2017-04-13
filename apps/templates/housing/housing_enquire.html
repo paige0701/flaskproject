@@ -1,0 +1,55 @@
+{% extends "layout.html" %}
+{% block extrascripts %}
+
+    <script type="text/javascript">
+
+        function enquire_finish(){
+
+            var reserve_form = document.getElementById('enquire_form');
+
+            reserve_form.action = "{{ url_for('housing.housing_enquire_finish', num=room.id) }}";
+            reserve_form.submit();
+
+        }
+
+
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyBlNNG8h9MCG8iXBZ18_diSxAIr4SjypeU&callback=googleInit&libraries=geometry" async defer></script>
+{% endblock %}
+{% block contents_wrap %}
+
+    <div class="container form-wrap">
+        <div class="row">
+            <div class="col-xs-12 col-sm-6 col-md-5 form-box">
+                <div class="panel panel-default">
+                    {% from "housing/_formhelpers.html" import render_field, form %}
+                    <h3 class="panel-heading">
+                       {% trans %}Enquiry{% endtrans %}
+                    </h3>
+                <div class="space">{% trans %}Feel free to ask about anything :D{% endtrans %}</div>
+                    <div class="panel-body">
+                        <form action=""  method="POST" id="enquire_form">
+                            {{ render_field(r_form.user_name, class='form-control') }}
+                            {{ render_field(r_form.email, class='form-control') }}
+                            {{ render_field(r_form.kakao_id, class='form-control') }}
+                            {{ render_field(r_form.nationality, class='form-control') }}
+                            {{ render_field(r_form.mobile_no, class='form-control') }}
+                            {{ render_field(r_form.enquiry, class='form-control') }}
+
+                            <div class="form-group">
+                                <div class="col-sm-12 col-xs-12 ">
+                                    <button class="btn btn-danger btn-block space" type="button" onclick="enquire_finish()"> {% trans %}Submit{% endtrans %}</button>
+
+                                </div>
+                            </div>
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+{% endblock %}

@@ -1,0 +1,159 @@
+{% extends "layout.html" %}
+
+
+<style>
+
+</style>
+{% block contents_wrap %}
+
+    {% block searchbox %}
+        {% from "partials/searchbox/search_box_1.html" import searchbox_1 %}
+        {{ searchbox_1(form=form, search_action='/housing/search', search_form_id='house-search-form') }}
+    {% endblock %}
+
+    <div class="container" style="text-align: center">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 ">
+            <div class="housing_title">{% trans %}CHOOSE FROM OUR POPULAR LOCATIONS{% endtrans %}</div>
+
+
+            <!-- Container (Portfolio Section) -->
+            <div class="row text-center slideanim">
+                <div class="col-md-4 col-sm-6 col-xs-12">
+                    <div class="thumbnail">
+                        <a href="{{ url_for('housing.housing_map', aa=2)}}">
+                            <img src="{{url_for('static', filename='kamper/images/housing/soong.jpg')  }}" class="responsive-img housing-img" alt="">
+                            <div class="space_top_bottom">
+                                <h3>{% trans %}Soongsil University{% endtrans %}</h3>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6 col-xs-12">
+                    <div class="thumbnail">
+                        <a href="{{ url_for('housing.housing_map', aa=1)}}">
+                            <img src="{{url_for('static', filename='kamper/images/housing/hongdae2.jpg')  }}" class="responsive-img housing-img" alt="">
+                            <div class="space_top_bottom">
+                                <h3>{% trans %}Hongdae{% endtrans %}</h3>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6 col-xs-12">
+                    <div class="thumbnail">
+                        <a href="{{ url_for('housing.housing_map', aa=4)}}">
+                            <img src="{{url_for('static', filename='kamper/images/housing/skku.jpg')  }}" class="responsive-img housing-img" alt="">
+                            <div class="space_top_bottom">
+                                <h3>{% trans %}SKKU{% endtrans %}</h3>
+                            </div>
+
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+     <div class="container" style="text-align: center">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 ">
+
+
+            <!-- Container (Portfolio Section) -->
+            <div class="row text-center slideanim">
+                <div class="col-md-4 col-sm-6 col-xs-12">
+                    <div class="thumbnail">
+                        <a href="{{ url_for('housing.housing_map', aa=2)}}">
+                            <img src="{{url_for('static', filename='kamper/images/housing/itaewon.jpg')  }}" class="responsive-img housing-img" alt="">
+                            <div class="space_top_bottom">
+                                <h3>{% trans %}Itaewon{% endtrans %}</h3>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6 col-xs-12">
+                    <div class="thumbnail">
+                        <a href="{{ url_for('housing.housing_map', aa=1)}}">
+                            <img src="{{url_for('static', filename='kamper/images/housing/gangnam.jpg')  }}" class="responsive-img housing-img" alt="">
+                            <div class="space_top_bottom">
+                                <h3>{% trans %}Gangnam{% endtrans %}</h3>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6 col-xs-12">
+                    <div class="thumbnail">
+                        <a href="{{ url_for('housing.housing_map', aa=4)}}">
+                            <img src="{{url_for('static', filename='kamper/images/housing/kondae.jpg')  }}" class="responsive-img housing-img" alt="">
+                            <div class="space_top_bottom">
+                                <h3>{% trans %}Kunkuk University{% endtrans %}</h3>
+                            </div>
+
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="container" style="text-align: center">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 ">
+            <div class="housing_title">{% trans %}HOW OUR SERVICE WORKS{% endtrans %}</div>
+            {#            <div class="well well-lg">#}
+            <div class="row slideanim" >
+                <div class="col-sm-4">
+                    {#                        <span class="glyphicon 	glyphicon glyphicon-ok logo-small"></span>#}
+                    {#                        <div class="little_space space">#}
+                    {#                            <h3>GOSHIWON</h3>#}
+                    {#                            <p class="space">{% trans %}Goshiwon, Livingtel, Goshitel is a small sized furnished room.#}
+                    {#                                Rooms are small, but affordable and complimentary food are its benefits !{% endtrans %}#}
+                    {#                            </p>#}
+                    {#                        </div>#}
+                    <img src="{{ url_for('static', filename='kamper/images/housing/goshiwon_ex.jpg')}}" style="width:100%;" />
+                </div>
+                <div class="col-sm-4">
+                    {#                        <span class="glyphicon 	glyphicon glyphicon-ok logo-small"></span>#}
+                    {#                        <div class="little_space space">#}
+                    {#                            <h3>{% trans %}GUESTHOUSE{% endtrans %}</h3>#}
+                    {#                            <p class="space">{% trans %}Guesthouse also called hostels are extremely famous accommodation among travellers.#}
+                    {#                                As of cheap and affordable prices, long term resides are increasing{% endtrans %}</p>#}
+                    {#                        </div>#}
+                    <img src="{{ url_for('static', filename='kamper/images/housing/guesthouse_ex.jpg')}}" style="width:100%;" />
+                </div>
+                <div class="col-sm-4">
+                    {#                        <span class="glyphicon 	glyphicon glyphicon-ok logo-small"></span>#}
+                    {#                        <div class="little_space space">#}
+                    {#                            <h3>SHAREHOUSE</h3>#}
+                    {#                            <p class="space">{% trans %}Share houses are extremely popular to those people who want to have fun, meet people and save money.{% endtrans %}</p>#}
+                    {#                        </div>#}
+                    <img src="{{ url_for('static', filename='kamper/images/housing/sharehouse_ex.jpg')}}" style="width:100%;" />
+                </div>
+
+                {#                </div>#}
+            </div>
+        </div>
+    </div>
+    <div class="container" style="text-align: center">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 ">
+            <div class="space"></div>
+{#            <div class="housing_title">{% trans %}HOW OUR SERVICE WORKS{% endtrans %}</div>#}
+            <div class="row slideanim" >
+                <div class="col-sm-4">
+                    <img src="{{url_for('static', filename='kamper/images/housing/browse11.jpg')  }}" class="responsive-img housing-img" alt="" style="padding:2%">
+                </div>
+                <div class="col-sm-4">
+                    <img src="{{url_for('static', filename='kamper/images/housing/choose22.jpg')  }}" class="responsive-img housing-img" alt="" style="padding:2%">
+                </div>
+                <div class="col-sm-4">
+                    <img src="{{url_for('static', filename='kamper/images/housing/checkout33.jpg')  }}" class="responsive-img housing-img" alt="" style="padding:2%">
+                </div>
+            </div>
+        </div>
+    </div>
+    {#    <img src="{{ url_for('static', filename='kamper/images/types.jpg')}}" style="width:100%;" />#}
+
+    <script type="text/javascript">
+        $(document).ready(function(){
+
+            $('.housing-img')
+        });
+    </script>
+{% endblock %}

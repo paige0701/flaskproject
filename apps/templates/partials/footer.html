@@ -1,0 +1,54 @@
+<!-- footer -->
+<div class="footer">
+    <div class="container">
+        <div class="pull-left">
+            <div class="space"></div>
+            <div class="footer_logo"><img src="{{ url_for('static', filename='kamper/images/footer_logo.jpg') }}" alt="KAMPER" /></div>
+
+            <div class="space">
+                <address>서울특별시 영등포구 양산로 193 205호
+                                <br /> 193, 205 ho Yangsan-ro, Yeongdeungpo-gu, Seoul, Republic of Korea
+            </address>
+            </div>
+            <ul class="list-inline split-menu footer_tel">
+
+                <li>사업자등록번호 . 270-88-00529</li>
+                <li >TEL . +82 02 2068 0177</li>
+                <li class="footer_fax">FAX . +82 02 2068 0178</li>
+            </ul>
+            <ul class="list-inline split-menu footer_sns">
+                <li>E-MAIL . KAMPER@KAMPER.CO.KR</li>
+                <li>WECHAT ID . KAMPER_KR</li>
+                <li>KAKAO ID : kamperkorea</li>
+            </ul>
+            <ul class="space list-inline split-menu">
+                <li><a href="{{ url_for('web_common.aboutkamper')}}" class="color">{{ _('ABOUT KAMPER') }}</a></li>
+                <li><a href="{{ url_for('web_common.teamkamper') }}">{{ _('TEAM KAMPER') }}</a></li>
+                <li><a href="{{ url_for('web_common.useragreement') }}">{{ _('USER AGREEMENT') }}</a></li>
+                <li><a href="{{ url_for('web_common.privacypolicy') }}">{{ _('PRIVACY POLICY') }}</a></li>
+            </ul>
+            <p class="copyright">COPYRIGHT Ⓒ KAMPERKOREA 2016~2018 ALL RIGHTS RESERVED</p>
+            <div class="space"></div>
+
+        </div>
+        <div class="pull-right">
+            {#            <p class="tag">#kamperkorea</p>     --> 굳이 없는게 나거 같아서 ! #}
+
+            <div class="sns">
+                <ul class="list-inline">
+                    {#                    <li><a target="_blank" href="{{ url_for('') }}"><img src="{{ url_for('static', filename='kamper/images/footer/icon_sns_1.jpg') }}" alt="mail" /></a></li>#}
+                    <li><a target="_blank" href="https://www.facebook.com/kamper.co.kr/"><img src="{{ url_for('static', filename='kamper/images/footer/icon_sns_2.jpg') }}" alt="facebook" /></a></li>
+
+                    <li><a target="_blank" href="https://www.instagram.com/kamperkorea/"><img src="{{ url_for('static', filename='kamper/images/footer/icon_sns_3.jpg') }}" alt="Instagram" /></a></li>
+                </ul>
+            </div>
+
+            <div class="payment-method">
+                <div>
+                    <img src="https://www.paypalobjects.com/webstatic/en_US/i/buttons/buy-logo-small.png" alt="PayPal Logo">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- //footer -->

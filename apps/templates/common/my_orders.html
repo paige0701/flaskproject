@@ -1,0 +1,87 @@
+{% extends "layout.html"%}
+{% block extrascripts %}
+    <script>
+
+        $('#usr').change(function(){
+            {#            alert($('#usr').val())#}
+            {#            var date = $('#usr').val()#}
+            {#            alert(date[0])#}
+            {#            alert(date[1])#}
+            {#            alert(date[2])#}
+            {#            alert(date[3])#}
+            {#            alert(date[4])#}
+            {#            alert(date[5])#}
+            {#            alert(date[6])#}
+            document.getElementById("date_form").action =  "{{ url_for('web_common.date_changed') }}";
+            document.getElementById("date_form").submit();
+        })
+
+
+    </script>
+{% endblock %}
+{% block contents_wrap %}
+    <div class="boxed">
+        <div class="box_title">{{ _('Order Summary') }}
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="space"></div>
+
+        <form method="get" id="date_form">
+            {{ _('Orders placed in') }}
+
+            <input type="month" name='usr' class="form-control month_changer" id="usr" value={{ current }} style="width:20%; display:inline-block">
+        </form>
+        <hr/>
+        {% if order %}
+            <div class="table-responsive">
+            <table class="table">
+                <colgroup>
+                    <col />
+                    <col />
+                    <col />
+                    <col />
+                    <col />
+                    <col />
+                </colgroup>
+                <thead>
+                <tr>
+                    <th scope="col">{{ _('Order Number') }}</th>
+                    <th scope="col">{{ _('Order placed date') }}</th>
+                    <th scope="col">{{ _('Name') }}</th>
+                    <th scope="col">{{ _('Quantity') }}</th>
+                    <th scope="col">{{ _('Price') }}</th>
+                    <th scope="col">{{ _('Status') }}</th>
+                    <th scope="col">{{ _('Request') }}</th>
+                </tr>
+                </thead>
+                <tbody>
+
+                {% for order in order %}
+                    {% for item in order.order_line %}
+                        <tr>
+                            <td>{{ item.get_order_number}}</td>
+                            <td>{{ item.created_at }}</td>
+                            <td><a href="{{ url_for('product.product_detail', num=item.product_id) }}">{{ item.get_product_name }}</a></td>
+                            <td>{{ item.quantity }}</td>
+                            <td>￦ {{ item.get_price }}</td>
+                            <td>{{ item.get_state }}</td>
+                            {% if item.get_state == 'Order Complete' %}
+                                <td><a class="btn btn-primary btn-sm" type="button" href="{{ url_for('web_common.product_return', order=item.order_id, product_id = item.product_id) }}">{{ _('Return') }}</a></td>
+                            {% else %}
+                                <td><a class="btn btn-primary btn-sm" type="button" disabled >{{ _('Return') }}</a></td>
+                            {% endif %}
+                        </tr>
+                    {% endfor %}
+                {% endfor %}
+                </tbody>
+            </table>
+        {% else %}
+            <div class="space"></div>
+            <h3>{{ _('There are no orders') }}</h3>
+        {% endif %}
+        </div>
+    </div>
+
+{% endblock %}

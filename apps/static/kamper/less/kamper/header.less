@@ -1,0 +1,107 @@
+//  default값. 보통 모바일.
+.kamper-header{
+  height:42px;
+  border-bottom:1px solid #ddd;
+  background-color:#fffffe;
+
+  .kamper-nav-container{
+    .navbar-logo{
+      img{
+        height:42px;
+        padding:8px;
+        margin-left:55px;
+      }
+
+    }
+  }
+  .nav{
+    >li{
+      >a:hover,a:focus{
+        background-color:@brand-primary;
+        color: #fff;
+      }
+    }
+  }
+  #lang_select{
+    padding:15px 10px;
+  }
+}
+
+
+
+@media (min-width: @screen-sm-min){
+  // only Desktop and tablet (768px ~~)
+  // 데스크탑이나 태블릿
+  .kamper-header{
+    height:@kamper-gnb-height;
+    border-bottom: 1px solid #e9e9e9;
+    transition: all 0.3s linear;
+    -webkit-transition: all 0.3s linear; /* Safari */
+
+    .kamper-navbar-header{
+      width: 227px;
+    }
+    .kamper-nav-container{
+      padding:15px;
+      transition: all 0.2s linear;
+      -webkit-transition: all 0.3s linear; /* Safari */
+      .navbar-logo{
+        img{
+          height: 47px;
+          margin-right:42px;
+        }
+      }
+
+    }
+  }
+  .kamper-minimize-header{
+    height: @kamper-gnb-minimized-height;
+    .kamper-nav-container{
+      padding:0 15px;
+    }
+  }
+}
+
+
+
+//navigation
+/*** = mobile (0px ~ 767px)  ***/
+@media screen and (max-width: @screen-xs-max) {
+  .kamper-header{
+    .navbar-toggle{
+      .icon-bar{
+        background-color:#888;
+      }
+    }
+  }
+
+  .side-collapse-container{
+    width:100%;
+    position:relative;
+    left:0;
+    transition:left .4s;
+  }
+  .side-collapse-container.out{
+    left:200px;
+  }
+  .side-collapse {
+    top:50px;
+    bottom:0;
+    left:0;
+    width:200px;
+    position:fixed;
+    overflow:hidden;
+    transition:width .4s;
+    background-color:white;
+
+    border-right:1px solid #ddd;
+  }
+  .side-collapse.in {
+    width:0;
+  }
+}
+
+
+
+
+

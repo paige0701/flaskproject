@@ -1,0 +1,132 @@
+{% extends "layout.html" %}
+{% block extrascripts %}
+
+    <script type="text/javascript">
+        function googleInit() {
+            var myLatlng = new google.maps.LatLng({{ main.latitude }}, {{ main.longitude }});
+
+            var mapOptions = {
+                zoom: 15,
+                center: myLatlng,
+                draggable: false,
+                scrollwheel: false,
+                disableDoubleClickZoom: true,
+                zoomControl: false
+            };
+
+            //map 초기화
+            var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+            {#            info_windows = [];#}
+
+            new google.maps.Marker({
+                position: myLatlng,
+                map: map,
+
+            });
+
+        }
+
+        function reserve_finish(){
+
+            var reserve_form = document.getElementById('reserve_form');
+
+            reserve_form.action = "{{ url_for('housing.housing_reserve_finish', num=room.id) }}";
+            reserve_form.submit();
+
+        }
+
+
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyBlNNG8h9MCG8iXBZ18_diSxAIr4SjypeU&callback=googleInit&libraries=geometry" async defer></script>
+{% endblock %}
+
+{% block contents_wrap %}
+
+    <div class="container form-wrap">
+        <div class="row">
+            <div class="col-xs-12 col-sm-6 col-md-6">
+                <div class="panel panel-default">
+                    {% from "housing/_formhelpers.html" import render_field, form %}
+                    <h3 class="panel-heading">
+                      {% trans %}Room Details{% endtrans %}
+                    </h3>
+                    <div class="panel-body">
+                        <div class="col-xs-12 col-sm-12 col-md-12 ">
+                            <table class="table table-bordered	">
+                                <tr>
+                                    <td>{% trans %}Area{% endtrans %}</td>
+                                    <td>{{ room.housingservice.address2 }}</td>
+                                </tr>
+                                <tr>
+                                    <td>{% trans %}Housing ID{% endtrans %}</td>
+                                    <td>{{ room.housingservice.id }}</td>
+                                </tr>
+                                <tr>
+                                    <td>{% trans %}Room Name{% endtrans %}</td>
+                                    <td>{{ room.name }}</td>
+                                </tr>
+                                <tr>
+                                    <td>{% trans %}Price / Monthly{% endtrans %}</td>
+                                    <td>{{ room.price }}</td>
+                                </tr>
+                                <tr>
+                                    <td>{% trans %}Deposit{% endtrans %}</td>
+                                    <td>{{ room.deposit }}</td>
+                                </tr>
+                                <tr>
+                                    <td>{% trans %}Minimum Stay{% endtrans %}</td>
+                                    <td>{{ room.min_rental_period }}</td>
+                                </tr>
+                                <tr>
+                                    <td>{% trans %}Vacancy{% endtrans %}</td>
+                                    <td>{{ room.vacancy }}</td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2">
+                                        <div class="map" id="map-canvas" style=" height: 300px; border:1px solid #ccd0d2 "></div>
+
+                                    </td>
+
+                                </tr>
+
+                            </table>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="col-xs-12 col-sm-6 col-md-6">
+                <div class="panel panel-default">
+                    {% from "housing/_formhelpers.html" import render_field, form %}
+                    <h3 class="panel-heading">
+                        {% trans %}Reservation{% endtrans %}
+                    </h3>
+                    <div class="space">{% trans %}Please double check your order before checking out with PayPal :D{% endtrans %}</div>
+                    <div class="panel-body">
+                        <form method="POST" id="reserve_form">
+                            {{ render_field(r_form.user_name, class='form-control') }}
+                            {{ render_field(r_form.nationality, class='form-control') }}
+                            {{ render_field(r_form.email, class='form-control') }}
+                            {{ render_field(r_form.kakao_id, class='form-control') }}
+                            {{ render_field(r_form.mobile_no, class='form-control') }}
+                            {{ render_field(r_form.checkin_date, class='form-control') }}
+                            {{ render_field(r_form.checkout_date, class='form-control') }}
+                            {{ render_field(r_form.comments, class='form-control') }}
+                            <div class="form-group">
+                                <div class="col-sm-12 col-xs-12 ">
+                                    <button class="btn btn-danger btn-block space" type="button" onclick="reserve_finish()"> {% trans %}Paypal{% endtrans %}</button>
+
+                                </div>
+                            </div>
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+{% endblock %}

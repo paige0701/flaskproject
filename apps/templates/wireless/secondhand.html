@@ -1,0 +1,35 @@
+{% extends "layout.html" %}
+{% block contents_wrap %}
+    <div class="kamper-banner ">
+        <div class="kamper-banner-bg">
+            <div class="kamper-banner-text-wrap">
+                <h2>{% trans %}You need a Phone{% endtrans %}</h2>
+                <p>&Wifi isn't everywhere</p>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="product-list-wrap">
+                <ul class="product-list-1">
+                    <li class="col-xs-12 col-sm-6 col-md-3 product-list-item ">
+                        <div class="list-item-wrap">
+                            <a href="">
+                                {#                            <img class="item-image img-responsive" data-src="holder.js/300x200" alt="">#}
+                                <img src="{{ url_for('static', filename='kamper/images/temp.png') }}" alt="" class="item-image img-responsive">
+
+                                <div class="list-item-text-group">
+                                    <h5 class="item-title">Title <span class="item-title-comment">title-comment</span></h5>
+                                    <span class="item-purchage-number">구입수</span>
+                                    <p class="item-price">price <span class="item-pice-currency">currency</span></p>
+                                    <button class="add-cart-btn">addCart</button>
+                                </div>
+                            </a>
+                        </div>
+
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+{% endblock %}

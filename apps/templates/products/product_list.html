@@ -1,0 +1,82 @@
+{% extends "layout.html" %}
+{% block contents_wrap %}
+    {#        {% block category %}#}
+    {#            <div class="space"  style="text-align: center"></div>#}
+    {#            <div class="space"></div>#}
+    {##}
+    {#            <div class="divided-header">#}
+    {#                <div class="col-xs-5 "><hr></div>#}
+    {#                <div class="col-xs-2 divided-title"><h3>Essentials</h3></div>#}
+    {#                <div class="col-xs-5 "><hr></div>#}
+    {#            </div>#}
+    {#            <div class="space"></div>#}
+    {##}
+    {#            <div class="divTable">#}
+    {#                <div class="divTableBody">#}
+    {#                    <div class="divTableRow">#}
+    {#                        <a href="{{ url_for('product.product_list') }}" class="divTableCell"><div>ALL</div></a>#}
+    {#                        <a href="{{ url_for('product.product_list_filter', num=1) }}" class="divTableCell"><div>Books</div></a>#}
+    {#                        <a href="{{ url_for('product.product_list_filter', num=2) }}" class="divTableCell"><div>Accessory</div></a>#}
+    {#                        <a href="{{ url_for('product.product_list_filter', num=3) }}" class="divTableCell"><div>Souvenirs</div></a>#}
+    {##}
+    {#                    </div>#}
+    {#                    <div class="divTableRow">#}
+    {#                        <a href="{{ url_for('product.product_list_filter', num=4) }}" class="divTableCell"><div>Household</div></a>#}
+    {#                        <a href="{{ url_for('product.product_list_filter', num=5) }}" class="divTableCell"><div>Electronics & Computers</div></a>#}
+    {#                        <a href="{{ url_for('product.product_list_filter', num=6) }}" class="divTableCell"><div>Secondhand Phone</div></a>#}
+    {#                        <div class="divTableCell"></div>#}
+    {#                    </div>#}
+    {#                </div>#}
+    {#            </div>#}
+
+    {#        {% endblock %}#}
+    {#        <div class="space">#}
+    {#            <h3>#}
+    {#                {% if not category %}#}
+    {#                    {{ categoryname[1].name }}#}
+    {#                {% endif %}#}
+    {#                {% if not categoryname %}#}
+    {#                    {{ category }}#}
+    {#                {% endif %}#}
+    {#            </h3>#}
+    {#        </div>#}
+    <div class="container">
+        <div class="more_space">
+            <div class="divided-header">
+                <div class="col-xs-5 title_line"><hr></div>
+                <div class="col-xs-2 divided-title"><h2 class="same-font">{{ _('Essentials') }}</h2></div>
+                <div class="col-xs-5 title_line"><hr></div>
+            </div>
+        </div>
+
+        <div class="row" >
+            <div class="more_space product-list-wrap">
+                <ul class="product-list-1">
+                    {% for x in jj %}
+                        <li class="col-xs-12 col-sm-6 col-md-3 product-list-item ">
+                            <div class="list-item-wrap">
+                                <a href="{{ url_for('product.product_detail', num=x[0].id) }}">
+                                    {#                                    <img src="{{ url_for_s3('media', filename=x[0].get_thumbnail_image) }}" alt="" class="item-image img-responsive">#}
+                                    {#                                    {{ x[0].get_thumbnail_image | thumbnail('200x200') }}#}
+                                    <img src="{{ x[0].get_thumbnail_image | thumbnail('300x300') }}" alt="" class="item-image img-responsive">
+                                    {#                                    <img src="{{ url_for_s3('media', filename=x[0].get_thumbnail_image) }}" class="item-image img-responsive">#}
+                                    <div class="list-item-text-group">
+                                        <h4 class="item-title">{{ x[1].name }}</h4>
+                                        <div class="space"></div>
+                                        <h3 class="item-price"><strong><span class="item-pice-currency">￦</span> {{ x[0].product_price_separated }}</strong></h3>
+                                        <div class="space_bottom">
+                                            {#                                            <h5 class="item-purchage-number">{{ x[0].quantity }} left</h5>#}
+                                        </div>
+                                        {#<button class="add-cart-btn">addCart</button>#}
+                                    </div>
+                                </a>
+                            </div>
+                        </li>
+
+                    {% endfor %}
+
+                </ul>
+            </div>
+        </div>
+    </div>
+{% endblock %}

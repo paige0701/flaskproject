@@ -1,0 +1,46 @@
+{% extends "layout.html" %}
+{% block contents_wrap %}
+    <div class="boxed">
+        <div class="box_title">Order Completed</br>
+
+
+            <div class="box_method">
+                <span class="glyphicon glyphicon-shopping-cart"></span>
+                <a class= "writing">Shopping Cart</a>
+                <a class="cart_hidden">Cart</a>
+
+                <span class="glyphicon glyphicon-chevron-right"></span>
+
+
+                <span class="glyphicon glyphicon-usd"></span>
+                <span class= "writing">Shipping & Payment</span>
+                <span class="checkout_detail">Details</span>
+
+                <span class="glyphicon glyphicon-chevron-right"></span>
+
+                <span class="glyphicon glyphicon-ok" style="color: #ff8860"></span><span class= "writing" style="color: #ff8860"> Order Completed</span>
+                <span class="cart_order" style="color: #ff8860">Order</span>
+            </div>
+        </div>
+
+    </div>
+    <div class="container">
+        <div class="some_space_at_the_top"></div>
+        <div class="well"><h3>{{ _('Your order is now complete.') }} </h3>
+            <br/>
+            {{ _('Your Simcard Order Number is') }} : <span style="color:#1257ff;">{{ order_number }}</span>  <br/>
+            {{ _('Your ordered product is') }} : <br/>
+            {% for product in order_product_list %}
+            <span style="color:#1257ff; "> - {{ product }} </span><br/>
+            {% endfor %}
+            {{ _('Thank you for paying with') }} {{ payment_method }} <br/>
+            {{ _('Confirmation email will be sent to') }} : {{ email }} <br/>
+            {{ _('Your emergency contact number is') }} : {{ phone }}
+        </div>
+
+        <div>
+            <a class="btn btn-primary" href="{{ url_for('web_common.mypage_wireless') }}">Check your orders</a>
+            <a class="btn btn-danger" href="{{ url_for('web_common.index') }}" >Home</a>
+        </div>
+    </div>
+{% endblock %}

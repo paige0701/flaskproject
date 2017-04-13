@@ -1,0 +1,87 @@
+<!doctype html>
+<!--[if lt IE 7]>      <html lang="{{ LANGUAGE_CODE| default("en") }}" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html lang="{{ LANGUAGE_CODE| default("en") }}" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html lang="{{ LANGUAGE_CODE| default("en") }}" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html lang="{{ LANGUAGE_CODE| default("en") }}" class="no-js"> <!--<![endif]-->
+<head>
+    <meta charset="UTF-8">
+    <title>
+        {% block title %}{% endblock %}{% trans APP_NAME %} {% endtrans %}| KAMPERKOREA | KAMPER
+    </title>
+    {# <meta name="naver-site-verification" content="cd8d2f4d7edef1bfcd016180078061947a128009"/>#}
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <meta name="description" content="{% block description %}{% endblock %}" />
+    <meta name="viewport" content="{% block viewport %}width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0{% endblock %}" />
+
+    {% block favicon %}
+        <link rel="shortcut icon" href="{{ url_for('static', filename='kamper/img/favicon.ico') }}" type="image/x-icon">
+        <link rel="icon" href="{{ url_for('static', filename='kamper/img/favicion.ico') }}" type="image/x-icon">
+    {% endblock %}
+    {# <meta name="robots" content="NOARCHIVE,NOCACHE" />#}
+
+
+    {# Block where global CSS will go. #}
+    {% block styles %}
+        <link rel="stylesheet" href="{{ url_for('static', filename='kamper/css/bootstrap.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='kamper/css/kamper.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='bower_components/font-awesome/css/font-awesome.min.css') }}">
+        <link href="https://fonts.googleapis.com/css?family=Montserrat|Raleway|Slabo+27px|Ubuntu:400,700" rel="stylesheet">
+
+        {# <link rel="stylesheet" href="{{ url_for('static', filename='kamper/css/kamper.min.css') }}">#}
+
+    {% endblock %}
+
+    {# Additional CSS - specific to certain pages #}
+    {% block extrastyles %}{% endblock %}
+
+    {% block extrahead %}{% endblock %}
+
+
+    {% block tracking %}
+        {# Default to using Google analytics #}
+        {% include "partials/google_analytics.html" %}
+    {% endblock %}
+
+    {# 먼저 위치해야 하는 것을 추가한다. #}
+    {% block corescripts %}
+        <script src="{{ url_for('static', filename='bower_components/jquery/dist/jquery.min.js') }}"></script>
+    {% endblock %}
+
+</head>
+<body>
+{# Main content goes in this 'layout' block #}
+<div class="wrap">
+    <div id="{{ layout_id }}">
+        {% block layout %}{% endblock %}
+    </div>
+</div>
+{# Scripts loaded from a CDN. #}
+{% block cdn_scripts %}{% endblock %}
+
+{# Local scripts #}
+{% block scripts %}
+    {#    <script src="{{ url_for('static', filename='bower_components/requirejs/require.js') }}" ></script>#}
+    <script src="{{ url_for('static', filename='bower_components/bootstrap/dist/js/bootstrap.min.js') }}"></script>
+
+    <script src="{{ url_for('static', filename='bower_components/jquery/jquery.googlemap.js') }}"></script>
+
+    <!--Kamper's Core-->
+    <script src="{{ url_for('static', filename='kamper/js/kamper_core.js') }}"></script>
+
+    <!-- kamper's UI-->
+    <script src="{{ url_for('static', filename='kamper/js/kamper_ui.js') }}"></script>
+
+    <!-- 임시 holder.js-->
+    <script src="{{ url_for('static', filename= 'bower_components/holderjs/holder.min.js') }}"></script>
+
+{% endblock %}
+
+{# Additional JS scripts #}
+{% block extrascripts %}{% endblock %}
+
+{% block react_components %}{% endblock %}
+
+
+</body>
+</html>
+

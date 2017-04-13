@@ -1,0 +1,1497 @@
+# English translations for PROJECT.
+# Copyright (C) 2016 ORGANIZATION
+# This file is distributed under the same license as the PROJECT project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2016.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2017-02-06 15:41+0900\n"
+"PO-Revision-Date: 2016-09-19 17:00+0900\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: en\n"
+"Language-Team: en <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.3.4\n"
+
+#: settings.py:68
+msgid "ê°ìì ê°ì¬ëë¦½ëë¤."
+msgstr ""
+
+#: settings.py:69
+msgid "ë¹ë°ë²í¸ê° ì¬ì¤ì  ëììµëë¤."
+msgstr ""
+
+#: settings.py:70
+msgid "ë¹ë°ë²í¸ê° reset ëììµëë¤."
+msgstr ""
+
+#: settings.py:71
+msgid "ë¹ë°ë²í¸ê° ë³ê²½ ëììµëë¤."
+msgstr ""
+
+#: settings.py:72
+msgid "ì´ë©ì¼ confirm messageìëë¤."
+msgstr ""
+
+#: settings.py:93
+msgid "English"
+msgstr ""
+
+#: settings.py:94
+msgid "Korean"
+msgstr ""
+
+#: settings.py:95
+msgid "Chinese"
+msgstr ""
+
+#: settings.py:98
+msgid "Stand-alone product"
+msgstr ""
+
+#: settings.py:104
+msgid "Open - currently active"
+msgstr ""
+
+#: settings.py:105
+msgid "Merged - superceded by another basket"
+msgstr ""
+
+#: settings.py:106
+msgid "Saved - for items to be purchased later"
+msgstr ""
+
+#: settings.py:107
+msgid "Frozen - the basket cannot be modified"
+msgstr ""
+
+#: settings.py:108
+msgid "Submitted - has been ordered at the checkout"
+msgstr ""
+
+#: settings.py:112 templates/common/order_complete.html:21
+#: templates/products/product_cart.html:47
+msgid "Order Completed"
+msgstr ""
+
+#: settings.py:113
+msgid "Payment Completed"
+msgstr ""
+
+#: settings.py:114
+msgid "Shipping"
+msgstr ""
+
+#: settings.py:115
+msgid "Shipping Completed"
+msgstr ""
+
+#: settings.py:116
+msgid "Refund Apply"
+msgstr ""
+
+#: settings.py:117
+msgid "Refund Completed"
+msgstr ""
+
+#: api_server/payment/form.py:11
+#: web_server/services/wireless_service/forms.py:15
+msgid "Korea"
+msgstr ""
+
+#: api_server/payment/models.py:159
+msgid "Order Complete"
+msgstr ""
+
+#: api_server/payment/models.py:163
+msgid "Ready to be shipped"
+msgstr ""
+
+#: api_server/payment/models.py:167 api_server/payment/models.py:259
+msgid "Shipping in process"
+msgstr ""
+
+#: api_server/payment/models.py:171
+msgid "All received"
+msgstr ""
+
+#: api_server/payment/models.py:175
+msgid "Refund Request"
+msgstr ""
+
+#: api_server/payment/models.py:179
+msgid "Return received"
+msgstr ""
+
+#: api_server/payment/models.py:183
+msgid "Refund Approved"
+msgstr ""
+
+#: api_server/payment/models.py:187
+msgid "Refund Declined"
+msgstr ""
+
+#: api_server/payment/models.py:191
+msgid "All refunded"
+msgstr ""
+
+#: api_server/payment/models.py:247
+msgid "Return Requested"
+msgstr ""
+
+#: api_server/payment/models.py:251
+msgid "Refund Ready"
+msgstr ""
+
+#: api_server/payment/models.py:255
+msgid "Exchange Ready"
+msgstr ""
+
+#: api_server/payment/models.py:263
+msgid "Refunded"
+msgstr ""
+
+#: api_server/payment/models.py:267
+msgid "Exchanged"
+msgstr ""
+
+#: api_server/payment/models.py:275
+#: api_server/services/catalogue_service/form.py:74
+msgid "Exchange"
+msgstr ""
+
+#: api_server/payment/models.py:279
+#: api_server/services/catalogue_service/form.py:75
+msgid "Refund"
+msgstr ""
+
+#: api_server/services/catalogue_service/form.py:67
+msgid "Item is damaged"
+msgstr ""
+
+#: api_server/services/catalogue_service/form.py:68
+msgid "Ordered wrong size/style/colour"
+msgstr ""
+
+#: api_server/services/catalogue_service/form.py:69
+msgid "Defective"
+msgstr ""
+
+#: api_server/services/catalogue_service/form.py:70
+msgid "Wrong item was sent"
+msgstr ""
+
+#: api_server/services/catalogue_service/form.py:71
+msgid "Item is not satisfactory"
+msgstr ""
+
+#: api_server/services/catalogue_service/form.py:79
+msgid "Choose 1?"
+msgstr ""
+
+#: api_server/services/catalogue_service/form.py:83
+msgid "Please insert quantity of returning item."
+msgstr ""
+
+#: api_server/services/catalogue_service/form.py:85
+msgid "Reason?"
+msgstr ""
+
+#: api_server/services/catalogue_service/form.py:94
+msgid "Please do not include - in your contact number."
+msgstr ""
+
+#: api_server/services/catalogue_service/form.py:96
+#: web_server/services/wireless_service/forms.py:49
+msgid "Message to us"
+msgstr ""
+
+#: api_server/services/housing_service/models.py:446
+msgid "Reservation Applied"
+msgstr ""
+
+#: api_server/services/housing_service/models.py:448
+msgid "Reservation Successful "
+msgstr ""
+
+#: api_server/services/housing_service/models.py:494
+msgid "Enquiry Applied"
+msgstr ""
+
+#: api_server/services/housing_service/models.py:496
+msgid "Enquiry Answered"
+msgstr ""
+
+#: api_server/services/wireless_service/models.py:194
+msgid "Pending"
+msgstr ""
+
+#: api_server/services/wireless_service/models.py:196
+msgid "Available"
+msgstr ""
+
+#: api_server/services/wireless_service/models.py:198
+msgid "Can not Activation"
+msgstr ""
+
+#: api_server/services/wireless_service/models.py:200
+msgid "Overed Period"
+msgstr ""
+
+#: dashboards/services/wireless_service/admin.py:137
+#: templates/common/my_orders.html:55 templates/common/my_returns.html:56
+#: templates/common/mypage/wireless.html:135
+#: templates/common/mypage/wireless.html:194
+#: templates/wireless/recharge.html:50
+msgid "Status"
+msgstr ""
+
+#: dashboards/utils/custom_fields.py:103
+msgid "Invalid file extension"
+msgstr ""
+
+#: templates/base.html:9
+msgid " "
+msgstr ""
+
+#: templates/common/index.html:24 templates/security/register_user.html:69
+msgid "Get connected"
+msgstr ""
+
+#: templates/common/index.html:25
+msgid "with our SIM"
+msgstr ""
+
+#: templates/common/index.html:28
+msgid "Checkout our prepaid SIM"
+msgstr ""
+
+#: templates/common/index.html:38
+msgid "Buy the essentials"
+msgstr ""
+
+#: templates/common/index.html:39
+msgid "before you arrive"
+msgstr ""
+
+#: templates/common/index.html:41
+msgid "Click here to shop"
+msgstr ""
+
+#: templates/common/my_orders.html:24
+msgid "Order Summary"
+msgstr ""
+
+#: templates/common/my_orders.html:32
+msgid "Orders placed in"
+msgstr ""
+
+#: templates/common/my_orders.html:50 templates/common/mypage/wireless.html:39
+#: templates/common/mypage/wireless.html:190
+msgid "Order Number"
+msgstr ""
+
+#: templates/common/my_orders.html:51
+msgid "Order placed date"
+msgstr ""
+
+#: templates/common/my_orders.html:52 templates/common/my_returns.html:51
+#: web_server/services/wireless_service/forms.py:93
+msgid "Name"
+msgstr ""
+
+#: templates/common/my_orders.html:53 templates/common/my_returns.html:52
+#: templates/products/product_cart.html:80
+msgid "Quantity"
+msgstr ""
+
+#: templates/common/my_orders.html:54 templates/common/mypage/wireless.html:42
+#: templates/common/mypage/wireless.html:193
+#: templates/products/product_cart.html:81
+#: templates/wireless/wireless_order.html:19
+msgid "Price"
+msgstr ""
+
+#: templates/common/my_orders.html:56
+msgid "Request"
+msgstr ""
+
+#: templates/common/my_orders.html:71 templates/common/my_orders.html:73
+msgid "Return"
+msgstr ""
+
+#: templates/common/my_orders.html:82 templates/common/my_returns.html:79
+#: templates/common/wireless_orders.html:85
+msgid "There are no orders"
+msgstr ""
+
+#: templates/common/my_returns.html:24
+msgid "Returns & Exchanges"
+msgstr ""
+
+#: templates/common/my_returns.html:32
+msgid "Returns placed in"
+msgstr ""
+
+#: templates/common/my_returns.html:49
+msgid "Return Number"
+msgstr ""
+
+#: templates/common/my_returns.html:50
+msgid "Return placed date"
+msgstr ""
+
+#: templates/common/my_returns.html:53 templates/common/mypage.html:39
+#: web_server/services/wireless_service/forms.py:28
+msgid "Email"
+msgstr ""
+
+#: templates/common/my_returns.html:54
+#: web_server/services/wireless_service/forms.py:120
+msgid "Contact Number"
+msgstr ""
+
+#: templates/common/my_returns.html:55
+msgid "Exchange OR Refund"
+msgstr ""
+
+#: templates/common/mypage.html:28
+msgid "My Page"
+msgstr ""
+
+#: templates/common/mypage.html:41
+msgid "Email cannot be changed"
+msgstr ""
+
+#: templates/common/mypage.html:45
+#: web_server/services/wireless_service/forms.py:132
+msgid "Nationality"
+msgstr ""
+
+#: templates/common/mypage.html:47
+msgid "Nationality cannot be changed"
+msgstr ""
+
+#: templates/common/mypage.html:51
+msgid "First name"
+msgstr ""
+
+#: templates/common/mypage.html:60 templates/common/mypage.html:76
+#: templates/common/mypage.html:96 templates/common/mypage.html:112
+#: templates/common/mypage.html:130 templates/common/product_return.html:49
+#: templates/housing/housing_enquire.html:41 templates/partials/header.html:47
+#: templates/wireless/wireless_activate.html:40
+#: templates/wireless/wireless_order.html:150
+msgid "Submit"
+msgstr ""
+
+#: templates/common/mypage.html:89
+msgid "Last name"
+msgstr ""
+
+#: templates/common/mypage.html:124
+msgid "Contact number"
+msgstr ""
+
+#: templates/common/mypage.html:142
+msgid "Get a number"
+msgstr ""
+
+#: templates/common/mypage.html:150
+msgid "Password"
+msgstr ""
+
+#: templates/common/mypage.html:161
+msgid "Change password"
+msgstr ""
+
+#: templates/common/order_complete.html:9
+#: templates/products/product_cart.html:42
+#: templates/products/product_cart.html:45
+msgid "Shopping Cart"
+msgstr ""
+
+#: templates/common/order_complete.html:10
+msgid "Cart"
+msgstr ""
+
+#: templates/common/order_complete.html:16
+#: templates/products/product_cart.html:46
+msgid "Shipping & Payment"
+msgstr ""
+
+#: templates/common/order_complete.html:17
+msgid "Details"
+msgstr ""
+
+#: templates/common/order_complete.html:22 templates/partials/header.html:26
+#: templates/partials/header.html:56
+msgid "Order"
+msgstr ""
+
+#: templates/common/order_complete.html:29
+#: templates/wireless/wireless_order_complete.html:29
+msgid "Your order is now complete."
+msgstr ""
+
+#: templates/common/order_complete.html:31
+#: templates/wireless/wireless_order_complete.html:31
+msgid "Your Simcard Order Number is"
+msgstr ""
+
+#: templates/common/order_complete.html:32
+#: templates/wireless/wireless_order_complete.html:36
+msgid "Thank you for paying with"
+msgstr ""
+
+#: templates/common/order_complete.html:33
+#: templates/wireless/wireless_order_complete.html:37
+msgid "Confirmation email will be sent to"
+msgstr ""
+
+#: templates/common/order_complete.html:37
+msgid "Check your orders"
+msgstr ""
+
+#: templates/common/order_complete.html:38
+msgid "Back to shopping"
+msgstr ""
+
+#: templates/common/product_return.html:6 templates/partials/header.html:58
+msgid "Returns"
+msgstr ""
+
+#: templates/common/product_return.html:17
+msgid "We are sorry for the inconvenience."
+msgstr ""
+
+#: templates/common/product_return.html:18
+msgid "We will try our best to satisfy your needs in the future."
+msgstr ""
+
+#: templates/common/product_return.html:25
+msgid "Our Refund Policy"
+msgstr ""
+
+#: templates/common/product_return.html:29
+msgid ""
+"When you return an item, your refund and how your refund is\n"
+"                                        issued may differ based on the "
+"condition of the item, how long\n"
+"                                        you've had the item and how the "
+"item was purchased."
+msgstr ""
+
+#: templates/common/product_return_complete.html:5
+msgid "Return Completed"
+msgstr ""
+
+#: templates/common/product_return_complete.html:13
+msgid "Please check your email regularly"
+msgstr ""
+
+#: templates/common/product_return_complete.html:15
+msgid "Your return number is :"
+msgstr ""
+
+#: templates/common/product_return_complete.html:16
+msgid "Confirmation email will be sent to :"
+msgstr ""
+
+#: templates/common/product_return_complete.html:20
+msgid "Check your return orders"
+msgstr ""
+
+#: templates/common/product_return_complete.html:21
+msgid "Home"
+msgstr ""
+
+#: templates/common/wireless_orders.html:24
+msgid "Wireless Order Summary"
+msgstr ""
+
+#: templates/common/mypage/wireless.html:29
+msgid "SIM Order History"
+msgstr ""
+
+#: templates/common/mypage/wireless.html:40
+#: web_server/services/wireless_service/forms.py:59
+msgid "Phone Type"
+msgstr ""
+
+#: templates/common/mypage/wireless.html:41
+msgid "Sim Number"
+msgstr ""
+
+#: templates/common/mypage/wireless.html:43
+#: web_server/services/wireless_service/forms.py:37
+msgid "State"
+msgstr ""
+
+#: templates/common/mypage/wireless.html:44
+msgid "Order Date"
+msgstr ""
+
+#: templates/common/mypage/wireless.html:45
+msgid "Option"
+msgstr ""
+
+#: templates/common/mypage/wireless.html:59 templates/wireless/main.html:43
+#: templates/wireless/wireless_plan.html:43
+#: templates/wireless/wireless_plan1.html:38
+msgid "Activate"
+msgstr ""
+
+#: templates/common/mypage/wireless.html:68
+msgid "No order history."
+msgstr ""
+
+#: templates/common/mypage/wireless.html:70
+msgid "Go to Order"
+msgstr ""
+
+#: templates/common/mypage/wireless.html:125
+msgid "SIM Activation History"
+msgstr ""
+
+#: templates/common/mypage/wireless.html:133
+#: templates/wireless/recharge.html:48
+msgid "Phone Number"
+msgstr ""
+
+#: templates/common/mypage/wireless.html:134
+#: templates/common/mypage/wireless.html:192
+#: templates/wireless/recharge.html:49
+msgid "Call Plan"
+msgstr ""
+
+#: templates/common/mypage/wireless.html:136
+msgid "Deactivate Date"
+msgstr ""
+
+#: templates/common/mypage/wireless.html:137
+msgid "Go to Recharge"
+msgstr ""
+
+#: templates/common/mypage/wireless.html:152 templates/partials/header.html:28
+#: templates/wireless/main.html:48 templates/wireless/main.html:57
+#: templates/wireless/recharge.html:33 templates/wireless/wireless_plan.html:48
+#: templates/wireless/wireless_plan.html:57
+#: templates/wireless/wireless_plan1.html:45
+#: templates/wireless/wireless_plan1.html:54
+msgid "Recharge"
+msgstr ""
+
+#: templates/common/mypage/wireless.html:164
+#: templates/common/mypage/wireless.html:216
+#: templates/wireless/recharge.html:74
+msgid "No Activation history."
+msgstr ""
+
+#: templates/common/mypage/wireless.html:183
+msgid "SIM Recharge History"
+msgstr ""
+
+#: templates/common/mypage/wireless.html:191
+msgid "call Number"
+msgstr ""
+
+#: templates/common/mypage/wireless.html:195
+msgid "Request Date"
+msgstr ""
+
+#: templates/housing/housing_detail.html:215
+msgid "Reserve"
+msgstr ""
+
+#: templates/housing/housing_detail.html:216
+msgid "Enquiries"
+msgstr ""
+
+#: templates/housing/housing_detail.html:224
+msgid "Facilities"
+msgstr ""
+
+#: templates/housing/housing_enquire.html:27
+msgid "Enquiry"
+msgstr ""
+
+#: templates/housing/housing_enquire.html:29
+msgid "Feel free to ask about anything :D"
+msgstr ""
+
+#: templates/housing/housing_main.html:16
+msgid "CHOOSE FROM OUR POPULAR LOCATIONS"
+msgstr ""
+
+#: templates/housing/housing_main.html:26
+msgid "Soongsil University"
+msgstr ""
+
+#: templates/housing/housing_main.html:36
+msgid "Hongdae"
+msgstr ""
+
+#: templates/housing/housing_main.html:46
+msgid "SKKU"
+msgstr ""
+
+#: templates/housing/housing_main.html:66
+msgid "Itaewon"
+msgstr ""
+
+#: templates/housing/housing_main.html:76
+msgid "Gangnam"
+msgstr ""
+
+#: templates/housing/housing_main.html:86
+msgid "Kunkuk University"
+msgstr ""
+
+#: templates/housing/housing_main.html:99
+msgid "HOW OUR SERVICE WORKS"
+msgstr ""
+
+#: templates/housing/housing_reserve.html:51
+msgid "Room Details"
+msgstr ""
+
+#: templates/housing/housing_reserve.html:57
+msgid "Area"
+msgstr ""
+
+#: templates/housing/housing_reserve.html:61
+msgid "Housing ID"
+msgstr ""
+
+#: templates/housing/housing_reserve.html:65
+msgid "Room Name"
+msgstr ""
+
+#: templates/housing/housing_reserve.html:69
+msgid "Price / Monthly"
+msgstr ""
+
+#: templates/housing/housing_reserve.html:73
+msgid "Deposit"
+msgstr ""
+
+#: templates/housing/housing_reserve.html:77
+msgid "Minimum Stay"
+msgstr ""
+
+#: templates/housing/housing_reserve.html:81
+msgid "Vacancy"
+msgstr ""
+
+#: templates/housing/housing_reserve.html:104
+msgid "Reservation"
+msgstr ""
+
+#: templates/housing/housing_reserve.html:106
+msgid "Please double check your order before checking out with PayPal :D"
+msgstr ""
+
+#: templates/housing/housing_reserve.html:119
+msgid "Paypal"
+msgstr ""
+
+#: templates/partials/aboutkamper.html:148
+msgid "Contact Us"
+msgstr ""
+
+#: templates/partials/footer.html:27
+msgid "ABOUT KAMPER"
+msgstr ""
+
+#: templates/partials/footer.html:28
+msgid "TEAM KAMPER"
+msgstr ""
+
+#: templates/partials/footer.html:30
+msgid "USER AGREEMENT"
+msgstr ""
+
+#: templates/partials/footer.html:31
+msgid "PRIVACY POLICY"
+msgstr ""
+
+#: templates/partials/header.html:23
+msgid "PHONE & SIMS"
+msgstr ""
+
+#: templates/partials/header.html:25
+msgid "Prepaid"
+msgstr ""
+
+#: templates/partials/header.html:27
+msgid "Activation"
+msgstr ""
+
+#: templates/partials/header.html:32
+msgid "PRODUCTS"
+msgstr ""
+
+#: templates/partials/header.html:55
+msgid "Profile"
+msgstr ""
+
+#: templates/partials/header.html:57
+msgid "Wireless"
+msgstr ""
+
+#: templates/partials/header.html:61
+msgid "CART"
+msgstr ""
+
+#: templates/partials/header.html:62
+msgid "LOGOUT"
+msgstr ""
+
+#: templates/partials/header.html:66
+msgid "LOGIN"
+msgstr ""
+
+#: templates/partials/header.html:67
+msgid "REGISTER"
+msgstr ""
+
+#: templates/products/product_cart.html:78
+msgid "Shopping Cart Products"
+msgstr ""
+
+#: templates/products/product_cart.html:82
+msgid "Total"
+msgstr ""
+
+#: templates/products/product_cart.html:118
+msgid "Delete"
+msgstr ""
+
+#: templates/products/product_cart.html:133
+msgid "Back to Shopping"
+msgstr ""
+
+#: templates/products/product_cart.html:134
+msgid "Checkout"
+msgstr ""
+
+#: templates/products/product_detail.html:146
+msgid "Product Description"
+msgstr ""
+
+#: templates/products/product_list.html:47
+msgid "Essentials"
+msgstr ""
+
+#: templates/security/login_user.html:10 templates/security/login_user.html:20
+msgid "Login"
+msgstr ""
+
+#: templates/security/login_user.html:39
+msgid "Forgot password?"
+msgstr ""
+
+#: templates/security/login_user.html:52
+msgid "Do not have an account?"
+msgstr ""
+
+#: templates/security/login_user.html:57
+#: templates/security/register_user.html:12
+#: templates/security/register_user.html:35
+msgid "Register"
+msgstr ""
+
+#: templates/security/register_user.html:54
+msgid "Choose your home!"
+msgstr ""
+
+#: templates/security/register_user.html:56
+msgid "Free from hassle "
+msgstr ""
+
+#: templates/security/register_user.html:62
+msgid "Buy the essentials "
+msgstr ""
+
+#: templates/security/register_user.html:63
+msgid "Get what you need before you come "
+msgstr ""
+
+#: templates/security/register_user.html:71
+msgid "Our prepaid sim is perfect to get connected "
+msgstr ""
+
+#: templates/wireless/main.html:14 templates/wireless/wireless_plan.html:14
+msgid "How our service works"
+msgstr ""
+
+#: templates/wireless/main.html:22 templates/wireless/wireless_plan.html:22
+#: templates/wireless/wireless_plan1.html:15
+msgid "Buy a SIM"
+msgstr ""
+
+#: templates/wireless/main.html:26 templates/wireless/wireless_plan.html:26
+#: templates/wireless/wireless_plan1.html:19
+msgid "Get a SIM for ￦10,000 "
+msgstr ""
+
+#: templates/wireless/main.html:27 templates/wireless/wireless_plan.html:27
+#: templates/wireless/wireless_plan1.html:20
+msgid "Pick up or delivery available."
+msgstr ""
+
+#: templates/wireless/main.html:30 templates/wireless/wireless_plan.html:30
+msgid "Order SIM"
+msgstr ""
+
+#: templates/wireless/main.html:35 templates/wireless/wireless_plan.html:35
+#: templates/wireless/wireless_plan1.html:30
+msgid "Activate the SIM"
+msgstr ""
+
+#: templates/wireless/main.html:39 templates/wireless/wireless_plan.html:39
+#: templates/wireless/wireless_plan1.html:34
+msgid "When you have recieved a SIM"
+msgstr ""
+
+#: templates/wireless/main.html:40 templates/wireless/wireless_plan.html:40
+#: templates/wireless/wireless_plan1.html:35
+msgid "Activate it ! "
+msgstr ""
+
+#: templates/wireless/main.html:52 templates/wireless/wireless_plan.html:52
+#: templates/wireless/wireless_plan1.html:49
+msgid "Recharge easily with "
+msgstr ""
+
+#: templates/wireless/main.html:53 templates/wireless/wireless_plan.html:53
+#: templates/wireless/wireless_plan1.html:50
+msgid "PayPal or account transfer"
+msgstr ""
+
+#: templates/wireless/recharge.html:40
+msgid "Activated Phone"
+msgstr ""
+
+#: templates/wireless/recharge.html:51
+msgid "Remark"
+msgstr ""
+
+#: templates/wireless/secondhand.html:6
+msgid "You need a Phone"
+msgstr ""
+
+#: templates/wireless/simcard.html:6
+msgid "SIM-CARD"
+msgstr ""
+
+#: templates/wireless/simcard.html:14
+msgid "KAMPER SIMCARD"
+msgstr ""
+
+#: templates/wireless/simcard_request.html:34
+msgid "Kamper Simcard Request"
+msgstr ""
+
+#: templates/wireless/simcard_request.html:110
+msgid "Description"
+msgstr ""
+
+#: templates/wireless/wireless_activate.html:6
+msgid "PHONE ACTIVATION"
+msgstr ""
+
+#: templates/wireless/wireless_activate.html:17
+msgid "Personal Details"
+msgstr ""
+
+#: templates/wireless/wireless_activate.html:30
+msgid "Mobile Information"
+msgstr ""
+
+#: templates/wireless/wireless_order.html:6
+msgid "SIM-CARD ORDER"
+msgstr ""
+
+#: templates/wireless/wireless_order.html:13
+msgid "PLAN SUMMARY"
+msgstr ""
+
+#: templates/wireless/wireless_order.html:13
+msgid "Details you need to know"
+msgstr ""
+
+#: templates/wireless/wireless_order.html:23
+msgid "Calls"
+msgstr ""
+
+#: templates/wireless/wireless_order.html:27
+msgid "Text"
+msgstr ""
+
+#: templates/wireless/wireless_order.html:31
+msgid "Data"
+msgstr ""
+
+#: templates/wireless/wireless_order.html:40
+msgid "Identification"
+msgstr ""
+
+#: templates/wireless/wireless_order.html:41
+msgid "Passport or Alien Registration Card"
+msgstr ""
+
+#: templates/wireless/wireless_order.html:44
+msgid "Note"
+msgstr ""
+
+#: templates/wireless/wireless_order.html:45
+msgid ""
+"There is a limit of one per person. If you already have a SIM from Korea,"
+"\n"
+"                                         you may not be eligible for this"
+" service."
+msgstr ""
+
+#: templates/wireless/wireless_order.html:49
+msgid "Pre-paid name"
+msgstr ""
+
+#: templates/wireless/wireless_order.html:53
+msgid "Carrier"
+msgstr ""
+
+#: templates/wireless/wireless_order.html:57
+msgid "For any questions"
+msgstr ""
+
+#: templates/wireless/wireless_order.html:93
+msgid "Mobile phone information"
+msgstr ""
+
+#: templates/wireless/wireless_order.html:106
+msgid "Delivery information"
+msgstr ""
+
+#: templates/wireless/wireless_order.html:118
+#: web_server/services/wireless_service/forms.py:74
+msgid "Payment Method"
+msgstr ""
+
+#: templates/wireless/wireless_order.html:133
+msgid "NOTE"
+msgstr ""
+
+#: templates/wireless/wireless_order_complete.html:32
+msgid "Your ordered product is"
+msgstr ""
+
+#: templates/wireless/wireless_order_complete.html:38
+msgid "Your emergency contact number is"
+msgstr ""
+
+#: templates/wireless/wireless_plan1.html:6
+msgid "How to use our wireless service"
+msgstr ""
+
+#: templates/wireless/wireless_plan1.html:23
+msgid "Go shopping"
+msgstr ""
+
+#: templates/wireless/partials/plan.html:185
+msgid "Plans to choose from"
+msgstr ""
+
+#: templates/wireless/partials/plan.html:197
+msgid "E Plan"
+msgstr ""
+
+#: templates/wireless/partials/plan.html:202
+msgid "Calls : 350 minutes"
+msgstr ""
+
+#: templates/wireless/partials/plan.html:203
+msgid "Text : 350 text"
+msgstr ""
+
+#: templates/wireless/partials/plan.html:204
+msgid "Data : 6GB data"
+msgstr ""
+
+#: templates/wireless/partials/plan.html:225
+msgid "U Plan"
+msgstr ""
+
+#: templates/wireless/partials/plan.html:229
+msgid "Calls : Unlimited"
+msgstr ""
+
+#: templates/wireless/partials/plan.html:230
+msgid "Text : Unlimited"
+msgstr ""
+
+#: templates/wireless/partials/plan.html:231
+msgid "Data : Unlimited"
+msgstr ""
+
+#: templates/wireless/partials/plan.html:253
+msgid "P Plan"
+msgstr ""
+
+#: templates/wireless/partials/plan.html:257
+msgid "Calls : ￦1.98/sec"
+msgstr ""
+
+#: templates/wireless/partials/plan.html:258
+msgid "Text : ￦22/text"
+msgstr ""
+
+#: templates/wireless/partials/plan.html:259
+msgid "Data : ￦20.48/1MB"
+msgstr ""
+
+#: web_server/services/wireless_service/controller.py:288
+msgid "Not yet available. Please wait until activation."
+msgstr ""
+
+#: web_server/services/wireless_service/forms.py:17
+msgid "First Name"
+msgstr ""
+
+#: web_server/services/wireless_service/forms.py:17
+msgid "First name in your passport or alien registration card"
+msgstr ""
+
+#: web_server/services/wireless_service/forms.py:19
+#: web_server/services/wireless_service/forms.py:24
+#: web_server/services/wireless_service/forms.py:96
+#: web_server/services/wireless_service/forms.py:99
+msgid "Must match your name in your passport or alien registration card"
+msgstr ""
+
+#: web_server/services/wireless_service/forms.py:22
+msgid "Last Name"
+msgstr ""
+
+#: web_server/services/wireless_service/forms.py:22
+msgid "Last name in your passport or alien registration card"
+msgstr ""
+
+#: web_server/services/wireless_service/forms.py:29
+msgid ""
+"If we need to notify you of any matters relating to your services or "
+"accounts, we may send an email."
+msgstr ""
+
+#: web_server/services/wireless_service/forms.py:30
+msgid "We need your Email"
+msgstr ""
+
+#: web_server/services/wireless_service/forms.py:32
+msgid "Contact No"
+msgstr ""
+
+#: web_server/services/wireless_service/forms.py:32
+msgid ""
+"If we need to notify you of any matters relating to your services or "
+"accounts, we may send an SMS text message to your mobile phone number."
+msgstr ""
+
+#: web_server/services/wireless_service/forms.py:35
+msgid "Country"
+msgstr ""
+
+#: web_server/services/wireless_service/forms.py:37
+msgid "eg. Seoul or Jeollabuk-do"
+msgstr ""
+
+#: web_server/services/wireless_service/forms.py:38
+msgid "We need shipping state"
+msgstr ""
+
+#: web_server/services/wireless_service/forms.py:40
+msgid "City"
+msgstr ""
+
+#: web_server/services/wireless_service/forms.py:40
+msgid "eg. Seoul or ìì¸ì"
+msgstr ""
+
+#: web_server/services/wireless_service/forms.py:41
+msgid "We need the city"
+msgstr ""
+
+#: web_server/services/wireless_service/forms.py:43
+msgid "Line1"
+msgstr ""
+
+#: web_server/services/wireless_service/forms.py:43
+msgid "eg. Gangnam-gu or ê°ë¨êµ¬"
+msgstr ""
+
+#: web_server/services/wireless_service/forms.py:44
+msgid "We need your address Line1"
+msgstr ""
+
+#: web_server/services/wireless_service/forms.py:46
+msgid "Line2"
+msgstr ""
+
+#: web_server/services/wireless_service/forms.py:47
+msgid "eg. 423, Chorongmaeul-ro 33-gil 103 Ho"
+msgstr ""
+
+#: web_server/services/wireless_service/forms.py:48
+msgid "We need your address Line2"
+msgstr ""
+
+#: web_server/services/wireless_service/forms.py:62
+msgid "eg. IPhone 5s, Galaxy S7"
+msgstr ""
+
+#: web_server/services/wireless_service/forms.py:63
+msgid ""
+"There are two types of SIM card. Please specify the exact name or model "
+"of your phone (e.g. iPhone6s so we can send you the right SIM CARD for "
+"you phone."
+msgstr ""
+
+#: web_server/services/wireless_service/forms.py:67
+msgid "Some mobile phones may not be have an access to 4G."
+msgstr ""
+
+#: web_server/services/wireless_service/forms.py:72
+msgid "Please write your mobile phone model accurately."
+msgstr ""
+
+#: web_server/services/wireless_service/forms.py:74
+msgid "Select payment method"
+msgstr ""
+
+#: web_server/services/wireless_service/forms.py:76
+msgid "Select Payment Method"
+msgstr ""
+
+#: web_server/services/wireless_service/forms.py:94
+msgid "Full name in your Passport or Alien Registration Card"
+msgstr ""
+
+#: web_server/services/wireless_service/forms.py:102
+msgid "Id number"
+msgstr ""
+
+#: web_server/services/wireless_service/forms.py:103
+msgid "eg. 000011233212"
+msgstr ""
+
+#: web_server/services/wireless_service/forms.py:105
+msgid "Passport number or Alien registration number"
+msgstr ""
+
+#: web_server/services/wireless_service/forms.py:106
+msgid "Please do not include - in the number"
+msgstr ""
+
+#: web_server/services/wireless_service/forms.py:108
+#: web_server/services/wireless_service/forms.py:124
+#: web_server/services/wireless_service/forms.py:130
+msgid "This is a required field"
+msgstr ""
+
+#: web_server/services/wireless_service/forms.py:110
+msgid "Date of Birth"
+msgstr ""
+
+#: web_server/services/wireless_service/forms.py:111
+msgid "eg. 19920305"
+msgstr ""
+
+#: web_server/services/wireless_service/forms.py:113
+msgid ""
+"Insert 8 digits <br/> If your birthday is 1st of July 1991, please insert"
+" 19910701"
+msgstr ""
+
+#: web_server/services/wireless_service/forms.py:116
+msgid "Date of birth YYYY/MM/DD"
+msgstr ""
+
+#: web_server/services/wireless_service/forms.py:117
+msgid "Please insert 8 digits YYYY/MM/DD"
+msgstr ""
+
+#: web_server/services/wireless_service/forms.py:122
+msgid "Please insert contact number"
+msgstr ""
+
+#: web_server/services/wireless_service/forms.py:126
+msgid "Address"
+msgstr ""
+
+#: web_server/services/wireless_service/forms.py:127
+msgid ""
+"eg. ìì¸í¹ë³ì ê°ë¨êµ¬ ì ë¦ë¡ 13 ìº í¼íìí°ë¦¬ì¤ Aë "
+"103í¸ or 103, Seolleung-ro, Gangnam-gu, Seoul"
+msgstr ""
+
+#: web_server/services/wireless_service/forms.py:129
+msgid "Please write your address in Korean or english"
+msgstr ""
+
+#: web_server/services/wireless_service/forms.py:134
+msgid "We need nationality to check your identification"
+msgstr ""
+
+#: web_server/services/wireless_service/forms.py:137
+msgid "Call PLAN"
+msgstr ""
+
+#: web_server/services/wireless_service/forms.py:138
+msgid "Select Call Plan"
+msgstr ""
+
+#: web_server/services/wireless_service/forms.py:141
+msgid "Phone Model"
+msgstr ""
+
+#: web_server/services/wireless_service/forms.py:142
+msgid "eg. Iphone5"
+msgstr ""
+
+#: web_server/services/wireless_service/forms.py:142
+msgid "Please insert accurate model name/no"
+msgstr ""
+
+#: web_server/services/wireless_service/forms.py:144
+msgid "IMEI Number"
+msgstr ""
+
+#: web_server/services/wireless_service/forms.py:145
+msgid "99212312312"
+msgstr ""
+
+#: web_server/services/wireless_service/forms.py:146
+msgid "IMEI number in your settings"
+msgstr ""
+
+#: web_server/services/wireless_service/forms.py:148
+msgid "Serial Number/Usim Number"
+msgstr ""
+
+#: web_server/services/wireless_service/forms.py:149
+msgid "SIM serial number"
+msgstr ""
+
+#: web_server/services/wireless_service/forms.py:150
+msgid "Number on the SIM card"
+msgstr ""
+
+#: web_server/services/wireless_service/forms.py:153
+msgid "Passport/Alien Registration Card"
+msgstr ""
+
+#: web_server/services/wireless_service/forms.py:153
+msgid "Only (bmp, gif, png, jpg) files are allowed"
+msgstr ""
+
+#: web_server/services/wireless_service/forms.py:154
+msgid "Upload your passport"
+msgstr ""
+
+#: web_server/services/wireless_service/forms.py:156
+msgid "Please check your image file"
+msgstr ""
+
+#~ msgid "This app is awesome."
+#~ msgstr ""
+
+#~ msgid "this is lazy gettext"
+#~ msgstr ""
+
+#~ msgid " author "
+#~ msgstr ""
+
+#~ msgid "Authors"
+#~ msgstr ""
+
+#~ msgid "Books"
+#~ msgstr ""
+
+#~ msgid "What"
+#~ msgstr ""
+
+#~ msgid "Would you mac"
+#~ msgstr ""
+
+#~ msgid "QWERTY"
+#~ msgstr ""
+
+#~ msgid " Authors "
+#~ msgstr " djahjs"
+
+#~ msgid "younsoo"
+#~ msgstr ""
+
+#~ msgid "Get connected"
+#~ msgstr ""
+
+#~ msgid "with our simcard"
+#~ msgstr ""
+
+#~ msgid ""
+#~ msgstr ""
+
+#~ msgid "Ordered"
+#~ msgstr ""
+
+#~ msgid "Payment"
+#~ msgstr ""
+
+#~ msgid "Shipping Finished"
+#~ msgstr ""
+
+#~ msgid "Refund Finished"
+#~ msgstr ""
+
+#~ msgid "reserved"
+#~ msgstr ""
+
+#~ msgid "payment OK"
+#~ msgstr ""
+
+#~ msgid "charge OK"
+#~ msgstr ""
+
+#~ msgid "<h1>Get connected</h1><h2>with our simcard</h2>"
+#~ msgstr ""
+
+#~ msgid "Wanna explore local places ?"
+#~ msgstr ""
+
+#~ msgid "This is how it works"
+#~ msgstr ""
+
+#~ msgid "Need a place to stay ? "
+#~ msgstr ""
+
+#~ msgid "Find out with KAMPER !"
+#~ msgstr ""
+
+#~ msgid "GUESTHOUSE"
+#~ msgstr ""
+
+#~ msgid "HOUSING"
+#~ msgstr ""
+
+#~ msgid "WIRELESS"
+#~ msgstr ""
+
+#~ msgid "SECONDHAND"
+#~ msgstr ""
+
+#~ msgid "Cart"
+#~ msgstr ""
+
+#~ msgid "Logout"
+#~ msgstr ""
+
+#~ msgid "Get your home!"
+#~ msgstr ""
+
+#~ msgid "We'll protect you from Fraud"
+#~ msgstr ""
+
+#~ msgid "Checking your CheckList"
+#~ msgstr ""
+
+#~ msgid "If you forgot (준비물?), That is very terrible"
+#~ msgstr ""
+
+#~ msgid "Get Phone Number!"
+#~ msgstr ""
+
+#~ msgid "Keep In Touch with families and friends"
+#~ msgstr ""
+
+#~ msgid "Example) friend@kamper.co.kr"
+#~ msgstr ""
+
+#~ msgid "Example) Seoul or ìì¸"
+#~ msgstr ""
+
+#~ msgid "Example) Gangnam-gu or ê°ë¨êµ¬"
+#~ msgstr ""
+
+#~ msgid "Example) Gangnam-daero 120-gil or ê°ë¨ëë¡ 120ê¸¸"
+#~ msgstr ""
+
+#~ msgid "Extra Address"
+#~ msgstr ""
+
+#~ msgid "Example) Residencehall 301 or ê¸°ìì¬ 301í¸"
+#~ msgstr ""
+
+#~ msgid "ZIP Code"
+#~ msgstr ""
+
+#~ msgid "Example) 07027"
+#~ msgstr ""
+
+#~ msgid "Passport"
+#~ msgstr ""
+
+#~ msgid "Receive Date"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "<h1>Get connected</h1>\n"
+#~ "                                <h1>with our simcard</h1>\n"
+#~ "\n"
+#~ "                            "
+#~ msgstr ""
+
+#~ msgid "before you arrive !"
+#~ msgstr ""
+
+#~ msgid "Choose a plan & SIM"
+#~ msgstr ""
+
+#~ msgid "We have plenty of options to choose from."
+#~ msgstr ""
+
+#~ msgid "Buy SIM for ￦9,900"
+#~ msgstr ""
+
+#~ msgid "Buy SIM"
+#~ msgstr ""
+
+#~ msgid "When you have you SIM with you,"
+#~ msgstr ""
+
+#~ msgid "you can easily activate it "
+#~ msgstr ""
+
+#~ msgid "from our website"
+#~ msgstr ""
+
+#~ msgid "After activation,"
+#~ msgstr ""
+
+#~ msgid "recharge the pre-paid plan"
+#~ msgstr ""
+
+#~ msgid "you have chosen before"
+#~ msgstr ""
+
+#~ msgid "ORDER"
+#~ msgstr ""
+
+#~ msgid "ì¼ë ¨ë²í¸/IMEI"
+#~ msgstr ""
+

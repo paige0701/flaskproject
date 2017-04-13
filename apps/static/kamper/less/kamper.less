@@ -1,0 +1,54 @@
+@import "bootstrap/variables";
+@import "kamper/custom_variables";
+@import "kamper/reset";
+
+body {
+  padding-top: 50px;
+  position: relative;
+}
+
+pre {
+  tab-size: 8;
+}
+ul, li{
+  list-style:none;
+}
+@import "kamper/layout";
+
+@import "kamper/header";
+@import "kamper/form";
+@import "kamper/buttons";
+
+@import "kamper/carousel";
+@import "kamper/mixin/search";
+@import "kamper/mixin/banner";
+@import "kamper/mixin/component";
+@import "kamper/mixin/dropdown";
+@import "kamper/mixin/list";
+@import "kamper/mixin/social";
+@import "kamper/mixin/button";
+
+
+@import "kamper/housing";
+@import "kamper/footer";
+
+@import "kamper/product";
+@import "kamper/object";
+
+@import "kamper/checkout";
+@import "kamper/order";
+
+@import "kamper/service_less/product_detail";
+
+
+
+.housing-img{
+  width:100%;
+  height:auto;
+}
+
+@media(min-width: @screen-sm){
+  .housing-img{
+
+  }
+}

@@ -1,0 +1,30 @@
+.dropdown-content{
+  display:none;
+  background-color:#f0f0f0;
+  border:1px solid #b7b7b7;
+  >li{
+    border-top: 1px solid #bababa;
+    padding:10px;
+    font-size: 13px;
+  }
+  >li:first-child{
+    border-top:none;
+  }
+
+}
+.dropdown{
+  overflow:hidden;
+}
+.dropdown.on{
+  >a{
+    background-color:@brand-primary;
+    display:block;
+    color:white;
+  }
+}
+
+@media(min-width:@screen-sm-min){
+  .dropdown-content{
+    margin-top:7px;
+  }
+}

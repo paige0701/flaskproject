@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block layout %}
+
+    {% include "partials/header.html" %}
+
+    <div class="contents-wrap">
+        {% block contents_wrap %}
+            {% block messages %}
+            {% endblock %}
+        {% endblock %}
+    </div>
+
+    {% block react_root %}
+        <div id="react_root">
+        </div>
+    {% endblock %}
+
+    {% include "partials/footer.html" %}
+
+
+
+{% endblock %}
+

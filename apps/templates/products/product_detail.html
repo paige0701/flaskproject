@@ -1,0 +1,193 @@
+{% extends "layout.html" %}
+{% block extrascripts %}
+
+    <script type="text/javascript">
+
+        function buy_now(){
+            var quantity = document.getElementById("quantity").value;
+
+            console.log(quantity)
+            document.getElementById("product_form").action = "{{ url_for('web_common.buy_now', no=product.id )}}";
+            document.getElementById("product_form").submit();
+
+        }
+
+        function go_cart(num){
+            document.getElementById("product_form").action = "{{ url_for('product.add_to_cart', num=num) }}";
+            document.getElementById("product_form").submit();
+
+        }
+    </script>
+{% endblock %}
+
+{% block contents_wrap %}
+    <div class="product-layout">
+        <div class="container">
+            {% block product_main %}
+                <div class="product-preview">
+                    <div class="card">
+                        <div class="row product_box">
+
+                            {% block product_gallary %}
+                                <div class="preview col-md-6">
+                                    <div class="preview-pic tab-content space">
+                                        {% set products_images=product.get_images %}
+                                        {% for image in products_images %}
+                                            <div class="tab-pane {% if image.is_thumbnail %}active{% endif %}" id="pic-{{ image.id }}">
+                                                <img src="{{ image.url | thumbnail('400x400') }}" />
+                                            </div>
+                                        {% endfor %}
+                                    </div>
+                                    <ul class="preview-thumbnail nav nav-tabs">
+                                        {% for image in products_images %}
+                                            <li class=" {% if image.is_thumbnail %}active{% endif %}">
+                                                <a data-target="#pic-{{ image.id }}" data-toggle="tab"><img src="{{ image.url | thumbnail('90x90', crop='fit', quality='100') }}" /></a>
+                                            </li>
+                                        {% endfor %}
+                                    </ul>
+                                </div>
+                            {% endblock %}
+
+                            {% block gallary_main %}
+                                <div class="preview-content col-md-6">
+                                    {#                                    {% set product_category= product.get_category() %}#}
+                                    {#                                    <a href="{{ url_for('product.product_list_filter', num=product_category.id) }}">#}
+                                    {#                                        <span class="category_title">{{ product_category.get_name() }}</span>#}
+                                    {#                                    </a>#}
+                                    <div class="more_space"></div>
+
+                                    <h2 class="product-title">{{ product.get_title }}</h2>
+
+                                    {#                                    <div class="rating">#}
+                                    {#                                        <div class="stars">#}
+                                    {#                                            <span class="fa fa-star checked"></span>#}
+                                    {#                                            <span class="fa fa-star checked"></span>#}
+                                    {#                                            <span class="fa fa-star checked"></span>#}
+                                    {#                                            <span class="fa fa-star checked"></span>#}
+                                    {#                                            <span class="fa fa-star-half-o checked "></span>#}
+                                    {#                                        </div>#}
+                                    {#                                        <span class="review-no">123 reviews</span>#}
+                                    {#                                    </div>#}
+                                    <div class="space"></div>
+
+                                    <h3 class="price">
+                                        <span>￦ {{ product.product_price_separated }}
+                                        </span></h3>
+                                    <div class="space"></div>
+                                    {#                                    <p class="product-description">#}
+                                    {#                                        Some description~~~#}
+                                    {#                                        bla bla bla#}
+                                    {#                                    </p>#}
+                                    {#                                    <p class="vote"><strong>97%</strong> of buyers enjoyed this product! <strong>(158 votes)</strong></p>#}
+                                    {#                                    <h5 class="price">Only {{ product.quantity }} left</h5>#}
+                                    <form id="product_form" method='POST'>
+
+                                        {% from "products/_formhelpers.html" import render_field %}
+                                        {#                                        <input class="form-control" id="id_form-0-quantity" min="0" name="s-0-quantity" type="number" value="1">#}
+                                        {{ p_form.hidden_tag() }}
+                                        {{ render_field(p_form.quantity, type='number',class='form-control',min='1', value=1, style='width:50%' ) }}
+                                        {#                                        {{ render_field(p_form.option, class='form-control') }}#}
+
+                                        {#                                        <label for="sel1"> (select one):</label>#}
+                                        {#                                        <select class="form-control" id="sel1">#}
+                                        {#                                            <option>Black</option>#}
+                                        {#                                            <option>Grey</option>#}
+                                        {#                                            <option>Blue</option>#}
+                                        {#                                            <option>White</option>#}
+                                        {#                                        </select>#}
+                                        <div class="space"></div>
+
+                                        <div class="action">
+
+                                            <button class="btn btn-lg btn-danger" type="button" onclick="go_cart({{ product.id }})">Cart</button>
+                                            <button class="btn btn-lg btn-primary " type="button" onclick="buy_now()">Buy Now</button>
+                                            {#                                            <a class="btn btn-lg btn-primary" href="{{ url_for('web_common.product_checkout1',no=product.id, quantity='') }}">Buy Now</a>#}
+                                        </div>
+                                    </form>
+                                    {% block sns_sharing_group %}
+
+                                        <div class="more_space sharing-btn-group">
+                                            <div class="btn-group">
+                                                <button class="btn btn-default disabled">Share:</button>
+                                                {#                                    <a class="btn btn-default" target="_blank" title="Like On Facebook" href="#">#}
+                                                {#                                        <i class="fa fa-thumbs-o-up fa-lg fb"></i>#}
+                                                {#                                    </a>#}
+
+                                                <a class="btn btn-default" target="_blank" title="On Facebook" href="https://www.facebook.com/sharer/sharer.php?u={{ request.url |safe }}">
+                                                    <i class="fa fa-facebook fa-lg fb"></i>
+                                                </a>
+                                                <a class="btn btn-default" target="_blank" title="On Twitter" href="https://twitter.com/home?status={{ request.url |safe }}%0A">
+                                                    <i class="fa fa-twitter fa-lg tw"></i>
+                                                </a>
+                                                <a class="btn btn-default" target="_blank" title="On Google Plus" href="https://plus.google.com/share?url={{ request.url |safe }}">
+                                                    <i class="fa fa-google-plus fa-lg google"></i>
+                                                </a>
+                                                {# <a class="btn btn-default" target="_blank" title="On LinkedIn" href="https://www.linkedin.com/shareArticle?mini=true&url={{ request.url | safe }}&title=kamper&summary=kamper">#}
+                                                {# <i class="fa fa-linkedin fa-lg linkin"></i>#}
+                                                {# </a>#}
+                                                {# <a class="btn btn-default" target="_blank" title="Pin It" href="https://pinterest.com/pin/create/button/?url={{ request.url | safe }}">#}
+                                                {# <i class="fa fa-pinterest fa-lg pinterest"></i>#}
+                                                {# </a>#}
+                                            </div>
+                                        </div>
+                                    {% endblock %}
+                                </div>
+                            {% endblock %}
+                        </div>
+                    </div>
+                </div>
+            {% endblock %}
+
+            {% block product_description %}
+                <div class="product-detail">
+                    <div class="card">
+                        <section class="product-description">
+                            <div class="detail-header">
+                                <h3>{% trans %}Product Description{% endtrans %}</h3>
+                            </div>
+                            <div class="detail-content">
+                                {% set testing = product.get_product_description %}
+                                {{ testing|safe}}
+                            </div>
+                            <div class="detail-header">
+                                <h3>Product Informtaion</h3>
+                            </div>
+
+                            <div class="detail-content">
+                                <div class="table-responsive">
+                                    <table class="table table-bordered">
+                                        {% for x in attribute %}
+                                        <tr>
+                                            <th class="active" style="width:40%;">{{ x.attribute.product_attribute }} </th>
+                                            <td style="width:60%;"> {{ x.value|safe}} </td>
+                                        </tr>
+                                        {% endfor %}
+{#                                        <tr>#}
+{#                                            <th class="active">Size</th>#}
+{#                                            <td>3 x 2 x 1 inches</td>#}
+{#                                        </tr>#}
+{#                                        <tr>#}
+{#                                            <th class="active">Country of Origin</th>#}
+{#                                            <td> South Korea </td>#}
+{#                                        </tr>#}
+{#                                        <tr>#}
+{#                                            <th class="active">Material</th>#}
+{#                                            <td> - </td>#}
+{#                                        </tr>#}
+
+                                    </table>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+            {% endblock %}
+        </div>
+    </div>
+{% endblock %}
+
+
+
+
+
+

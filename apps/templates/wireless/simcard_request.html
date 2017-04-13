@@ -1,0 +1,124 @@
+{% extends 'layout.html' %}
+
+{% block contents_wrap %}
+
+    {# less : kamper/service_less/product_detail.less#}
+    <div class="product-layout">
+        <div class="container">
+            {% block product_main %}
+                <div class="product-preview">
+                    <div class="card">
+                        <div class="row">
+
+                            {% block product_gallary %}
+                                <div class="preview col-md-6">
+                                    <div class="preview-pic tab-content">
+                                        <div class="tab-pane active" id="pic-1"><img src="{{ url_for('static',filename='kamper/images/kamper_sim_1.png') }}" /></div>
+                                        <div class="tab-pane" id="pic-2"><img src="{{ url_for('static',filename='kamper/images/kamper_sim_1.png') }}" /></div>
+                                        {# <div class="tab-pane" id="pic-3"><img src="{{ url_for('static',filename='kamper/images/kamper_sim_1.png') }}" /></div>#}
+                                        {# <div class="tab-pane" id="pic-4"><img src="{{ url_for('static',filename='kamper/images/kamper_sim_1.png') }}" /></div>#}
+                                        {# <div class="tab-pane" id="pic-5"><img src="{{ url_for('static',filename='kamper/images/kamper_sim_1.png') }}" /></div>#}
+                                    </div>
+                                    <ul class="preview-thumbnail nav nav-tabs">
+                                        <li class="active"><a data-target="#pic-1" data-toggle="tab"><img src="{{ url_for('static',filename='kamper/images/kamper_sim_1.png') }}" /></a></li>
+                                        <li><a data-target="#pic-2" data-toggle="tab"><img src="{{ url_for('static',filename='kamper/images/kamper_sim_1.png') }}" /></a></li>
+                                        {# <li><a data-target="#pic-3" data-toggle="tab"><img src="http://placekitten.com/200/126" /></a></li>#}
+                                        {# <li><a data-target="#pic-4" data-toggle="tab"><img src="http://placekitten.com/200/126" /></a></li>#}
+                                        {# <li><a data-target="#pic-5" data-toggle="tab"><img src="http://placekitten.com/200/126" /></a></li>#}
+                                    </ul>
+                                </div>
+                            {% endblock %}
+
+                            {% block gallary_main %}
+                                <div class="preview-content col-md-6">
+                                    <h3 class="product-title">{% trans %}Kamper Simcard Request{% endtrans %}</h3>
+                                    <div class="rating">
+                                        <div class="stars">
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star-half-o checked "></span>
+                                        </div>
+                                        <span class="review-no">123 reviews</span>
+                                    </div>
+                                    <p class="product-description">
+                                        휴대폰을 한국에 도착하자마자 사용하고 싶나요? kamper sim카드를 이용하세요. 도착하는 즉시 사용하실 수 있도록 해당하시는 숙소에 보내드립니다.
+                                        어려움이 생겨도 걱정하지마세요. 저희에게 문의하시면 해결책을 함께 찾아봐요
+                                    </p>
+                                    <h4 class="price">current price: <span>₩8,000</span></h4>
+                                    <p class="vote"><strong>97%</strong> of buyers enjoyed this product! <strong>(158 votes)</strong></p>
+                                    {# <h5 class="sizes">sizes:#}
+                                    {# <span class="size" data-toggle="tooltip" title="small">s</span>#}
+                                    {# <span class="size" data-toggle="tooltip" title="medium">m</span>#}
+                                    {# <span class="size" data-toggle="tooltip" title="large">l</span>#}
+                                    {# <span class="size" data-toggle="tooltip" title="xtra large">xl</span>#}
+                                    {# </h5> #}
+                                    {# <h5 class="colors">colors:#}
+                                    {# <span class="color orange not-available" data-toggle="tooltip" title="Not In store"></span>#}
+                                    {# <span class="color green"></span>#}
+                                    {# <span class="color blue"></span>#}
+                                    {# </h5>#}
+                                    <div class="action">
+                                        <p>**공항 도착하기 적어도 2일전에 신청하여 주세요**</p>
+                                        <form method="post">
+                                            <input type="hidden" value="sim_order">
+                                            <button class="add-to-cart btn btn-primary" type="submit">신청하기</button>
+                                        </form>
+
+                                        {#                                <button class="like btn btn-default" type="button"><span class="fa fa-heart"></span></button>#}
+                                    </div>
+                                    {% block sns_sharing_group %}
+
+                                        <div class="sharing-btn-group">
+                                            <div class="btn-group">
+                                                <button class="btn btn-default disabled">Share:</button>
+                                                {#                                    <a class="btn btn-default" target="_blank" title="Like On Facebook" href="#">#}
+                                                {#                                        <i class="fa fa-thumbs-o-up fa-lg fb"></i>#}
+                                                {#                                    </a>#}
+
+                                                <a class="btn btn-default" target="_blank" title="On Facebook" href="https://www.facebook.com/sharer/sharer.php?u={{ request.url |safe }}">
+                                                    <i class="fa fa-facebook fa-lg fb"></i>
+                                                </a>
+                                                <a class="btn btn-default" target="_blank" title="On Twitter" href="https://twitter.com/home?status={{ request.url |safe }}%0A">
+                                                    <i class="fa fa-twitter fa-lg tw"></i>
+                                                </a>
+                                                <a class="btn btn-default" target="_blank" title="On Google Plus" href="https://plus.google.com/share?url={{ request.url |safe }}">
+                                                    <i class="fa fa-google-plus fa-lg google"></i>
+                                                </a>
+                                                {# <a class="btn btn-default" target="_blank" title="On LinkedIn" href="https://www.linkedin.com/shareArticle?mini=true&url={{ request.url | safe }}&title=kamper&summary=kamper">#}
+                                                {# <i class="fa fa-linkedin fa-lg linkin"></i>#}
+                                                {# </a>#}
+                                                {# <a class="btn btn-default" target="_blank" title="Pin It" href="https://pinterest.com/pin/create/button/?url={{ request.url | safe }}">#}
+                                                {# <i class="fa fa-pinterest fa-lg pinterest"></i>#}
+                                                {# </a>#}
+                                            </div>
+                                        </div>
+                                    {% endblock %}
+                                </div>
+                            {% endblock %}
+                        </div>
+                    </div>
+                </div>
+            {% endblock %}
+
+            {% block product_description %}
+                <div class="product-detail">
+                    <div class="card">
+                        <section class="product-description">
+                            <div class="detail-header">
+                                <h3>{% trans %}Description{% endtrans %}</h3>
+                            </div>
+                            <div class="detail-content">
+                                <img class="img-responsive" src="{{ url_for('static', filename='kamper/images/reservation_simcard.png') }}" alt="">
+                            </div>
+                        </section>
+                    </div>
+                </div>
+            {% endblock %}
+
+        </div>
+    </div>
+{% endblock %}
+
+

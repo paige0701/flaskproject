@@ -1,0 +1,43 @@
+@phone_width: 263px;
+@phone_height: 314px;
+
+//모바일 버전 폰
+.phone {
+  position: relative;
+  max-height: 183px;
+  max-width:400px;
+  margin: auto 0;
+  padding: 8px 65px 8px 55px;
+  border: 2px solid #ddd;
+  border-radius: 20px;
+  background-color: #222;
+  box-shadow: 20px 20px 40px #887;
+  margin:auto;
+
+
+  .phone-image{
+    width:314px;
+    height:165px;
+  }
+}
+
+// 데스크탑 버젼 폰
+@media(min-width:@screen-sm-min){
+  .phone {
+    position: relative;
+    max-width: 263px;
+    max-height: none;
+    margin: 0 auto;
+    padding: 65px 8px 55px;
+    border: 2px solid #ddd;
+    border-radius: 20px;
+    background-color: #222;
+    box-shadow: 20px 20px 40px #887;
+
+
+    .phone-image{
+      width:243px;
+      height:314px;
+    }
+  }
+}

@@ -1,0 +1,80 @@
+{% extends "layout.html"%}
+{% block extrascripts %}
+{% endblock %}
+{% block contents_wrap %}
+    <div class="boxed">
+        <div class="box_title">{{ _('Returns') }}</div>
+
+    </div>
+
+    <div class="content-layout-1">
+        <div class="grey-page-2">
+
+            <div class="section" id="feather1">
+                <div class="container">
+                    <div class="row">
+                        <div class="space"></div>
+                        <h4>{{ _('We are sorry for the inconvenience.') }}</h4>
+                        <h4>{{ _('We will try our best to satisfy your needs in the future.') }}</h4>
+
+                        <div class="space"></div>
+                        <div class="panel-group">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <h4 class="panel-title">
+                                        <a data-toggle="collapse" href="#collapse1">{{ _('Our Refund Policy') }}</a>
+                                    </h4>
+                                </div>
+                                <div id="collapse1" class="panel-collapse collapse">
+                                    <div class="panel-body">{{ _('When you return an item, your refund and how your refund is
+                                        issued may differ based on the condition of the item, how long
+                                        you\'ve had the item and how the item was purchased.') }}</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="section" id="feather2">
+
+                <div class="container">
+                    <div class="row">
+                        <form action="{{ url_for('web_common.product_return_complete')}}" class="form-horizontal" method="POST">
+                            {{ form.hidden_tag() }}
+                            {% from "macro/form_macro.html" import render_product_refund_form %}
+                            {{ render_product_refund_form(form) }}
+
+                            <div>
+                                <button class="btn btn-primary pull-right" type="submit">{{ _('Submit') }}</button>
+                            </div>
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+
+            {##}
+            {#        <div class="form-group">#}
+            {#            <label for="sel1">Tell us why you want to return</label>#}
+            {#            <select class="form-control" id="sel1">#}
+            {#                <option>Broken</option>#}
+            {#                <option>Not my type</option>#}
+            {#                <option>Quality</option>#}
+            {#            </select>#}
+            {#        </div>#}
+            {#        <div class="form-group">#}
+            {#            <label for="comment">Comment:</label>#}
+            {#            <textarea class="form-control" rows="5" id="comment" placeholder="Please tell us why you want to return"></textarea>#}
+            {#        </div>#}
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+{% endblock %}

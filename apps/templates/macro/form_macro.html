@@ -1,0 +1,96 @@
+{% macro render_form(form) %}
+    {% for field in form %}
+        {{ render_field(field, class='form-control') }}
+    {% endfor %}
+{% endmacro %}
+
+{% macro render_field(field) %}
+    {% if field.widget.input_type != 'hidden' %}
+
+        {% if field.type == 'RadioField' %}
+            {# 라디오 필드일때. #}
+            {{ render_field_radio(field) }}
+        {% else %}
+            {#        {% if field.widget.input_type  %}#}
+            <div class="form-group">
+                <div class="col-sm-3 control-label">
+                    {% if field.flags.required %}
+                        <span class="primary-color">*</span>
+                    {% endif %}
+                    {#                    {{ field.label(for=field.label) }}#}
+                    {#                label 이 조금 이상하게 설정 되어 있어서 바꿔봄#}
+                    {{ field.label }}
+                </div>
+                <div class="col-sm-7">
+                    {{ field(placeholder=field.description.placeholder, **kwargs) }}
+                    <div class="form-field_help-text success-color" >
+
+                        {% for help_text in field.description.help_text %}
+                            ** {{ help_text }} <br>
+                        {% endfor %}
+                    </div>
+                    {#        {{ field(**kwargs)|safe }}#}
+                    {% if field.errors %}
+                        <ul class="form-field_error-text errors">
+                            {% for error in field.errors %}
+                                <li style="color:red">{{ error }}</li>
+                            {% endfor %}
+                        </ul>
+                    {% endif %}
+                </div>
+            </div>
+        {% endif %}
+
+    {% endif %}
+{% endmacro %}
+
+
+{# wireless order form #}
+{% macro render_wireless_order_form(form) %}
+
+    {% for field in form %}
+        {% if not field.name == 'phone_type' and not field.name =='payment_method'%}
+            {{ render_field(field, class='form-control') }}
+        {% endif %}
+    {% endfor %}
+{% endmacro %}
+
+
+{# product refurn form #}
+{% macro render_product_refund_form(form) %}
+    {% for field in form %}
+        {{ render_field(field, class='form-control') }}
+    {% endfor %}
+{% endmacro %}
+
+{% macro render_field_radio(field) %}
+    <div class="form-group">
+        <div class="col-sm-3 control-label">
+            {% if field.flags.required %}
+                <span class="primary-color">*</span>
+            {% endif %}
+            {{ field.label(for=field.label) }}
+            {#            {{ field.label(field.label) }}#}
+        </div>
+        <div class="col-sm-7">
+
+            {% for f in field %}
+                <label class="radio-inline">
+                    {{ f }} {{ f.label }}
+                </label>
+            {% endfor %}
+            <div class="form-field_help-text success-color" >
+                {% for help_text in field.description.help_text %}
+                    ** {{ help_text }} <br>
+                {% endfor %}
+            </div>
+            {% if field.errors %}
+                <ul class="form-field_error-text errors" style="float:right;">
+                    {% for error in field.errors %}
+                        <li style="color:red">{{ error }}</li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+        </div>
+    </div>
+{% endmacro %}

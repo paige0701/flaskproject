@@ -1,0 +1,84 @@
+{% extends "layout.html"%}
+{% block extrascripts %}
+    <script>
+
+        $('#usr').change(function(){
+            {#            alert($('#usr').val())#}
+            {#            var date = $('#usr').val()#}
+            {#            alert(date[0])#}
+            {#            alert(date[1])#}
+            {#            alert(date[2])#}
+            {#            alert(date[3])#}
+            {#            alert(date[4])#}
+            {#            alert(date[5])#}
+            {#            alert(date[6])#}
+            document.getElementById("date_form").action =  "{{ url_for('web_common.date_changed') }}";
+            document.getElementById("date_form").submit();
+        })
+
+
+    </script>
+{% endblock %}
+{% block contents_wrap %}
+    <div class="boxed">
+        <div class="box_title">{{ _('Returns & Exchanges') }}
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="space"></div>
+
+        <form method="get" id="date_form">
+            {{ _('Returns placed in') }}
+            <input type="month" name='usr' class="form-control" id="usr" value={{ current }} style="width:20%; display:inline-block" >
+        </form>
+        <hr/>
+        {% if product %}
+            <div class="table-responsive">
+            <table class="table">
+                <colgroup>
+                    <col />
+                    <col />
+                    <col />
+                    <col />
+                    <col />
+                    <col />
+                </colgroup>
+                <thead>
+                <tr>
+                    <th scope="col">{{ _('Return Number') }}</th>
+                    <th scope="col">{{ _('Return placed date') }}</th>
+                    <th scope="col">{{ _('Name') }}</th>
+                    <th scope="col">{{ _('Quantity') }}</th>
+                    <th scope="col">{{ _('Email') }}</th>
+                    <th scope="col">{{ _('Contact Number') }}</th>
+                    <th scope="col">{{ _('Exchange OR Refund') }}</th>
+                    <th scope="col">{{ _('Status') }}</th>
+                </tr>
+                </thead>
+                <tbody>
+
+                {% for item in product %}
+                    <tr>
+                        <td>{{ item[0].id}}</td>
+                        <td>{{ item[0].created_at }}</td>
+                        <td>{{ item[0].get_product_name }}</td>
+                        <td>{{ item[0].quantity }}</td>
+                        <td>{{ item[0].email }}</td>
+
+                        <td>{{ item[0].contact_number }}</td>
+                        <td>{{ item[0].get_exchangeORrefund }}</td>
+                        <td>{{ item[0].get_state }}</td>
+
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        {% else %}
+            <div class="space"></div>
+            <h3>{{ _('There are no orders') }}</h3>
+        {% endif %}
+
+        </div>
+    </div>
+{% endblock %}

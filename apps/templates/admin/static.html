@@ -1,0 +1,7 @@
+{%- macro url() -%}
+    {%- if debug -%}
+        {{ get_url('admin.static', *varargs, **kwargs) |trim }}
+    {%- else -%}
+        {{ url_for_s3('admin/static', filename=kwargs['filename'], bucket_name='kamperstatic')|trim }}
+    {%- endif -%}
+{%- endmacro -%}

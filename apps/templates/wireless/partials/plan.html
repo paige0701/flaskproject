@@ -1,0 +1,272 @@
+<style>
+    /*Business Card Css */
+    .sim-plan-card{
+        border: 1px solid #cccccc;
+        background: #f8f8f8;
+        padding: 10px;
+        border-radius: 4px;
+        margin-bottom: 10px;
+    }
+    .plan-img {
+        height: 120px;
+        background: white;
+    }
+    .job {
+        color: #666666;
+        font-size: 17px;
+    }
+    .mail {
+        font-size: 16px;
+    }
+    .plan-class{
+        font-size:25px;
+        font-weight:700;
+    }
+    .media-heading{
+        font-size:26px;
+    }
+    .sim-plan-item:hover{
+        color:black;
+    }
+    .sim-plan-card .media-body>.top{
+        margin-bottom:9px;
+    }
+    .sim-plan-card .media-body>.top>*{
+        vertical-align: bottom;
+        display:inline-block;
+    }
+    .sim-plan-card .media-body>.top>.media-heading{
+        margin-bottom: 0;
+    }
+    .sim-plan-card .media-body .plan-option{
+        font-size:14px;
+    }
+    .sim-plan-card .media-body>.mid{
+        text-align: left;
+        margin-bottom:9px;
+    }
+
+
+
+</style>
+
+{#<div class="container">#}
+{#    <div class="row">#}
+{#        <div class="col-sm-12 h4 plan-class">#}
+{#            FLAT PLAN#}
+{#        </div>#}
+{#        <div class="col-sm-6">#}
+{#            <a href="{{ url_for('wireless.order', plan_name='297plan') }}" class="sim-plan-item">#}
+{#                <div class="sim-plan-card">#}
+{#                    <div class="media">#}
+{#                        <div class="media-left">#}
+{#                            <img class="media-object img-circle plan-img" src="{{ url_for('static', filename='kamper/images/wireless/E.jpg')}}">#}
+{#                        </div>#}
+{#                        <div class="media-body">#}
+{#                            <div class="top">#}
+{#                                <h5 class="media-heading">{{ _('E Plan')}}</h5>#}
+{#                                <span class="price"> - ￦29,700</span>#}
+{##}
+{#                            </div>#}
+{#                            <div class="mid">#}
+{#                                <div class="plan-option">{{ _('Calls : 350 minutes')}}</div>#}
+{#                                <div class="plan-option">{{ _('Text : 350 text')}}</div>#}
+{#                                <div class="plan-option">{{ _('Data : 6GB data')}}</div>#}
+{#                            </div>#}
+{#                            <div class="bot">#}
+{#                                <button class="btn btn-default btn-md">{{ _('ORDER') }}</button>#}
+{#                            </div>#}
+{#                        </div>#}
+{#                    </div>#}
+{#                </div>#}
+{#            </a>#}
+{#        </div>#}
+{##}
+{#        <div class="col-sm-6">#}
+{#            <a href="{{ url_for('wireless.order', plan_name='585plan') }}" class="sim-plan-item">#}
+{##}
+{#                <div class="sim-plan-card">#}
+{#                    <div class="media">#}
+{#                        <div class="media-left">#}
+{#                            <img class="media-object img-circle plan-img" src="{{ url_for('static', filename='kamper/images/wireless/U.jpg')}}">#}
+{#                        </div>#}
+{#                        <div class="media-body">#}
+{#                            <div class="top">#}
+{#                                <h5 class="media-heading">{{ _('U Plan') }}</h5>#}
+{#                                <span class="price"> - ￦58,500</span>#}
+{#                            </div>#}
+{#                            <div class="mid">#}
+{#                                <div class="plan-option">{{ _('Calls : Unlimited')}}</div>#}
+{#                                <div class="plan-option">{{ _('Text : Unlimited')}}</div>#}
+{#                                <div class="plan-option">{{ _('Data : Unlimited')}}</div>#}
+{#                            </div>#}
+{#                            <div class="bot">#}
+{#                                <button class="btn btn-default btn-md">{{ _('ORDER') }}</button>#}
+{#                            </div>#}
+{#                        </div>#}
+{#                    </div>#}
+{#                </div>#}
+{#            </a>#}
+{#        </div>#}
+{#    </div>#}
+{##}
+{#    <div class="divider"></div>#}
+{##}
+{#    <div class="row">#}
+{#        <div class="col-sm-12 h4 plan-class">#}
+{#            PAYG PLAN <span style="font-size:15px;">(Pay As You Go)</span>#}
+{#        </div>#}
+{##}
+{#        <div class="col-sm-6">#}
+{#            <a href="{{ url_for('wireless.order', plan_name='payg') }}" class="sim-plan-item">#}
+{#                <div class="sim-plan-card">#}
+{#                    <div class="media">#}
+{#                        <div class="media-left">#}
+{#                            <img class="media-object img-circle plan-img" src="{{ url_for('static', filename='kamper/images/wireless/P.jpg')}}">#}
+{#                        </div>#}
+{##}
+{#                        <div class="media-body">#}
+{#                            <div class="top">#}
+{#                                <h5 class="media-heading">2+2 PLAN</h5>#}
+{#                                <span class="price"> - 20,000 KRW</span>#}
+{##}
+{#                            </div>#}
+{#                            <div class="mid">#}
+{#                                <div class="plan-option">{{ _('Calls : ￦1.98/sec')}}</div>#}
+{#                                <div class="plan-option">{{ _('Text : ￦22/text')}}</div>#}
+{#                                <div class="plan-option">{{ _('Data : ￦20.48/1MB')}}</div>#}
+{#                            </div>#}
+{#                            <div class="bot">#}
+{#                                <button class="btn btn-default btn-md">{{ _('ORDER') }}</button>#}
+{#                            </div>#}
+{#                        </div>#}
+{#                    </div>#}
+{#                </div>#}
+{#            </a>#}
+{#        </div>#}
+{##}
+{#        <div class="col-sm-6">#}
+{#            <a href="{{ url_for('wireless.order', plan_name='payg') }}" class="sim-plan-item">#}
+{##}
+{#                <div class="sim-plan-card">#}
+{#                    <div class="media">#}
+{#                        <div class="media-left">#}
+{#                            <img class="media-object img-circle plan-img" src="{{ url_for('static', filename='kamper/images/wireless/P.jpg')}}">#}
+{#                        </div>#}
+{#                        <div class="media-body">#}
+{#                            <div class="top">#}
+{#                                <h5 class="media-heading">3+3 PLAN </h5>#}
+{#                                <span class="price"> - 30,000 KRW</span>#}
+{##}
+{#                            </div>#}
+{#                            <div class="mid">#}
+{#                                <div class="plan-option">{{ _('Calls : ￦1.98/sec')}}</div>#}
+{#                                <div class="plan-option">{{ _('Text : ￦22/text')}}</div>#}
+{#                                <div class="plan-option">{{ _('Data : ￦20.48/1MB')}}</div>#}
+{#                            </div>#}
+{#                            <div class="bot">#}
+{#                                <button class="btn btn-default btn-md">{{ _('ORDER') }}</button>#}
+{#                            </div>#}
+{#                        </div>#}
+{#                    </div>#}
+{#                </div>#}
+{#            </a>#}
+{#        </div>#}
+{#    </div>#}
+{#</div>#}
+
+
+<div class="container">
+    <div class="row">
+        {#        <div class="col-sm-12 h4 plan-class" style="text-align: center">#}
+        {#            <h3>{{ _('Plan to choose from') }}</h3>#}
+        {#        </div>#}
+        <div class="wireless-header">
+            <h3 class="same-font">{{ _('Plans to choose from') }}</h3>
+        </div>
+        <div style="padding:3%">
+            <div class="col-sm-4">
+{#                <a href="{{ url_for('wireless.order', plan_name='297plan') }}" class="sim-plan-item">#}
+                    <div class="sim-plan-card">
+                        <div class="media">
+                            <div class="media-left">
+                                <img class="media-object img-circle plan-img" src="{{ url_for('static', filename='kamper/images/wireless/E.jpg')}}">
+                            </div>
+                            <div class="media-body">
+                                <div class="top">
+                                    <h3 class="process-heading">{{ _('E Plan')}}</h3>
+                                    <span class="price"> - ￦29,700</span>
+
+                                </div>
+                                <div class="mid">
+                                    <div class="plan-option">{{ _('Calls : 350 minutes')}}</div>
+                                    <div class="plan-option">{{ _('Text : 350 text')}}</div>
+                                    <div class="plan-option">{{ _('Data : 6GB data')}}</div>
+                                </div>
+                                {#                            <div class="bot">#}
+                                {#                                <button class="btn btn-default btn-md">{{ _('ORDER') }}</button>#}
+                                {#                            </div>#}
+                            </div>
+                        </div>
+                    </div>
+{#                </a>#}
+            </div>
+
+            <div class="col-sm-4">
+{#                <a href="{{ url_for('wireless.order', plan_name='585plan') }}" class="sim-plan-item">#}
+
+                    <div class="sim-plan-card">
+                        <div class="media">
+                            <div class="media-left">
+                                <img class="media-object img-circle plan-img" src="{{ url_for('static', filename='kamper/images/wireless/U.jpg')}}">
+                            </div>
+                            <div class="media-body">
+                                <div class="top">
+                                    <h3 class="process-heading">{{ _('U Plan') }}</h3>
+                                    <span class="price"> - ￦58,500</span>
+                                </div>
+                                <div class="mid">
+                                    <div class="plan-option">{{ _('Calls : Unlimited')}}</div>
+                                    <div class="plan-option">{{ _('Text : Unlimited')}}</div>
+                                    <div class="plan-option">{{ _('Data : Unlimited')}}</div>
+                                </div>
+                                {#                            <div class="bot">#}
+                                {#                                <button class="btn btn-default btn-md">{{ _('ORDER') }}</button>#}
+                                {#                            </div>#}
+                            </div>
+                        </div>
+                    </div>
+{#                </a>#}
+            </div>
+
+
+            <div class="col-sm-4">
+{#                <a href="{{ url_for('wireless.order', plan_name='585plan') }}" class="sim-plan-item">#}
+
+                    <div class="sim-plan-card">
+                        <div class="media">
+                            <div class="media-left">
+                                <img class="media-object img-circle plan-img" src="{{ url_for('static', filename='kamper/images/wireless/P.jpg')}}">
+                            </div>
+                            <div class="media-body">
+                                <div class="top">
+                                    <h3 class="process-heading">{{ _('P Plan') }}</h3>
+                                    <span class="price"> - from  ￦10,000</span>
+                                </div>
+                                <div class="mid">
+                                    <div class="plan-option">{{ _('Calls : ￦1.98/sec')}}</div>
+                                    <div class="plan-option">{{ _('Text : ￦22/text')}}</div>
+                                    <div class="plan-option">{{ _('Data : ￦20.48/1MB')}}</div>
+                                </div>
+                                {#                            <div class="bot">#}
+                                {#                                <button class="btn btn-default btn-md">{{ _('ORDER') }}</button>#}
+                                {#                            </div>#}
+                            </div>
+                        </div>
+                    </div>
+{#                </a>#}
+            </div>
+        </div>
+    </div>
+
+</div>

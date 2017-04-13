@@ -1,0 +1,188 @@
+{% extends "layout.html"%}
+{% block extrascripts %}
+    <script type="text/javascript">
+
+        function handleClick()
+        {
+            this.value = (this.value == 'Change' ? 'Cancel' : 'Change');
+        }
+
+
+        function addNew(){
+            this.value = (this.value == 'Add' ? 'Cancel':'Add');
+        }
+
+        document.getElementById('changeCancel').onclick=handleClick;
+        document.getElementById('addCancel').onclick==addNew;
+
+
+
+
+
+    </script>
+
+{% endblock %}
+
+{% block contents_wrap %}
+    <div class="boxed">
+        <div class="box_title">{{ _('My Page') }}
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="space"></div>
+
+        {% block messages %}
+
+            {% for message in get_flashed_messages() %}
+                <div class="well">
+                    <div class=flash>{{ message }}</div>
+                </div>
+            {% endfor %}
+
+            {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                    <ul class=flashes>
+                        {% for message in messages %}
+                            <li>{{ message }}</li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+            {% endwith %}
+
+        {% endblock %}
+        {% from "common/_formhelpers.html" import render_field, field %}
+
+        <table class="table">
+            <tr>
+                {# 이메일 #}
+                <th class="active">{{ _('Email') }}</th>
+                <td >{{ current_user.email }}</td>
+                <td>{{ _('Email cannot be changed') }}</td>
+            </tr>
+            <tr>
+                {# 국적 #}
+                <th class="active">{{ _('Nationality') }}</th>
+                <td>{{ current_user.country }}</td>
+                <td>{{ _('Nationality cannot be changed') }}</td>
+            </tr>
+            <form method="POST" id="firstNameForm" action="{{ url_for('web_common.changefirstname') }}">
+                <tr>
+                    <th class="active">{{ _('First name') }}</th>
+                    {# 이름이 있을 경우 #}
+
+                    {% if current_user.first_name %}
+                        <td>{{ current_user.first_name }}
+                            {# 이름이 있는데 이름을 바꾸려는 경우 #}
+                            <div id="changeFirstInput" class="collapse">
+                                {#                                <input class="form-control" name="firstname" pattern="">#}
+                                {{ render_field(firstnameform.firstname, class='form-control') }}
+                                <button class="btn btn-grey btn-sm cartQuantityFormUpdate">{{ _('Submit') }}</button>
+                            </div>
+                        </td>
+                        <td>
+                            {# change -> cancel #}
+                            <input type="button" id="changeCancel" class="btn btn-grey btn-sm"
+                                   data-toggle="collapse" data-target="#changeFirstInput" value="Change" />
+                        </td>
+
+                        {# 이름이 없는 경우 #}
+                    {% else %}
+                        <td> -
+                            {# 이름이 없고 새로운 이르을 등록한다 #}
+                            <div id="addFirstInput" class="collapse">
+                                {#                                <input class="form-control" name="firstname">#}
+                                {{ render_field(firstnameform.firstname, class='form-control') }}
+                                <a href="javascript:changeFirstName()" class="btn btn-grey btn-sm cartQuantityFormUpdate">{{ _('Submit') }}</a>
+                            </div>
+                        </td>
+                        <td>
+                            {# Add -> cancel #}
+                            <input type="button" id="addCancel" class="btn btn-grey btn-sm"
+                                   data-toggle="collapse" data-target="#addFirstInput" value="Add" />
+                        </td>
+                    {% endif %}
+                </tr>
+            </form>
+            <form method="POST" id="lastNameForm" action="{{ url_for('web_common.changelastname') }}">
+                <tr>
+                    <th class="active">{{ _('Last name') }}</th>
+                    {# 성이 있는 경우 #}
+                    {% if current_user.last_name %}
+                        <td>{{ current_user.last_name }}
+                            <div id="changeLastInput" class="collapse">
+                                {#                                <input class="form-control" name="lastname"> #}
+                                {{ render_field(lastnameform.lastname, class='form-control') }}
+                                <button class="btn btn-grey btn-sm cartQuantityFormUpdate">{{ _('Submit') }}</button>
+                            </div>
+
+                        </td>
+                        <td>
+                            <input type="button" id="changeCancel" class="btn btn-grey btn-sm"
+                                   data-toggle="collapse" data-target="#changeLastInput" value="Change" />
+                        </td>
+
+                        {# 성이 없는 경우 #}
+                    {% else %}
+                        <td> -
+
+                            <div id="addLastInput" class="collapse">
+                                <input class="form-control" name="lastname">
+
+                                <button class="btn btn-grey btn-sm cartQuantityFormUpdate">{{ _('Submit') }}</button>
+                            </div>
+                        </td>
+                        <td>
+                            <input type="button" id="addCancel" class="btn btn-grey btn-sm"
+                                   data-toggle="collapse" data-target="#addLastInput" value="Add" />
+                        </td>
+                    {% endif %}
+                </tr>
+            </form>
+            <form method="POST" id="contactNumberForm" action="{{ url_for('web_common.changecontactnumber') }}">
+                <tr>
+                    <th class="active">{{ _('Contact number') }}</th>
+                    {# 번호가 있는 경우 #}
+                    {% if current_user.contact_number %}
+                        <td>{{ current_user.contact_number }}
+                            <div id="changePhoneInput" class="collapse">
+                                {{ render_field(numberform.contactnumber, class='form-control') }}
+                                <button class="btn btn-grey btn-sm cartQuantityFormUpdate">{{ _('Submit') }}</button>
+                            </div>
+                        </td>
+                        <td>
+                            <input type="button" id="changeCancel" class="btn btn-grey btn-sm"
+                                   data-toggle="collapse" data-target="#changePhoneInput" value="Change" />
+                        </td>
+                        {# 번호가 없는 경우 #}
+                    {% else %}
+                        <td>
+                            -  </td>
+                        <td>
+                            <a class="btn btn-grey btn-sm" href="{{ url_for('wireless.wireless_main') }}" >{{ _('Get a number') }}</a>
+                        </td>
+                    {% endif %}
+                </tr>
+            </form>
+            <form method="POST" id="contactNumberForm" action="{{ url_for('web_common.changepassword') }}">
+                <tr>
+                    {# 비밀번호 #}
+                    <th class="active">{{ _('Password') }}</th>
+
+                    <td>
+                        {{ passwordform.hidden_tag() }}
+                        {{ render_field(passwordform.password, placeholder='Old password', class='form-control') }}<br/>
+                        {{ render_field(passwordform.new_password, placeholder='New password', class='form-control') }}<br/>
+                        {{ render_field(passwordform.new_password_confirm, placeholder='Password confirm', class='form-control') }}
+                        {#                        <input class="form-control" placeholder="New Password"/><br/>#}
+                        {#                        <input class="form-control" placeholder="Check Password"/>#}
+                    </td>
+
+                    <td><button class="btn btn-grey btn-sm">{{ _('Change password') }}</button>
+                    </td>
+                </tr>
+            </form>
+
+        </table>
+    </div>
+{% endblock %}

@@ -1,0 +1,191 @@
+{% extends "layout.html" %}
+{% block contents_wrap %}
+    <div class="content-layout-1" xmlns="http://www.w3.org/1999/html">
+        <div class="grey-page-2">
+            <div class="wireless-header">
+                <h3>{{ _('How to use our wireless service') }}</h3>
+            </div>
+            <div class="space"></div>
+            <div class="container">
+                <div class="row">
+                    <div class="process-box col-sm-4 ">
+                        <div class="sim-plan-card">
+                            <img class="wireless-process-image" src="{{ url_for('static', filename='kamper/images/wireless/process1.png')}}">
+                            <div class="space"></div>
+                            <div class="row"><h3>{{ _('Buy a SIM') }}</h3></div>
+                            <div class="space"></div>
+                            <div class="row">
+                                <p>
+                                    {{ _('Get a SIM for ￦11,000 ') }} </br>
+                                    {{ _('Pick up or delivery available.') }}
+                                </p>
+                            </div>
+                            <a class="btn btn-default btn-md">{{ _('Go shopping') }}</a>
+                        </div>
+                    </div>
+                    <div class="process-box col-sm-4">
+                        <div class="sim-plan-card">
+                            <img class="wireless-process-image" src="{{ url_for('static', filename='kamper/images/wireless/process2.png')}}">
+                            <div class="space"></div>
+                            <div class="row"><h3>{{ _('Activate the SIM') }}</h3></div>
+                            <div class="space"></div>
+                            <div class="row">
+                                <p>
+                                    {{ _('When you have recieved a SIM') }}<Br/>
+                                    {{ _('Activate it ! ') }}<Br/>
+                                </p>
+                            </div>
+                            <a class="btn btn-default btn-md">{{ _('Activate') }}</a>
+                        </div>
+                    </div>
+                    <div class="process-box col-sm-4">
+                        <div class="sim-plan-card">
+                            <img class="wireless-process-image" src="{{ url_for('static', filename='kamper/images/wireless/process3.png')}}">
+                            <div class="space"></div>
+                            <div class="row"><h3>{{ _('Recharge') }}</h3></div>
+                            <div class="space"></div>
+                            <div class="row">
+                                <p>
+                                    {{ _('Recharge easily with ') }}<br/>
+                                    {{ _('PayPal or account transfer') }}
+
+                                </p>
+                            </div>
+                            <a class="btn btn-default btn-md">{{ _('Recharge') }}</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="space"></div>
+            <div class="divider"></div>
+            <div class="space"></div>
+
+            <div class="section" id="feather-1">
+
+                {% include 'wireless/partials/plan.html' %}
+
+            </div>
+        </div>
+
+        {#        <div class="grey-page-1">#}
+        {#            <div class="container">#}
+        {#                <div class="row">#}
+        {#                    <div class="col-sm-5 col-sm-offset-1">#}
+        {#                        <div class="content-layout-">#}
+        {#                            <div class="content">#}
+        {#                                <h1 class="page-header">{% trans %}KAMPER SIMCARD{% endtrans %}</h1>#}
+        {#                                <div class="lead">#}
+        {##}
+        {#                                    <p class="page-header">캠퍼 심카드를 써야하는 사람들</p>#}
+        {#                                    <ul>#}
+        {#                                        <li>1. 도착하자마자 받고 사용하고 싶으신 분</li>#}
+        {#                                        <li>2. 받자마자 사용하고 싶으신 분</li>#}
+        {#                                        <li>3. 한국 ID카드 없이 사용하고 싶으신 분</li>#}
+        {#                                        <li>4. 합리적인 가격 (no registration Fee)/ </li>#}
+        {#                                        <li>5. 영어 지원 (중국어 지원)</li>#}
+        {#                                        <li>7. 편리한 사용</li>#}
+        {#                                        <li>8. 한국 주소를 몰라도 OKAY 숙소 이름만 알면 쉽게 찾을 수 있어요!</li>#}
+        {#                                    </ul>#}
+        {#                                </div>#}
+        {#                                <div class="btn-group">#}
+        {#                                    <a class="btn btn-info btn-circle" href="{{ url_for('wireless.simcard_inquiry') }}">문의하기</a>#}
+        {#                                    <a class="btn btn-primary btn-circle" href="{{ url_for('wireless.simcard_request') }}">구입하기</a>#}
+        {#                                </div>#}
+        {#                            </div>#}
+        {#                        </div>#}
+        {#                    </div>#}
+        {#                    <div class="col-sm-4 col-sm-offset-1 text-center mt-60 mb-60">#}
+        {#                        <div class="phone">#}
+        {#                            <img class="img-responsive img-rounded phone-image"  src="{{ url_for('static',filename='kamper/images/phone_content_img_1.png') }}">#}
+        {#                        </div>#}
+        {#                    </div>#}
+        {#                </div>#}
+        {#            </div>#}
+        {#        </div>#}
+        {##}
+        {#        <section class="section">#}
+        {#            <div class="container">#}
+        {#                <div class="row">#}
+        {#                    <div class="col-sm-4 col-sm-offset-1 text-center mt-60 mb-60">#}
+        {#                        <div class="phone">#}
+        {#                            <img class="img-responsive img-rounded phone-image"  src="{{ url_for('static',filename='kamper/images/phone_content_img_2.jpg') }}">#}
+        {#                        </div>#}
+        {#                    </div>#}
+        {#                    <div class="col-sm-5 col-sm-offset-1">#}
+        {#                        <div class="content">#}
+        {#                            <div class="pull-middle">#}
+        {#                                <h2 class="h1 page-header">장점</h2>#}
+        {#                                <ul class="media-list">#}
+        {#                                    <li class="media">#}
+        {#                                        <a class="media-left" href="#">#}
+        {#                                            <span class="glyphicon glyphicon-cloud icon text-success"></span>#}
+        {#                                        </a>#}
+        {#                                        <div class="media-body">#}
+        {#                                            <h3 class="media-heading">합리적인 가격</h3>#}
+        {#                                            <p>합리적인 가격으로 만족을 이끌 수 있습니다.</p>#}
+        {#                                        </div>#}
+        {#                                    </li>#}
+        {#                                    <li class="media">#}
+        {#                                        <a class="media-left" href="#">#}
+        {#                                            <span class="glyphicon glyphicon-lock icon text-success"></span>#}
+        {#                                        </a>#}
+        {#                                        <div class="media-body">#}
+        {#                                            <h3 class="media-heading">편리한 배송시스템</h3>#}
+        {#                                            <p>받자마자 사용할 수 있습니다</p>#}
+        {#                                        </div>#}
+        {#                                    </li>#}
+        {#                                    <li class="media">#}
+        {#                                        <a class="media-left" href="#">#}
+        {#                                            <span class="glyphicon glyphicon-user icon text-success"></span>#}
+        {#                                        </a>#}
+        {#                                        <div class="media-body">#}
+        {#                                            <h3 class="media-heading">편리한 추가충전</h3>#}
+        {#                                            <p>페이팔 알리페이를 이용해서 여기서 바로 결제하고 사용하세요</p>#}
+        {#                                        </div>#}
+        {#                                    </li>#}
+        {#                                </ul>#}
+        {#                                <div class="btn-group">#}
+        {#                                    <a class="btn btn-info btn-circle" href="{{ url_for('wireless.simcard_inquiry') }}">문의하기</a>#}
+        {#                                    <a class="btn btn-primary btn-circle" href="{{ url_for('wireless.simcard_request') }}">구입하기</a>#}
+        {#                                </div>#}
+        {#                            </div>#}
+        {#                        </div>#}
+        {#                    </div>#}
+        {#                </div>#}
+        {#            </div>#}
+        {#        </section>#}
+
+
+
+        {#        <section class="section">#}
+        {#            <div class="container">#}
+        {#                <div class="row">#}
+        {#                    <div class="col-sm-3 text-right">#}
+        {#                        <div class="content">#}
+        {#                            <div class="pull-middle">#}
+        {#                                <h4><strong>Describe your product.</strong></h4>#}
+        {#                                <p>Proin sapien neque, consequat ac tempus aliquam, gravida in urna. Phasellus et lectus in odio imperdiet tempus. Aenean posuere, nunc a tristique imperdiet, massa dolor dictum eros, sit amet tempor turpis turpis vel tortor.</p>#}
+        {#                                <small>Phasellus feugiat at lorem a tincidunt. Nam hendrerit leo vitae orci pellentesque, nec euismod dolor condimentum.</small>#}
+        {#                            </div>#}
+        {#                        </div>#}
+        {#                    </div>#}
+        {#                    <div class="col-sm-4 col-sm-offset-1 mb-60">#}
+        {#                        <div class="phone">#}
+        {#                            <img class="img-responsive img-rounded" src="http://placemi.com/djlnr/263x480">#}
+        {#                        </div>#}
+        {#                    </div>#}
+        {#                    <div class="col-sm-3 col-sm-offset-1">#}
+        {#                        <div class="content">#}
+        {#                            <div class="pull-middle">#}
+        {#                                <h4><strong>Even more stuff.</strong></h4>#}
+        {#                                <p>Proin sapien neque, consequat ac tempus aliquam, gravida in urna. Phasellus et lectus in odio imperdiet tempus. Aenean posuere, nunc a tristique imperdiet, massa dolor dictum eros, sit amet tempor turpis turpis vel tortor.</p>#}
+        {#                                <a class="btn btn-success btn-circle" href="#">Sign up for free</a>#}
+        {#                            </div>#}
+        {#                        </div>#}
+        {#                    </div>#}
+        {#                </div>#}
+        {#            </div>#}
+        {#        </section>#}
+
+    </div>
+{% endblock %}

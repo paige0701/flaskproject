@@ -1,0 +1,386 @@
+{% extends "housing/housing_layout.html" %}
+
+{% block extrascripts %}
+
+    <script type="text/javascript">
+        // 지도상 현재 좌표
+        var map_bounds, map_sw, map_ne;
+        // list_wrapper
+        var list_wrap = document.getElementById('list-group');
+        // google map
+        var map;
+        // info_windows 관리 객체
+        var info_windows;
+        // marker 관리 객체
+        var markers;
+        var zoom_listener, idle_listener, dragend_listener;
+        function googleInit(){
+            /***
+             * google Map 최초 실행되는 함수.
+             *
+             ***/
+            $("#one").addClass("active");
+
+            // 좌표에 센터에 맞춤.
+            myLatlng = new google.maps.LatLng({{ hh.addressLat }}, {{ hh.addressLong }});
+
+            var mapOptions = {
+                zoom: 15,
+                center: myLatlng
+            };
+
+            //map 초기화
+            map  = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+            info_windows = [];
+            markers = [];
+
+
+            zoom_listener =google.maps.event.addListener(map, 'zoom_changed', function(){
+
+                map_bounds = map.getBounds();
+                map_sw = map_bounds.getSouthWest();
+                map_ne = map_bounds.getNorthEast();
+
+                housesInMap(map_sw, map_ne, map, list_wrap, markers);
+
+            });
+            idle_listener = google.maps.event.addListenerOnce(map, 'idle', function(){
+
+                map_bounds = map.getBounds();
+                map_sw = map_bounds.getSouthWest();
+                map_ne = map_bounds.getNorthEast();
+
+                housesInMap(map_sw, map_ne, map, list_wrap, markers);
+
+            });
+            dragend_listener = google.maps.event.addListener(map, 'dragend', function(){
+
+                map_bounds = map.getBounds();
+                map_sw = map_bounds.getSouthWest();
+                map_ne = map_bounds.getNorthEast();
+
+                housesInMap(map_sw, map_ne, map, list_wrap, markers);
+
+            });
+
+            {#            google.maps.event.addListener(map, 'idle', function(){#}
+            {# 현재 보여지고 있는 지도에서 대각선의 좌표를 찾는 작업  #}
+            {#                console.warn("dragend");#}
+            {##}
+            {#                map_bounds = map.getBounds();#}
+            {#                map_sw = map_bounds.getSouthWest();#}
+            {#                map_ne = map_bounds.getNorthEast();#}
+            {##}
+            {#                HousesInMap(map_sw, map_ne, map, list_wrap, markers);#}
+            {##}
+            {#            });#}
+            {##}
+
+        }
+        // marker 그리기 함수
+        function drawMarkers(markers, map, house_contents, info_windows){
+            /***
+             * 지도상에 marker를 그린다.
+             * ***/
+            // marker 생성
+            for (var i=0; i<house_contents.length; i++){
+                var houseLatLng = new google.maps.LatLng(house_contents[i].latitude, house_contents[i].longitude);
+
+                var marker = new google.maps.Marker({
+                    position: houseLatLng,
+                    map: map,
+                    title: house_contents[i].name
+                });
+                drawInfoWindow(info_windows,house_contents[i].lowest_price, map, marker);
+                markers.push(marker);
+            }
+            return marker
+        }
+        // list추가 함수
+        function drawList(list_wrap, contents){
+            /***
+             * list_wrap에 list를 추가한다.
+             *
+             * params:
+             *      - list_wrap: contents를 감쌀 list_wrapper (보통 ul 태그)
+             *      - contents: list에 해당할 contents (housing 정보) -배열
+             *
+             * ***/
+            var base_detail_link = '/housing/detail/';
+
+            for(var i=0; i<contents.length; i++){
+                var house_data = contents[i];
+
+                var list = document.createElement("li");
+                list.className = 'housing_list_item';
+
+                var link = document.createElement("a");
+                link.setAttribute('href',base_detail_link+house_data.id);
+
+                var title = document.createElement('h4');
+                var title_text = document.createTextNode(house_data.name);
+                title.appendChild(title_text);
+
+                var address = document.createElement('p');
+                var address_text = document.createTextNode(house_data.address2);
+                address.appendChild(address_text);
+
+                var price = document.createElement('p');
+                var price_text = document.createTextNode(house_data.lowest_price);
+                price.appendChild(price_text);
+
+                var image = document.createElement('IMG');
+                {#                image.setAttribute("src", "/media/"+house_data.thumbnail_image);#}
+                var image_src_root = "{{ url_for_s3('media', filename='') }}";
+
+                {#                image.setAttribute('src', '{{ url_for_s3('media', file_name=house_data.thumbnail_image) }}');#}
+                image.setAttribute("src", image_src_root+house_data.thumbnail_image);
+
+                image.setAttribute('class','housing_list_image');
+                link.setAttribute('class','');
+                link.appendChild(image);
+                link.appendChild(title);
+                link.appendChild(address);
+                link.appendChild(price);
+                list.appendChild(link);
+                list_wrap.appendChild(list);
+
+            }
+            return true
+        }
+        function clearInfoWindow(info_windows){
+            for(var i=0; i<info_windows.length; i++){
+                info_windows[i].close();
+            }
+        }
+
+        function drawInfoWindow(info_windows, content, map, marker){
+            /***
+             * params:
+             *      - info_windows: info_windows 배열 객체
+             *      - content: info_windows에 추가할 content
+             *      - map 객체
+             *      - marker: marker객체
+             * return:
+             *      - info_windows
+             ***/
+
+            var info_window = new google.maps.InfoWindow();
+
+            info_window.setContent(content);
+
+            info_window.open(map, marker);
+
+            // info_windows 리스트에 추가
+            info_windows.push(info_window);
+
+            return info_windows
+        }
+        function clearInfoWindows(info_windows){
+            for (var i =0; i<info_windows.length; i++){
+                info_windows[i].close();
+            }
+            info_windows = [];
+            return info_windows
+        }
+
+        //marker 지우기 힘수
+        function clearMarker(markers, map){
+            /***
+             * params:
+             *      - markers: 기존 존재하던 markers객체
+             *      - map: marker가 표시된 map 객체
+             * ***/
+            for (var i=0; i<markers.length; i++){
+                markers[i].setMap(null);
+
+            }
+            markers = []
+            return true
+        }
+        // list 지우기 함수
+        function clearList(list_wrap){
+            /***
+             * params:
+             *      - list_wrap: list의 root
+             *
+             * list에 있는 Child Node를 제거
+             * ***/
+            try{
+                while(list_wrap.firstChild){
+                    list_wrap.removeChild(list_wrap.firstChild);
+                }
+                return true;
+            }
+            catch (error){
+                console.error("마커 제거 실패");
+                console.error(error);
+                return false;
+            }
+        }
+        // house list 가져오고 그리기 함수 ( Handling 함수 )
+        function housesInMap(sw, ne, map, list_wrap, markers){
+            /***
+             * handling함수.
+             * 해당 함수가 호출되면 데이터를 보내고, 기존 객체들을 초기화(clear)한 후 draw 한다.
+             * 모든 것을 관장하는 함수
+             *
+             * return: array, null
+             * ***/
+            var map_positions;
+
+            map_positions = {
+                'sw_x':sw.lat(),
+                'sw_y':sw.lng(),
+                'ne_x':ne.lat(),
+                'ne_y':ne.lng()
+            };
+
+            $.ajax({
+                type: "GET",
+                url: "/api/marker",
+                data: map_positions,
+                dataType: 'json',
+                contentType: 'application/json; charset=UTF-8',
+                success: function(data) {
+                    var house_contents = data.result;
+                    // list 초기화
+                    clearList(list_wrap);
+                    clearMarker(markers, map);
+                    clearInfoWindows(info_windows);
+
+                    // list 그리기
+                    drawList(list_wrap, house_contents);
+                    //marker 그리기 -> infowindow내장
+                    drawMarkers(markers, map, house_contents, info_windows);
+
+                }
+                ,error:function(error){
+                    console.error("error:"+error);
+
+                }
+            });
+        }
+
+
+        {#  sorting 할 때 불려지는 함수  #}
+        function arrange(num){
+
+            if(num == 1){
+                $("#two").removeClass("active");
+                $("#three").removeClass("active");
+                $("#one").addClass("active");
+            }
+            if(num == 2){
+                $("#one").removeClass("active");
+                $("#three").removeClass("active");
+                $("#two").addClass("active");
+            }
+            if(num == 3){
+                $("#one").removeClass("active");
+                $("#two").removeClass("active");
+                $("#three").addClass("active");
+            }
+
+
+            var content = "";
+
+            var lat = myLatlng.lat();
+            var lng = myLatlng.lng();
+
+            var number = {
+                'num':num,
+                'sw_x':map_sw.lat(),
+                'sw_y':map_sw.lng(),
+                'ne_x':map_ne.lat(),
+                'ne_y':map_ne.lng(),
+                'lat':lat,
+                'lng':lng
+
+            };
+
+            $.ajax({
+                type: "GET",
+                url: "/api/arrange",
+                data: number,
+                dataType: 'json',
+                contentType: 'application/json;charset=UTF-8',
+                success: function(data) {
+                    var base_detail_link = '/housing/detail/';
+                    var house_contents = data.result;
+                    clearList(list_wrap);
+                    drawList(list_wrap,house_contents);
+
+                    for( var i = 0 ; i < data.result.length; i++) {
+                        data.result[i], latLng = new google.maps.LatLng(data.result[i].latitude, data.result[i].longitude);
+
+                    }
+                } ,error:function(error){
+                    alert("error:"+error);
+                }
+            });
+
+        }
+    </script>
+
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyBlNNG8h9MCG8iXBZ18_diSxAIr4SjypeU&callback=googleInit&libraries=geometry" async defer></script>
+{% endblock %}
+
+
+{% block contents_wrap %}
+    <div class="">
+        <div class="row">
+            <div class='col-xs-12 col-sm-12 col-md-8 col-lg-8 housing_list housing_layout'>
+                <div class="map" id="map-canvas"></div>
+            </div>
+
+            <div class='col-xs-12 col-sm-12 col-md-4 col-lg-4 housing_list'>
+
+                <div style="background-color: #eb9316; color: white; text-align: center" > 500 results</div>
+                <div id="housing_list">
+                    <ul class="list-group" id="list-group">
+                        <div id="list">
+
+
+                        </div>
+                    </ul>
+
+
+
+                </div>
+
+                <div style="position: static; text-align: center ">
+                    <nav aria-label="Page navigation" >
+                        <ul class="pagination">
+                            <li class="page-item">
+                                <a class="page-link" href="#" aria-label="Previous">
+                                    <span aria-hidden="true">&laquo;</span>
+                                    <span class="sr-only">Previous</span>
+                                </a>
+                            </li>
+                            <li class="page-item"><a class="page-link" href="#">1</a></li>
+                            <li class="page-item"><a class="page-link" href="#">2</a></li>
+                            <li class="page-item"><a class="page-link" href="#">3</a></li>
+                            <li class="page-item"><a class="page-link" href="#">4</a></li>
+                            <li class="page-item"><a class="page-link" href="#">5</a></li>
+                            <li class="page-item">
+                                <a class="page-link" href="#" aria-label="Next">
+                                    <span aria-hidden="true">&raquo;</span>
+                                    <span class="sr-only">Next</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+
+{% endblock %}
+
+
+
+

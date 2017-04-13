@@ -1,0 +1,158 @@
+{% extends "layout.html" %}
+{% block contents_wrap %}
+    <div class="content-layout-1">
+        <div class="grey-page-2">
+            <div class="content-header">
+                <h3 class="same-font primary-color">{{ _('Pre-Paid SIM') }}</h3>
+            </div>
+            <div class="section" id="feather1">
+                <div class="container">
+                    <div class="row">
+
+                        <h3 class="section-header">
+                            {{ _('Details') }}
+                        </h3>
+
+                        {#                        <div class="col-sm-6">#}
+                        {#                            <table class="table table-bordered">#}
+                        {#                                <tr>#}
+                        {#                                    <th scope="row">{{ _('Price') }}</th>#}
+                        {#                                    <td>58,500KRW / Month</td>#}
+                        {#                                </tr>#}
+                        {#                                <tr>#}
+                        {#                                    <th scope="row">{{ _('Calls') }}</th>#}
+                        {#                                    <td>무제한</td>#}
+                        {#                                </tr>#}
+                        {#                                <tr>#}
+                        {#                                    <th scope="row">{{ _('Text') }}</th>#}
+                        {#                                    <td>무제한</td>#}
+                        {#                                </tr>#}
+                        {#                                <tr>#}
+                        {#                                    <th scope="row">{{ _('Data') }}</th>#}
+                        {#                                    <td>무제한</td>#}
+                        {#                                </tr>#}
+                        {#                            </table>#}
+                        {#                        </div>#}
+                        <div class="col-sm-12">
+                            <table class="table table-bordered">
+                                <tr>
+                                    <th scope="row">{{ _('Identification') }}</th>
+                                    <td>{{ _('Passport or Alien Registration Card') }}</td>
+                                </tr>
+                                <tr>
+                                    <th>{{ _('Note') }}</th>
+                                    <td>{{ _('There is a limit of one per person. If you already have a SIM from Korea,
+                                         you may not be eligible for this service.') }}</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">{{ _('SIM Price') }}</th>
+                                    <td>￦11,000 ({{ _('Free delivery')}})</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">{{ _('Carrier') }}</th>
+                                    <td>KT (KOREA TELECOM)</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">{{ _('For any questions') }}</th>
+                                    <td>kamper@kamper.co.kr</td>
+                                </tr>
+                            </table>
+                        </div>
+                        {##}
+                        {#                        <div>#}
+                        {#                            1. 먼저 SIM카드를 주문해주세요. 가격은 10,000KRW입니다.#}
+                        {#                            2. SIM카드를 수령하시고 절차에 따라 Activation을 하세요. 설명서도 첨부되어 있습니다.#}
+                        {#                            3.#}
+                        {#                        </div>#}
+                        {##}
+                        {##}
+                        {#                        대금 가격 정리 (sim카드)#}
+                        {#                        -> 요금제 충전 방법#}
+                        {#                        -> 사용 설명서 첨부#}
+                        {##}
+                        {#                        지금 개통시 언제까지 이용 가능하다 표시#}
+                        {##}
+                        {#                        ----------------------------------------#}
+                        {##}
+                        {#                        -> billing 어드레스 // shipping 어드레스 확인#}
+                        {#                        -> 제품명 확인#}
+
+                    </div>
+                </div>
+            </div>
+            <!-- Form 시작 -->
+            <form method="post" class="form-horizontal">
+                {{ form.hidden_tag() }}
+                <div class="section" id="feather2">
+
+                    <div class="container">
+                        <div class="row">
+                            <h3 class="section-header">
+                                {{ _('Mobile phone information') }}
+                            </h3>
+                            {% from "macro/form_macro.html" import render_field %}
+                            {{ render_field(form.phone_type, class='form-control' ) }}
+
+
+                        </div>
+                    </div>
+                </div>
+                <div class="section" id="feather3">
+                    <div class="container">
+                        <div class="row">
+                            <h3 class="section-header">
+                                {{ _('Delivery information') }}
+                            </h3>
+                            {% from "macro/form_macro.html" import render_wireless_order_form %}
+                            {{ render_wireless_order_form(form) }}
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section" id="feather4">
+                    <div class="container">
+                        <div class="row">
+                            <h3 class="section-header">
+                                {{ _('Payment Method') }}
+                            </h3>
+                            {% from "macro/form_macro.html" import render_field_radio %}
+                            {{ render_field_radio(form.payment_method) }}
+
+                            {#                            {{ 1000 | to_usd('KRW', 'USD') }}#}
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section" id="feather4">
+                    <div class="container">
+                        <div class="row">
+                            <h3 class="section-header">
+                                {{ _('NOTE') }}
+                            </h3>
+                            <div class="jumbotron" style="font-size:13pt;">
+                                {{ _('You are only paying for a SIM now.') }}<Br/>
+                                ￦11,000 ({{ _('Free delivery') }}) <Br/>
+                                {{ _('When you have received the SIM,')}}<br/>
+                                {{ _('you may proceed to the next step, activation and recharging') }}
+
+
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="col-sm-10">
+                    <button class="btn btn-primary pull-right" type="submit">{{ _('Submit') }}</button>
+                </div>
+
+            </form>
+            <!-- Form 종료 -->
+        </div>
+
+    </div>
+
+{% endblock %}

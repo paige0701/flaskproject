@@ -1,0 +1,19 @@
+{% macro searchbox_1(form,search_action, search_form_id) %}
+    <div class="search-layout-1">
+        <div class="container">
+            <div class="search-form-wrap">
+                <form method="POST" action=search_action class="form-horizontal" id={{ search_form_id }}>
+                    {{ form.csrf_token }}
+                    <div class="form-group">
+                        <div class="col-xs-11">
+                            {{ form.keyword(class_="form-control") }}
+                        </div>
+                        <div class="col-xs-1 ">
+                            <a class="pull-right" href="javascript:document.getElementById('house-search-form').submit()" ><span class="glyphicon glyphicon-search search-icon primary-color"></span></a>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+{%- endmacro %}

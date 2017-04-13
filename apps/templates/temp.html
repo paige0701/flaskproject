@@ -1,0 +1,834 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <script type="text/javascript">
+        WebFontConfig = {
+            google: { families: [ 'Noto+Sans::latin' ] }
+        };
+        (function() {
+            var wf = document.createElement('script');
+            wf.src = ('https:' == document.location.protocol ? 'https' : 'http') +
+                    '://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
+            wf.type = 'text/javascript';
+            wf.async = 'true';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(wf, s);
+        })();
+
+    </script>
+    <script>
+        $(function() {
+            $("#post_content img, .resizablebox").each(function() {
+                var oImgWidth = $(this).width();
+                var oImgHeight = $(this).height();
+                $(this).css({
+                    'max-width':oImgWidth+'px',
+                    'max-height':oImgHeight+'px',
+                    'width':'100%',
+                    'height':'100%'
+                });
+            });
+        });
+    </script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no"/>
+    <meta name="naver-site-verification" content="b86d89900b4e2197768052adbd781ee3f155e23e"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>[##_title_##]</title>
+    <meta name="description" content="나우 코리아 공식블로그 입니다">
+    <![if !IE]>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans%3A400%2C300%2C300italic%2C400italic%2C700&subset=latin%2Clatin-ext%2Ccyrillic&ver=3.5.1' rel='stylesheet' type='text/css'>
+    <![endif]>
+    <link href="./style.css" rel="stylesheet" type="text/css" />
+    <link rel="alternate" type="application/rss+xml" title="[##_title_##]" href="[##_rss_url_##]" />
+    <link rel="shortcut icon" href="[##_blog_link_##]favicon.ico" />
+    <link rel="stylesheet" href="./images/bootstrap.css?time=1" />
+
+    <!-- Latest compiled and minified CSS genus -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <link href="./images/yzproj.css" rel="stylesheet" type="text/css" />
+
+    <link href="./images/glyphicons-halflings-regular.ttf" rel="stylesheet" type="text/css" />
+    <link href="./images/glyphicons-halflings-regular.woff2" rel="stylesheet" type="text/css" />
+    <link href="./images/bootstrap-glyphicons.css" rel="stylesheet" type="text/css" />
+    <!--[if lt IE 8]>
+<link type="text/css" rel="stylesheet" href="./images/ie.css" />
+<![endif]-->
+</head>
+<body>
+<s_t3>
+    <div id="top">
+        <div class="wrap tw">
+            <div class='sns_trb'>
+                <ul class='sns_trb_list'>
+                    <li>
+                        <a href="https://www.facebook.com/naukorea" target='_blank'>FACEBOOK</a>
+                    </li>
+                    <li>
+                        <a href="https://www.instagram.com/nauclothing_kr/ " target='_blank'>INSTAGRAM</a>
+                    </li>
+                    <li>
+                        <a href="http://www.nau.co.kr/pc/main/index.do" target='_blank'>SHOP</a>
+                    </li>
+
+                </ul>
+            </div>
+            <div  class="trb">
+                <ul>
+                    <!--
+                    <li>
+                        <a href="/guestbook">GUEST</a>
+                    </li>
+                    <li>
+                        <a href="/gateway/entry/post">WRITE</a>
+                    </li>
+                    <li>
+                        <a href="/admin">ADMIN</a>
+                    </li>
+-->
+                    <li class="last">
+                        <s_search>
+                            <div class='search_box'>
+                                <form class="search_form cf">
+                                    <input class='search_input' required type="text" name="[##_search_name_##]" value="[##_search_text_##]" onkeypress="if (event.keyCode == 13) { [##_search_onclick_submit_##] }" />
+
+                                    <button onclick="[##_search_onclick_submit_##]"><span class="glyphicon glyphicon-search"></span></button>
+                                </form>
+                            </div>
+                        </s_search>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="tab_line"></div>
+    <div class="wrap" id="nav_wrap">
+        <div class='header'>
+            <h1 id="logo"><a href="http://naukorea.tistory.com/" title="#"><img src="http://cfs.tistory.com/custom/blog/228/2285463/skin/images/nau_logo.png" width="150px" id="naulogo" alt="나우로고" data-pin-nopin="true"></a></h1>
+
+            <ul class="header-nav">
+
+                <!-- genus 이미지 문제 -->
+
+                <li><a href="/category/all"><img src="http://cfs.tistory.com/custom/blog/228/2285463/skin/images/ALL.gif" id="category_list01" alt="전체메뉴" data-pin-nopin="true"></a></li>
+                <span style="cursor:default;">|</span>
+                <li><a href="/category/news"><img src="http://cfs.tistory.com/custom/blog/228/2285463/skin/images/NEWS.gif" id="category_list02" alt="새소식" data-pin-nopin="true"></a></li>
+                <span style="cursor:default;">|</span>
+                <li><a class="link_item" href="/category/brand"><img src="http://cfs.tistory.com/custom/blog/228/2285463/skin/images/BRAND.gif" id="category_list03" alt="브랜드" data-pin-nopin="true"></a></li>
+                <span style="cursor:default;">|</span>
+                <li><a class="link_item" href="/category/TREND"><img src="http://cfs.tistory.com/custom/blog/228/2285463/skin/images/TREND.gif" id="category_list03" alt="트랜드" data-pin-nopin="true"></a></li>
+                <span style="cursor:default;">|</span>
+                <li><a class="link_item" href="/category/FASHION"><img src="http://cfs.tistory.com/custom/blog/228/2285463/skin/images/FASHION.gif" id="category_list03" alt="패션" data-pin-nopin="true"></a></li>
+                <!--
+                                    <li><a href="/category/all">ALL</a></li>
+                                    |
+                                    <li><a href="/category/news">NEWS</a></li>
+                                    |
+                                    <li><a class="link_item" href="/category/brand">BRAND</a></li>
+                                    |
+                                    <li><a class="link_item" href="/category/TREND">TREND</a></li>
+                                    |
+                                    <li><a class="link_item" href="/category/FASHION">FASHION</a></li>
+                                -->
+            </ul>
+        </div>
+    </div>
+    <!--genus 이미지 repeat 수정-->
+    <!--
+            <div id="jb-slogan" style="
+    height: 460px; margin:0 auto;
+        background-repeat:no-repeat;
+    background-image: url(&quot;http://cfs.tistory.com/custom/blog/228/2285463/skin/images/t_main.jpg&quot;);
+        max-height: 362px; height: 100%;
+    padding-bottom: 50px;
+    background-position-y: -150px;
+    background-size: cover;
+    background-color: white;
+">-->
+
+    <!-- genus banner 임시 변경-->
+    <!--
+<div class="jb-bg jb-bg-slogan" style="
+height: 500px; backround-image:url(" http:="http://cfs.tistory.com/custom/blog/228/2285463/skin/images/20160804_NAU_Loc01_0339.jpg" cfs.tistory.com="" custom=""  blog="" skin="" images="">
+-->
+
+
+    <!--genus수정-->
+    <!--
+  <div class="container jb-container-slogan" style="
+    height: 100px;
+">
+    <div class="row jb-row-slogan">
+      <div class="col-sm-12 jb-col-slogan">
+        <div class="jb-cell-t-slogan">
+          <div class="jb-cell-tr-slogan">
+            <div class="jb-cell-tc-slogan">
+              <div class="jb-cell-slogan">
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+-->
+    </div>
+    </div>
+    <div id="container">
+        <!--genus 수정-->
+        <!--
+        <div class="res_div"><select class="res_tab" onchange="if (this.value) window.location.href=this.value"><option>카테고리</option></select></div>
+-->
+        <div class="wrap cw" id='main-content-wrap'>
+
+            <div id="content">
+                <s_list>
+                    <div id="s_list">
+                        <div class="hbar">
+                            <span class="hx">[##_list_conform_##] <em>+[##_list_count_##]</em></span>
+                        </div>
+                        <div class="s_cont" class="list_img">
+                            <!--				<div class="flexible_img_col" id="masonry">-->
+                            <div class="category-list-wrap" id="masonry">
+                                <ul class='category_ul'>
+                                    <s_list_rep>
+                                        <li class="category_list">
+                                            <a href="[##_list_rep_link_##]"><span class="thumb"><img alt="" class="dno">
+                                                <!--<span id="str">Loading..</span>-->
+								</span><strong>[##_list_rep_title_##]<span class="cmt">[##_list_rep_rp_cnt_##]</span></strong><p>[##_list_rep_regdate_##]</p></a>
+                                            <div class="ynew" onclick="cw_open('[##_list_rep_link_##]#yview')"><span class="glyphicon glyphicon-new-window"></span>뷰어로 보기</div>
+                                        </li>
+                                        <!--
+                                        <li class="box">
+                                            <a href="[##_list_rep_link_##]"><span class="thumb"><img alt="" class="dno"><span id="str">Loading..</span></span><strong>[##_list_rep_title_##]<span class="cmt">[##_list_rep_rp_cnt_##]</span></strong><p>[##_list_rep_regdate_##]</p></a>
+                                            <div class="ynew" onclick="cw_open('[##_list_rep_link_##]#yview')"><span class="glyphicon glyphicon-new-window"></span>뷰어로 보기</div>
+                                        </li>
+                -->
+                                    </s_list_rep>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </s_list>
+                <s_rplist>
+                    <div id="s_list">
+                        <div class="hbar">
+                            <span class="hx">[##_rplist_conform_##] <em>+[##_rplist_count_##]</em></span>
+                        </div>
+                        <div class="s_cont">
+                            <div class="section_ul">
+                                <ul>
+                                    <s_rplist_rep>
+                                        <li><span class="bu">›</span><a href="[##_rplist_rep_link_##]"><span class="name">[##_rplist_rep_name_##]</span> : [##_rplist_rep_body_##]<span class="cmt">[##_rplist_rep_rp_cnt_##]</span></a>
+                                        </li>
+                                    </s_rplist_rep>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </s_rplist>
+
+                <s_local>
+                    <div id="localog">
+                        <div class="tx">
+                            <s_local_spot_rep>
+                                <div class="spot" style="margin-left: [##_local_spot_depth_##]px">※ [##_local_spot_##]</div>
+                            </s_local_spot_rep>
+                            <s_local_info_rep>
+                                <div class="info" style="margin-left: [##_local_info_depth_##]px">
+                                    <span class="bu">›</span> <a href="[##_local_info_link_##]">[##_local_info_title_##]</a>
+                                </div>
+                            </s_local_info_rep>
+                        </div>
+                    </div>
+                </s_local>
+
+                <s_tag>
+                    <div id="taglog">
+                        <div class="tx">
+                            <s_tag_rep>
+                                <a href="[##_tag_link_##]" class="[##_tag_class_##]">[##_tag_name_##]</a>
+                            </s_tag_rep>
+                        </div>
+                    </div>
+                </s_tag>
+
+                <s_guest>
+                    <h1 class="hx cmt"><a>방명록을 남겨주세요!</a></h1>
+                    <s_rp>
+                        <div class="cb_module cb_fluid">
+                            <div class="cb_wrt cb_profile">
+                                <s_guest_input_form>
+                                    <div class="commentWrite">
+                                        <s_guest_member>
+                                            <s_guest_form>
+                                                <div id="guest">
+                                                    <s_rp_guest>
+                                                        <p class="first">
+                                                            <input type="text" name="[##_guest_input_name_##]" value="[##_guest_name_##]" />
+                                                            <label > : 이름 </label>
+                                                        </p>
+                                                        <p>
+                                                            <input type="password" maxlength="8" name="[##_guest_input_password_##]" value="" />
+                                                            <label > : 패스워드 </label>
+                                                        </p>
+                                                        <p>
+                                                            <input type="text" class="homepage" name="[##_guest_input_homepage_##]" value="[##_guest_homepage_##]"/>
+                                                            <label > : 홈페이지 </label>
+                                                        </p>
+                                                    </s_rp_guest>
+                                                </div>
+                                            </s_guest_form>
+                                        </s_guest_member>
+                                        <p>
+                                            <label class="lb">
+                                                <textarea name="[##_guest_textarea_body_##]"></textarea>
+                                            </label>
+                                        </p>
+                                        <div class="sdiv">
+                                            <a class="button" onclick="[##_guest_onclick_submit_##]" accesskey="s" >확인</a>
+                                        </div>
+                                    </div>
+                                </s_guest_input_form>
+
+                                <s_guest_container>
+                                    <div class="cb_lstcomment">
+                                        <ul>
+                                            <s_guest_rep>
+                                                <li class="cb_thumb_off" id="[##_guest_rep_id_##]">
+                                                    <div class="cb_comment_area">
+                                                        <div class="cb_info_area">
+                                                            <div class="cb_section">
+                                                                <span class="cb_nick_name">[##_guest_rep_name_##]</span>
+                                                                <span class="cb_date">[##_guest_rep_date_##]</span>
+                                                            </div>
+                                                            <div class="cb_section2">
+                                                                <span class="cb_nobar"><a href="javascript:void(0)" onclick="[##_guest_rep_onclick_delete_##]">수정/삭제</a></span>
+                                                                <span><a href="javascript:void(0)" onclick="[##_guest_rep_onclick_reply_##]">답글</a></span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="cb_dsc_comment">
+                                                            <p class="cb_dsc">
+                                                                [##_guest_rep_desc_##]
+                                                            </p>
+                                                        </div>
+                                                        <s_guest_reply_container>
+                                                            <ul>
+                                                                <s_guest_reply_rep>
+                                                                    <li class="cb_thumb_off" id="[##_rp_rep_id_##]">
+                                                                        <span class="cb_bu_subnode">ㄴ</span>
+                                                                        <div class="cb_comment_area">
+                                                                            <div class="cb_info_area">
+                                                                                <div class="cb_section">
+                                                                                    <span class="cb_nick_name">[##_guest_rep_name_##]</span>
+                                                                                    <span class="cb_date">[##_guest_rep_date_##]</span>
+                                                                                </div>
+                                                                                <div class="cb_section2">
+                                                                                    <span class="cb_nobar"><a href="javascript:void(0)" onclick="[##_guest_rep_onclick_delete_##]">수정/삭제</a></span>
+                                                                                    <span><a href="javascript:void(0)" onclick="[##_guest_rep_onclick_reply_##]">답글</a></span>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="cb_dsc_comment">
+                                                                                <p class="cb_dsc">
+                                                                                    [##_guest_rep_desc_##]
+                                                                                </p>
+                                                                            </div>
+                                                                        </div>
+                                                                    </li>
+                                                                </s_guest_reply_rep>
+                                                            </ul>
+                                                        </s_guest_reply_container>
+                                                </li>
+                                            </s_guest_rep>
+                                        </ul>
+                                    </div>
+                                </s_guest_container>
+                                <!-- guestbook close -->
+                            </div>
+                        </div>
+                </s_guest>
+                <!--공지사항-->
+
+                <s_notice_rep>
+                    <div class="tdiv">
+                        <h2><a href="[##_notice_rep_link_##]">[##_notice_rep_title_##]</a></h2>
+
+                        <div class="ect"><span class="category">공지사항</span><span  class="date">[##_notice_rep_date_##]</span></div>
+                    </div>
+
+
+                    <div class="article">
+                        [##_notice_rep_desc_##]
+                    </div>
+
+                </s_notice_rep>
+
+                <s_article_protected>
+                    <div class="tdiv">
+                        <h2><a href="[##_article_rep_link_##]">[##_article_rep_title_##]</a></h2>
+                    </div>
+                    <p class="protect_p">보호되어 있는 글입니다. <br />
+                        내용을 보시려면 비밀번호를 입력하세요.</p>
+                    <p><label for="[##_article_password_##]">비밀번호</label>
+                        <input class="protect_i" id="[##_article_password_##]" name="[##_article_password_##]" type="password" maxlength="16" onkeydown="if (event.keyCode == 13) [##_article_dissolve_##]" />
+                        <a class="button" onclick="[##_article_dissolve_##]">확인</a>
+                    </p>
+                </s_article_protected>
+
+                <s_article_rep>
+                    <div class="entry">
+                        <div class="tdiv">
+                            <h2><a href="[##_article_rep_link_##]">[##_article_rep_title_##]</a></h2>
+                            <div class="ect"><a id="category" href="[##_article_rep_category_link_##]"><span class='glyphicon glyphicon-bookmark'></span>[##_article_rep_category_##]</a><span><span class='glyphicon glyphicon-time'></span>[##_article_rep_date_##]</span><s_ad_div>
+                                <a href="[##_s_ad_m_link_##]">수정</a>
+                                <a href="#" onclick="[##_s_ad_m_onclick_##]">수정(새창)</a>
+                                <span style="margin-right:5px">([##_s_ad_s1_label_##]) →</span><a href="#" onclick="[##_s_ad_s2_onclick_##]">[##_s_ad_s2_label_##]</a>
+                                <a href="#" onclick="[##_s_ad_t_onclick_##]">트랙백</a>
+                                <a href="#" onclick="[##_s_ad_d_onclick_##]">삭제</a>
+
+                            </s_ad_div>
+                            </div>
+                        </div>
+
+                        <ul id="pnn" class="dno">
+                            <li class="first"><a onclick="cw_open('[##_article_rep_link_##]#yview')"><span class="glyphicon glyphicon-new-window"></span> 뷰어</a></li>
+                            <li class="commtent"><a href="#ycmt"><span class="glyphicon glyphicon-comment"></span> 댓글로</a></li>
+                            <li class="prev"><a id="a_prev" ><span class="glyphicon glyphicon-chevron-left"></span> 이전글</a></li>
+                            <li class="next" ><a id="a_next" >다음글 <span class="glyphicon glyphicon-chevron-right"></span></a></li>
+                        </ul>
+
+                        <div class="article">
+                            <!-- article st -->
+                            [##_article_rep_desc_##]
+                            <!-- article ed -->
+                            <s_tag_label>
+                                <div class="tagTrail">
+                                    <span class="glyphicon glyphicon glyphicon-tags" style="margin-right:5px"></span> [##_tag_label_rep_##]
+                                </div>
+                            </s_tag_label>
+                        </div>
+
+                        <div id="articleBtmWrap">
+                            <div class="actionTrail">
+                                <a href="#tb" onclick="[##_article_rep_tb_link_##]"><s_tb_count>Trackback <span class="cnt">+[##_article_rep_tb_cnt_##]</span></s_tb_count></a>
+                            </div>
+
+                            <s_tb>
+                                <div class="trackback">
+                                    <h3>[##_tb_address_##]</h3>
+                                    <s_tb_container>
+                                        <ol>
+                                            <s_tb_rep>
+                                                <li id="[##_tb_rep_id_##]">
+                                                    <p><a href="[##_tb_rep_url_##]" onclick="window.open(this.href); return false" rel="external nofollow">[##_tb_rep_title_##]</a><span class="name">([##_tb_rep_site_##])</span><a href="javascript:void(0)" onclick="[##_tb_rep_onclick_delete_##]; return false" class="delete">Delete</a></p>
+                                                </li>
+                                            </s_tb_rep>
+                                        </ol>
+                                    </s_tb_container>
+                                </div><!-- trackback close -->
+                            </s_tb>
+                        </div>
+
+                        <h1 class="hx cmt"><a href="javascript:void(0)" onclick="[##_article_rep_rp_link_##]"><s_rp_count>Comment <span class="cnt">+[##_article_rep_rp_cnt_##]</span></s_rp_count></a></h1>
+                        <s_rp>
+                            <div class="cb_module cb_fluid" id="ycmt">
+                                <div class="cb_wrt cb_profile">
+                                    <s_rp_input_form>
+                                        <div class="commentWrite">
+                                            <s_rp_member>
+                                                <div id="guest" class="dno">
+                                                    <s_rp_guest>
+                                                        <p>
+                                                            <input type="text" name="[##_rp_input_name_##]" value="[##_guest_name_##]" />
+                                                            <label > : 이름 </label>
+                                                        </p>
+                                                        <p>
+                                                            <input type="password" maxlength="8" name="[##_rp_input_password_##]" value="" />
+                                                            <label > : 패스워드 </label>
+                                                        </p>
+                                                        <p>
+                                                            <input type="text" class="homepage" name="[##_rp_input_homepage_##]" value="[##_guest_homepage_##]"/>
+                                                            <label > : 홈페이지 </label>
+                                                        </p>
+                                                    </s_rp_guest>
+                                                    <p class="secretWrap">
+                                                        <input type="checkbox" id="scr" name="[##_rp_input_is_secret_##]" class="checkbox" />
+                                                        <label for="scr"> 비밀글 </label>
+                                                    </p>
+                                                </div>
+                                            </s_rp_member>
+                                            <p>
+                                                <label class="lb">
+                                                    <textarea name="[##_rp_input_comment_##]" onFocus="$('#guest').removeClass('dno')"></textarea>
+                                                </label>
+                                            </p>
+                                            <div class="sdiv">
+                                                <a class="button" onclick="[##_rp_onclick_submit_##]">확인</a>
+                                            </div>
+                                        </div><!-- commentWrite close -->
+                                    </s_rp_input_form>
+                                    <s_rp_container>
+                                        <div class="cb_lstcomment">
+                                            <ul>
+                                                <s_rp_rep>
+                                                    <li class="cb_thumb_off" id="[##_rp_rep_id_##]">
+                                                        <div class="cb_comment_area">
+                                                            <div class="cb_info_area">
+                                                                <div class="cb_section">
+                                                                    <span class="cb_nick_name">[##_rp_rep_name_##]</span>
+                                                                    <span class="cb_date">[##_rp_rep_date_##]</span>
+                                                                </div>
+                                                                <div class="cb_section2">
+                                                                    <span class="cb_nobar"><a href="[##_rp_rep_link_##]">링크</a></span>
+                                                                    <span><a href="javascript:void(0)" onclick="[##_rp_rep_onclick_delete_##]">수정/삭제</a></span>
+                                                                    <span><a href="javascript:void(0)" onclick="[##_rp_rep_onclick_reply_##]">답글</a></span>
+                                                                </div>
+                                                            </div>
+                                                            <div class="cb_dsc_comment">
+                                                                <p class="cb_dsc">
+                                                                    [##_rp_rep_desc_##]
+                                                                </p>
+                                                            </div>
+                                                            <s_rp2_container>
+                                                                <ul>
+                                                                    <s_rp2_rep>
+                                                                        <li class="cb_thumb_off" id="[##_rp_rep_id_##]">
+                                                                            <span class="cb_bu_subnode">ㄴ</span>
+                                                                            <div class="cb_comment_area">
+                                                                                <div class="cb_info_area">
+                                                                                    <div class="cb_section">
+                                                                                        <span class="cb_nick_name">[##_rp_rep_name_##]</span>
+                                                                                        <span class="cb_date">[##_rp_rep_date_##]</span>
+                                                                                    </div>
+                                                                                    <div class="cb_section2">
+                                                                                        <span class="cb_nobar"><a href="[##_rp_rep_link_##]">링크</a></span>
+                                                                                        <span><a href="javascript:void(0)" onclick="[##_rp_rep_onclick_delete_##]">수정/삭제</a></span>
+                                                                                        <span><a href="javascript:void(0)" onclick="[##_rp_rep_onclick_reply_##]">답글</a></span>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="cb_dsc_comment">
+                                                                                    <p class="cb_dsc">
+                                                                                        [##_rp_rep_desc_##]
+                                                                                    </p>
+                                                                                </div>
+                                                                            </div>
+                                                                        </li>
+                                                                    </s_rp2_rep>
+                                                                </ul>
+                                                            </s_rp2_container>
+                                                    </li>
+                                                </s_rp_rep>
+                                            </ul>
+                                        </div>
+                                    </s_rp_container>
+                                </div><!-- commentList close -->
+                            </div>
+                    </div><!-- comment close -->
+                    </s_rp>
+                    <!-- entry close -->
+
+                </s_article_rep>
+
+                <s_paging>
+                    <div id="paging" class="yzpaging">
+                        <a [##_prev_page_##] class="[##_no_more_prev_##]" id="prevPage"><span>‹</span> Prev</a>
+                        <s_paging_rep>
+                            <a [##_paging_rep_link_##] class="num"> [##_paging_rep_link_num_##]</a>
+                        </s_paging_rep>
+                        <a [##_next_page_##] class="[##_no_more_next_##]" id="nextPage">Next <span>›</span></a>
+                    </div>
+                </s_paging>
+            </div>
+
+        </div>
+</s_t3>
+</div>
+</div>
+
+<div class="wrap">
+    <div id="sidebar">
+        <s_sidebar>
+            <s_sidebar_element>
+                <!-- 최근에 올라온 글 -->
+                <!--
+                <div class="section">
+                <h2 class="hx">최근에 올라온 글</h2>
+                    <ul>
+                    <s_rctps_rep>
+                    <li><a href="[##_rctps_rep_link_##]"> [##_rctps_rep_title_##]</a></li>
+                    </s_rctps_rep>
+                    </ul>
+                </div>
+            </s_sidebar_element>
+            <s_sidebar_element>
+-->
+                <!-- 최근에 달린 댓글 -->
+                <!--
+                <div class="section">
+                <h2 class="hx">최근에 달린 댓글</h2>
+                    <ul>
+                    <s_rctrp_rep>
+                    <li><a href="[##_rctrp_rep_link_##]"> [##_rctrp_rep_desc_##]</a>
+                    </s_rctrp_rep>
+                    </ul>
+                </div>
+-->
+            </s_sidebar_element>
+            <s_sidebar_element>
+                <!-- 공지사항 -->
+                <!--
+            <s_rct_notice>
+                <div class="section">
+                <h2 class="hx">공지사항</h2>
+                    <ul>
+                    <s_rct_notice_rep>
+                    <li><a href="[##_notice_rep_link_##]"> [##_notice_rep_title_##]</a>
+                    </s_rct_notice_rep>
+                    </ul>
+                </div>
+            </s_rct_notice>
+-->
+            </s_sidebar_element>
+            <s_sidebar_element>
+                <!-- 글 보관함 -->
+                <!--
+                <div class="section">
+                <h2 class="hx">글 보관함</h2>
+                    <ul>
+                    <s_archive_rep>
+                    <li><a href="[##_archive_rep_link_##]"> [##_archive_rep_date_##] <span class="cnt">([##_archive_rep_count_##])</span></a>
+                    </li>
+                    </s_archive_rep>
+                    </ul>
+                </div>
+-->
+            </s_sidebar_element>
+            <s_sidebar_element>
+                <!-- 최근에 받은 트랙백 -->
+                <!--
+                <div class="section">
+                <h2 class="hx">최근에 받은 트랙백</h2>
+                    <ul>
+                    <s_rcttb_rep>
+                    <li><a href="[##_rcttb_rep_link_##]"> [##_rcttb_rep_desc_##]</a>
+                    </s_rcttb_rep>
+                    </ul>
+                </div>
+-->
+            </s_sidebar_element>
+            <s_sidebar_element>
+                <!-- 달력 모듈 -->
+                <!--
+            <div class="section">
+                <div class="tx">
+                    [##_calendar_##]
+                </div>
+            </div>
+            </s_sidebar_element>
+            <s_sidebar_element>
+-->
+                <!-- 링크 -->
+                <!--
+                <div class="section">
+                <h2 class="hx">링크</h2>
+                    <ul>
+                    <s_link_rep>
+                    <li><a href="[##_link_url_##]" target="_blank"> [##_link_site_##]</a>
+                    </s_link_rep>
+                    </ul>
+                </div>
+-->
+            </s_sidebar_element>
+            <s_sidebar_element>
+                <!-- 방문자수 -->
+                <div class="section">
+                    <div class="tx">
+                        <p class="total">total : [##_count_total_##]</p>
+                        <p class="today">today : [##_count_today_##]</p>
+                        <p class="yesterday">yesterday : [##_count_yesterday_##]</p>
+                    </div>
+                </div>
+            </s_sidebar_element>
+        </s_sidebar>
+    </div>
+</div>
+<div id="footer">
+
+</div>
+<script type="text/javascript">
+    $(function(){
+        $("#gotop").hide();
+        // 처음에는 탑이미지를 감춥니다.
+        $(window).scroll(function(){
+            // 스크롤을 할때
+            if($(this).scrollTop() > 100){$("#gotop").fadeIn();}
+            //  스크롤이 100 픽셀만큼 내려오면 탑아이콘을 fade in 합니다. (서서히 나타납니다)
+            else{$("#gotop").fadeOut();}
+            // 스크롤이 100 픽셀 이하이면 탑아이콘을 fade out 합니다. (서서히 사라집니다)
+        });
+    });
+</script>
+<a href="#" id="gotop" style="display:none;position:fixed;bottom:60px;right:60px;z-index:999" title="Top">
+    <div>
+
+
+
+        <div style="border-radius:100px; background-color:#e9e9e9; width:50px; height:50px;">
+            <p style="text-decoration:none; width: 100%; display: block; padding: 0; text-align: center; margin: 0; font-weight:bold; padding-top:5px;">TOP</p>
+            <span class="glyphicon glyphicon-chevron-up" style="    font-size: 20px; text-align: center; padding-left: 15px; color:white;"> </span>
+        </div>
+
+        <!--
+        <p style="text-decoration:none; width: 100%; display: block; padding: 0; text-align: center; margin: 0;">TOP</p>
+        <img src="./images/arrow-157496_1280.png" style="width:40px; height:auto;"/></div>
+-->
+    </div>
+</a>
+
+</div>
+
+</body>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.1/jquery-ui.min.js"></script>
+<script type="text/javascript" src="./images/jquery.slimscroll.min.js"></script>
+
+<script type="text/javascript">
+    var ie7 = 0;
+</script>
+<!--[if lte IE 7]>
+<script type="text/javascript">
+    ie7 = 1;
+</script>
+<![endif]-->
+<script>
+    $(document).ready(function () {
+        var $all = $(".tab_line ul li a").eq(0);
+        if($all.length > 0){
+            $all.parent().find("ul").eq(0).prepend('<li class="on"><a href="/category">'+$all.html()+'</a></li>');
+            $all.remove();
+
+            var url = (window.location.href).replace("http://","");
+
+            var uarr = url.split("/");
+            var s = false;
+            if(uarr.length > 1){
+                if(uarr[1] != "category"){
+                    s = true;
+                    var tmp = "com"+$("div.ect a#category").attr("href");
+                    uarr = tmp.split("/");
+                }
+            }
+
+            if(uarr.length > 2 && !s){
+                if(uarr[2].length > 0) s = true;
+            }
+            if(s){
+                //uarr[2] = uarr[2].replace(" ","%20");
+                //var cate = $('.tab_line ul li a[href*="'+uarr[2]+'"]');
+                var cate = $('.tab_line ul li a[href="/category/'+uarr[2]+'"]');
+                if(cate.length > 0){
+                    $(".tab_line ul li.on").removeClass("on");
+                    cate.addClass("on");
+                }
+                uarr[2] = decodeURIComponent(uarr[2]);
+                cate = $('.tab_line ul li a[href*="'+uarr[2]+'"]');
+                if(cate.length > 0){
+                    $(".tab_line ul li.on").removeClass("on");
+                    cate.parent().addClass("on");
+                }
+            }
+
+            $(".tab_line ul li a").mouseenter(function(){
+                $(this).parent().find("ul").show();
+                if(ie7 == 1){
+                    $(this).parent().find("ul").css("margin-left",-$(this).parent().width());
+                }
+            }).mouseleave(function(){
+                $(this).parent().find("ul").hide();
+            });
+
+            $(".tab_line ul li ul li ul").mouseenter(function(){
+                $(this).show();
+            }).mouseleave(function(){
+                $(this).hide();
+            });
+
+            var res_tab = $(".res_tab");
+            $(".tab_line a").each(function(i){
+                var name = $(this).text();
+                var href = $(this).attr("href");
+
+                res_tab.append($("<option></option>").attr("value",href).text(name));
+            });
+        }
+    });
+    function fsch(){
+        $("#searchBox").toggleClass("dno");
+    }
+
+    $(document).ready(function () {
+        var t_href = location.href;
+        var t_arr = t_href.split("/");
+        var t_last = t_arr[(t_arr.length-1)].split("#");
+        if(t_last.length > 1){
+            if(t_last[1] == 'yview'){
+                $("#container").addClass("yview");
+                $("#top").addClass("dno");
+                $("#footer").hide();
+                $(".tistorytoolbar").hide();
+                $(".tab_line").hide();
+                $("#sidebar").hide();
+                $("#paging a").each(function(i){
+                    $(this).attr('href',$(this).attr('href')+"#yview");
+                });
+            }
+        }
+
+        var pn = 0;
+        var anh = $("a#prevPage").attr("href");
+        var anp = $("a#a_prev");
+        if(anh != "undefined" && anh != undefined){
+            anp.attr("href",anh);
+            pn++;
+        }else{
+            anp.attr("title","이전글이 없습니다");
+            anp.html("이전글").addClass("nohr");
+        }
+
+        anh = $("a#nextPage").attr("href");
+        anp = $("a#a_next");
+        if(anh != "undefined" && anh != undefined){
+            anp.attr("href",anh);
+            pn++;
+        }else{
+            anp.attr("title","다음글이 없습니다");
+            anp.html("다음글").addClass("nohr");
+        }
+
+        if(pn > 0){
+            $("#pnn").removeClass("dno");
+        }
+    });
+
+    function cw_open(url){
+        width = 1024;
+        height = $(window).height();
+        var sst = window.open(url,'popwin','top='+((screen.availHeight - height)/2 - 40) +', left='+(screen.availWidth - width)/2+', width='+width+', height='+height+', toolbar=0, directories=0, status=0, menubar=0, scrollbars=1, resizable=1');
+        if(sst){
+            sst.focus();
+        }
+    }
+
+</script>
+<script src="./images/jquery.masonry.min.js"></script>
+<script src="./images/ygaln.js?time=15"></script>
+<!--[if lt IE 9]>
+<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/respond.js/1.3.0/respond.js"></script>
+<![endif]-->
+
+
+
+</html>

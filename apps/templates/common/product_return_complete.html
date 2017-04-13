@@ -1,0 +1,24 @@
+{% extends "layout.html" %}
+{% block contents_wrap %}
+    <div class="boxed">
+        <div class="box_title">
+            {{ _('Return Completed') }}
+        </div>
+
+    </div>
+    <div class="container">
+        <div class="some_space_at_the_top"></div>
+         <div class="well"><h3>{{ whichone }} requested.</h3><br/>
+
+             <h4>{{ _('Please check your email regularly') }}</h4>
+             <br/>
+             {{ _('Your return number is :') }} {{ returnid }} <br/>
+             {{ _('Confirmation email will be sent to :') }} {{ email }}
+         </div>
+
+        <div>
+            <a class="btn btn-primary" href="{{ url_for('web_common.my_returns') }}">{{ _('Check your return orders') }}</a>
+            <a class="btn btn-danger" href="{{ url_for('web_common.index') }}" >{{ _('Home') }}</a>
+        </div>
+    </div>
+{% endblock %}

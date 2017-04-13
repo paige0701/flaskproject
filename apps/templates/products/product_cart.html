@@ -1,0 +1,139 @@
+{% extends "layout.html"%}
+{% block extrascripts %}
+    <script type="text/javascript">
+
+{#        $(document).ready(function() {#}
+{##}
+{#            // 페이지가 처음 로딩 되었을때 벌써 다 체크가 되어있는다#}
+{#            $("input:checkbox").each(function() {#}
+{#                this.checked = true;#}
+{#            });#}
+{##}
+{#        });#}
+
+
+        // 가장 위에 있는 체크 박스는 선택/해제
+        $("#checkAll").change(function () {
+            $("input:checkbox").prop('checked', $(this).prop("checked"));
+        });
+
+
+        // 수량 업데이트가 되면 일어나는 일
+        function cart_update(){
+
+            document.getElementById("basket_formset").action =  "{{ url_for('product.product_cart_update') }}";
+            document.getElementById("basket_formset").submit();
+        }
+
+
+        // 딜리트 하기
+        function cart_delete(){
+            document.getElementById("basket_formset").action =  "{{ url_for('product.product_delete') }}";
+            document.getElementById("basket_formset").submit();
+
+        }
+
+
+
+    </script>
+{% endblock %}
+{% block contents_wrap %}
+    <div class="boxed">
+        <div class="box_title">{{ _('Shopping Cart') }}
+
+            <div class="box_method">
+                <span class="glyphicon glyphicon-shopping-cart"  style="color: #ff8860"></span> <span  style="color: #ff8860">{{ _('Shopping Cart') }}</span> <span class="glyphicon glyphicon-chevron-right"  style="color: #ff8860"></span>
+                <span class="glyphicon glyphicon-usd"></span><span>{{ _('Shipping & Payment') }}</span>  <span class="glyphicon glyphicon-chevron-right"></span>
+                <span class="glyphicon glyphicon-ok"></span> {{ _('Order Completed') }}
+            </div>
+        </div>
+
+    </div>
+    <div class="container">
+        <div class="cart_wrap">
+
+            {% block messages %}
+
+                {% for message in get_flashed_messages() %}
+                    <div class="well">
+                        <div class=flash>{{ message }}</div>
+                    </div>
+                {% endfor %}
+
+            {% endblock %}
+            <div class="cart_tb">
+                <form method="post" class="basket_summary" id="basket_formset">
+                    <div class="table-responsive">
+                        <table class="table">
+                            <colgroup>
+                                <col style="width:75px;" />
+                                <col style="width:135px;" />
+                                <col />
+                                <col style="width:18.5%;" />
+                                <col style="width:21%;" />
+                            </colgroup>
+                            <thead>
+                            <tr>
+                                <th><div class="small_check_wrap"><input type="checkbox" id ="checkAll" /></div></th>
+                                <th scope="col" colspan="2">{{ _('Shopping Cart Products') }}</th>
+
+                                <th scope="col">{{ _('Quantity') }}</th>
+                                <th scope="col">{{ _('Price') }}</th>
+                                <th scope="col">{{ _('Total') }}</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {% for x in k.line_item %}
+                                <tr>
+                                    <td>
+                                        <div class="small_check_wrap"><input type="checkbox" value="{{ x.product_id }}" name="chkboxpnum" id="chkboxpnum" /></div>
+                                    </td>
+                                    <td class="img_area">
+                                        <a href="{{ url_for('product.product_detail', num=x.product_id) }}">
+                                            <img class="thumbnail" src={{ url_for_s3('media',filename=x.product.get_thumbnail_image)}} alt=""/>
+                                        </a>
+                                    </td>
+                                    <td>
+                                        <a href="{{ url_for('product.product_detail', num=x.product_id) }}">
+                                            <span class="cart-product-name">{{ x.product.get_title }}</span>
+                                        </a>
+                                    </td>
+                                    <td>
+                                        <input name="{{ x.product.get_upc }}" class="cartQuantityForm form-control" type="number" min="1" value="{{ x.quantity}}"  />
+                                        <button class="btn btn-grey btn-sm cartQuantityFormUpdate" onclick="cart_update()">update</button>
+                                    </td>
+                                    <td>
+                                        {{ x.product.product_price_separated }}
+                                    </td>
+                                    <td class="price">
+                                        {{ x.total_price_separated() }}
+                                    </td>
+
+                                </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </form>
+                <a class="btn btn-grey pull-left cartDeleteButton" href="javascript:cart_delete()">{{ _('Delete') }}</a>
+                <table class="table">
+                    <tr>
+                        <td style="text-align: right">Subtotal {{ k.get_total_amount_separated }}</td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: right">Shipping {{ k.shipping_fee_separated }}</td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: right">Total {{ k.total_amount_with_shipping_separated }}</td>
+                    </tr>
+
+                </table>
+            </div>
+            <div class="cart_buttons">
+                <a style="margin-right:1%;" class="btn btn-lg pull-left cart_backtoshopping_button btn-blue" href="{{ url_for('product.product_list') }}">{{ _('Back to Shopping') }}</a>
+                <a class="btn btn-primary btn-lg pull-right cart_checkout_button" href="{{ url_for('web_common.product_cart_checkout') }}">{{ _('Checkout') }}</a>
+            </div>
+        </div>
+
+    </div>
+{% endblock %}

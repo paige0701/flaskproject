@@ -1,0 +1,86 @@
+{% extends "layout.html" %}
+{% block extrascripts %}
+    <script type="text/javascript">
+
+        {#        var frm = document.getElementById('detailForm');#}
+        {#        idno = frm.id_number;#}
+        {#        console.log(idno)#}
+        {##}
+        {#        console.log(label ['id_number'])#}
+        {#        ;#}
+
+        $('label[for="id_number"]').popover( {content: "Please insert the id number", trigger: "hover", placement:'left'});
+        $('label[for="imei"]').popover({content: "<strong>iPhone</strong><br/> Setting → General → About → IMEI<br/><strong>Others</strong><Br/>Setting → About device → Status → IMEI", trigger: "hover", placement:'left', html:true});
+        $('label[for="usim_number"]').popover({content: "USIM number", trigger: "hover", placement:'left'});
+
+
+        $('label[for="call_plan-0"]').popover({html:true, content: "Data : 6GB<br/>Calls : 350 min <br/>Text : 350", trigger: "hover", placement:'top'});
+        $('label[for="call_plan-1"]').popover({html:true, content: "Data : 11GB<br/>Calls : Unlimited<br/>Text : Unlimited", trigger: "hover", placement:'top'});
+        $('label[for="call_plan-2"]').popover({html:true, content: "Data : ￦20.48/MB<br/>Calls : ￦1.98/sec<br/>Text : ￦22/each", trigger: "hover", placement:'top'});
+
+
+
+        {#        $('label[for="id_number"]').hover(function(){#}
+        {#            $('label[for="id_number"]').popover({title: "Header", content: "Blabla", trigger: "hover", placement:'left'});#}
+        {##}
+        {#        });#}
+
+
+    </script>
+    <style>
+    .popover{
+        width:150px;
+        font-size: 0.8em;
+        padding:1px;
+    }
+    </style>
+{% endblock %}
+{% block contents_wrap %}
+    <div class="content-layout-1">
+        <div class="grey-page-2">
+            <div class="content-header">
+                <h3 class="primary-color same-font">{{ _('Activation') }}</h3>
+            </div>
+
+            <!-- Form 시작 -->
+
+            <form id='detailForm' method="post" class="form-horizontal" enctype="multipart/form-data">
+                {{ form.hidden_tag() }}
+
+                <div class="section" id="feather1">
+                    <div class="container">
+                        <div class="row">
+                            <h3 class="section-header">{{ _('Personal Details') }}</h3>
+
+                            {% from 'macro/form_macro.html' import render_field %}
+                            {% for info in form.subscriber_info %}
+                                {{ render_field(form[info], class='form-control') }}
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section" id="feather2">
+                    <div class="container">
+                        <div class="row">
+                            <h3 class="section-header">{{ _('Mobile Information') }}</h3>
+
+                            {% for info in form.service_info %}
+                                {{ render_field(form[info], class='form-control') }}
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="col-sm-10">
+                        <button class="btn btn-primary pull-right" type="submit">{{ _('Submit') }}</button>
+                    </div>
+                </div>
+
+            </form>
+            <!--Form 마지막-->
+        </div>
+
+    </div>
+
+{% endblock %}

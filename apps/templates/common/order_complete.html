@@ -1,0 +1,41 @@
+{% extends "layout.html" %}
+{% block contents_wrap %}
+    <div class="boxed">
+        <div class="box_title">Order Completed</br>
+
+
+            <div class="box_method">
+                <span class="glyphicon glyphicon-shopping-cart"></span>
+                <a class= "writing">{{ _('Shopping Cart') }}</a>
+                <a class="cart_hidden">{{ _('Cart') }}</a>
+
+                <span class="glyphicon glyphicon-chevron-right"></span>
+
+
+                <span class="glyphicon glyphicon-usd"></span>
+                <span class= "writing">{{ _('Shipping & Payment') }}</span>
+                <span class="checkout_detail">{{ _('Details') }}</span>
+
+                <span class="glyphicon glyphicon-chevron-right"></span>
+
+                <span class="glyphicon glyphicon-ok" style="color: #ff8860"></span><span class= "writing" style="color: #ff8860"> {{ _('Order Completed') }}</span>
+                <span class="cart_order" style="color: #ff8860">{{ _('Order') }}</span>
+            </div>
+        </div>
+
+    </div>
+    <div class="container">
+        <div class="some_space_at_the_top"></div>
+         <div class="well"><h3>{{ _('Your order is now complete.') }} </h3>
+             <br/>
+             {{ _('Your Simcard Order Number is') }} : {{ order_number }}  <br/>
+             {{ _('Thank you for paying with') }} {{ payment_method }} <br/>
+             {{ _('Confirmation email will be sent to') }} : {{ email }}
+         </div>
+
+        <div>
+            <a class="btn btn-primary" href="{{ url_for('web_common.my_orders') }}">{{ _('Check your orders') }}</a>
+            <a class="btn btn-danger" href="{{ url_for('product.product_list') }}" >{{ _('Back to shopping') }}</a>
+        </div>
+    </div>
+{% endblock %}
